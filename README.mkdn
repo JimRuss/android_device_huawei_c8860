@@ -1,4 +1,4 @@
-HOW-TO BUILD:
+HOW-TO BUILD: Based from playfulgod's README
 =============
 
 **This short guide assumes you're on Ubuntu 11.04 or above**
@@ -38,7 +38,7 @@ Getting my Huawei Mercury repo
 
 	$ cd lge
 
-	$ git clone https://github.com/playfulgod/android_device_huawei_c8860.git c8860
+	$ git clone https://github.com/JimRuss/android_device_huawei_c8860
 
 Extract necessary binaries and proprietary files 
 ------------------------------------------------
@@ -69,10 +69,13 @@ Now, we build (system being your work directory):
 
     $ cd ~/android/system
 
-To build for the Huawei Mercury:
+To build for the Huawei Mercury: You may want to "repo sync" every few weeks for any changes that have been added!
     
     $ . build/envsetup.sh && brunch c8860
 
+Or you can make a copy of warn.log without displaying warnings in terminal!
+
+    $ . build/envsetup.sh && brunch c8860 2> warn.log    
 
 Installing CM9
 ---------------
@@ -85,5 +88,5 @@ When you want to rebuild with new changes to the BoardConfig.mk or after syncing
 
 Credit & Thanks
 ----------------
-Based off fredvj's u8860 repo & playfulgod's repo
+Based off fredvj's u8860 repo & playfulgod's c8860 repo!
 
