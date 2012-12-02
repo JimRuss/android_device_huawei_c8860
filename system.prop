@@ -1,0 +1,106 @@
+#
+# system.prop for C8860
+#
+
+sys.usb.config=adb
+persist.service.adb.enable=1
+persist.service.adb.root=1
+
+# Default: /misc,/radio,/bootloader,/recovery,/efs
+ro.cwm.forbid_format=/boot,/cust
+
+# Enable console
+# ro.debuggable=1
+
+# Wireless LAN
+wifi.interface=eth0
+wifi.debug=true
+wifi.supplicant_scan_interval=15
+
+# Radio Interface Layer (RIL)
+rild.libpath=/system/lib/libril-qc-1.so
+rild.libargs=-d /dev/smd0
+ro.telephony.default_network=4
+ro.telephony.ril_class=HuaweiRIL
+ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
+ril.subscription.types=NV,RUIM
+ro.ril.shutdown=true
+ro.ril.hsxpa=2
+ro.ril.gprsclass=10
+ro.use_data_netmgrd=true
+ro.config.ehrpd=true
+keyguard.no_require_sim=true
+mobiledata.interfaces=rmnet0,gprs,ppp0
+net.dns1=194.25.2.129
+net.dns2=194.25.2.130
+persist.rild.nitz_plmn=
+persist.rild.nitz_long_ons_0=
+persist.rild.nitz_long_ons_1=
+persist.rild.nitz_long_ons_2=
+persist.rild.nitz_long_ons_3=
+persist.rild.nitz_short_ons_0=
+persist.rild.nitz_short_ons_1=
+persist.rild.nitz_short_ons_2=
+persist.rild.nitz_short_ons_3=
+
+
+# OpenGLES version
+ro.opengles.version=131072
+
+# DPI
+ro.sf.lcd_density=240
+
+# Graphics
+# See hwcomposer.cpp: CPU vs. GPU rendering
+debug.sf.hw=1
+# debug.composition.type=mdp|c2d|dyn; everthing else is GPU
+# Composition bypass
+# ro.sf.compbypass.enable=1
+# See hardware/qcom/display/libgralloc/framebuffer.cpp
+# Page flipping requires at least two framebuffers
+debug.gr.numframebuffers=2
+
+# Bluetooth
+ro.qualcomm.bluetooth.ftp=true
+ro.bluetooth.request.master=true
+ro.bluetooth.remote.autoconnect=true
+ro.qualcomm.bluetooth.dun=true
+net.bt.name=CM9-C8860
+ro.bt.bdaddr_path=/system/etc/bluetooth/bluetooth.addr
+
+# GPS / Location services
+ro.com.google.locationfeatures=1
+ro.com.google.networklocation=1
+ro.ril.def.agps.mode=2
+ro.ril.def.agps.feature=1
+
+# Storage (fredvj)
+ro.additionalmounts=/mnt/emmc
+ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+
+# Others
+# sys.checkfs.fat=false
+ro.tether.denied=false
+ro.rommanager.developerid=cyanogenmod(fredvj/playfulgod/JimRuss)
+ro.setupwizard.enable_bypass=1
+
+
+# Huawei
+ro.confg.hw_appsbootversion=C8860VCM9_APPSBOOT
+ro.confg.hw_appversion=C8860VCM9_KERNEL
+ro.confg.hw_appfsversion=C8860VCM9_SYSIMG
+
+# CRICKET
+ro.com.google.clientidbase=android-cricket-us
+ro.cdma.home.operator.alpha=Cricket
+ro.cdma.home.operator.numeric=31016
+ro.config.cdma_subscription=1
+ro.cdma.voicemail.number=mine
+
+# ETC
+hwui.render_dirty_regions=false
+hwui.disable_vsync=false
+hwui.print_config=choice
+
+# Camera hack (fredvj)
+ro.camera.hack=msm7630_surf
