@@ -79,7 +79,6 @@ BOARD_USES_MMCUTILS := true
 ENABLE_WEBGL := true
 TARGET_USES_SF_BYPASS := false
 WEBCORE_INPAGE_VIDEO := true
-TARGET_HAVE_ION := true
 TARGET_HAVE_TSLIB := true
 
 # RIL
@@ -92,7 +91,6 @@ BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true
 BOARD_HAS_QCOM_WLAN := true 
 BOARD_USE_QCOM_PMEM := true
-BOARD_USE_QCOM_SPEECH := true
 
 # SCORPION OPTIMIZATION
 #TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true	 
@@ -120,7 +118,6 @@ BOARD_HAVE_DOWNLOAD_MODE := true
 # CUSTOM RELEASETOOLS FOR OLD PARTITION TABLE
 TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
-#TARGET_RELEASETOOLS_IMG_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/img_from_target_files
 
 # WLAN 
 BOARD_WLAN_DEVICE := bcmdhd
@@ -169,7 +166,6 @@ BOARD_RECOVERY_RMT_STORAGE := true
 TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/c8860/recovery/graphics.c
 #BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/huawei/c8660/recovery/c8860_recovery_ui.c
-#TARGET_RELEASETOOLS_IMG_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/img_from_target_files
 
 # TWRP
 DEVICE_RESOLUTION := 480x854
