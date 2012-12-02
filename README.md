@@ -20,24 +20,32 @@ I have been using a home built pc for compiling and it takes about 24 min. for e
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
    cd ~/Downloads
+
 (Make the bin file executeable:change jdk version to the one you downloaded)
    chmod +x jdk-6u37-linux-x64.bin
+
 (Extract the bin file:)
    ./jdk-6u37-linux-x64.bin
+
 (Move extracted folder to this location:)
    sudo mv jdk1.6.0_37 /usr/lib/jvm/
+
 (Install new java source in system:)
    sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.6.0_37/bin/javac 1
    sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.6.0_37/bin/java 1
    sudo update-alternatives --install /usr/bin/javaws javaws /usr/lib/jvm/jdk1.6.0_37/bin/javaws 1
+
 (Choose default java:)
    sudo update-alternatives --config javac
    sudo update-alternatives --config java
    sudo update-alternatives --config javaws
+
 (java version test:)
    java -version
+
 (Verify the symlinks all point to the new java location:)
    ls -la /etc/alternatives/java*
+
 (Enable Java plugin for Mozilla Firefox (even for Chrome))
 "for 64-Bit jdk"
    sudo ln -s /usr/lib/jvm/jdk1.6.0_37/jre/lib/amd64/libnpjp2.so /usr/lib/mozilla/plugins
