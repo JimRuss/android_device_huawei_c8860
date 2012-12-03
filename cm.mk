@@ -2,7 +2,7 @@
 $(call inherit-product, vendor/cm/config/cdma.mk)
 
 # Inherit some common cyanogenmod stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/huawei/c8860/device_c8860.mk)
