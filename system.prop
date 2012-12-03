@@ -81,7 +81,7 @@ ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 # Others
 # sys.checkfs.fat=false
 ro.tether.denied=false
-ro.rommanager.developerid=cyanogenmod(fredvj/playfulgod/JimRuss)
+ro.rommanager.developerid=cyanogenmod
 ro.setupwizard.enable_bypass=1
 
 
@@ -90,7 +90,7 @@ ro.confg.hw_appsbootversion=C8860VCM9_APPSBOOT
 ro.confg.hw_appversion=C8860VCM9_KERNEL
 ro.confg.hw_appfsversion=C8860VCM9_SYSIMG
 
-# CRICKET
+# CRICKET (playfulgod)
 ro.com.google.clientidbase=android-cricket-us
 ro.cdma.home.operator.alpha=Cricket
 ro.cdma.home.operator.numeric=31016
