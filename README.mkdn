@@ -38,7 +38,7 @@ Getting my Huawei Mercury repo
 
 	$ cd lge
 
-	$ git clone https://github.com/JimRuss/android_device_huawei_c8860
+	$ git clone https://github.com/JimRuss/android_device_huawei_c8860.git
 
 Extract necessary binaries and proprietary files 
 ------------------------------------------------
