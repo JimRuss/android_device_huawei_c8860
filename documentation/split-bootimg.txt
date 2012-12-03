@@ -1,0 +1,19 @@
+# 2.35.6.7kernel
+Page size: 4096 (0x00001000)
+Kernel size: 3853680 (0x003acd70)
+Ramdisk size: 358987 (0x00057a4b)
+Second size: 0 (0x00000000)
+Board name: 
+Command line: console=ttyDCC0 androidboot.hardware=huawei
+
+config phys_offset=0x00200000
+
+
+# 3.0.8 kernel
+Page size: 4096 (0x00001000)
+Kernel size: 4424472 (0x00438318)
+Ramdisk size: 188162 (0x0002df02)
+Second size: 0 (0x00000000)
+Board name: 
+Command line: console=ttyDCC0 androidboot.hardware=huawei
+

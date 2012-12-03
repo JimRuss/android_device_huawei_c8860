@@ -1,0 +1,24 @@
+jimruss@jimruss:~$ adb shell cat /proc/partitions
+major minor  #blocks  name
+
+   7        0      15412 loop0
+   7        1      24980 loop1
+ 179        0    3866624 mmcblk0
+ 179        1     245760 mmcblk0p1
+ 179        2        500 mmcblk0p2
+ 179        3       3000 mmcblk0p3
+ 179        4          1 mmcblk0p4
+ 179        5      12288 mmcblk0p5
+ 179        6     133120 mmcblk0p6
+ 179        7       2048 mmcblk0p7
+ 179        8       3072 mmcblk0p8
+ 179        9       7000 mmcblk0p9
+ 179       10       3072 mmcblk0p10
+ 179       11       3072 mmcblk0p11
+ 179       12     393216 mmcblk0p12
+ 179       13     917504 mmcblk0p13
+ 179       14    2134016 mmcblk0p14
+ 179       32    3872256 mmcblk1
+ 179       33    3870720 mmcblk1p1
+ 254        0      24979 dm-0
+
