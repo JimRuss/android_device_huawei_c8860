@@ -88,7 +88,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 device/huawei/c8860/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
 
-# BLUETOOTH CONFIG 
+# BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329 needs to be set at "DiscoverSchedulerInterval = 0")
 PRODUCT_COPY_FILES += \
         vendor/huawei/c8860/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
 
