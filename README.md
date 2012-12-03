@@ -3,7 +3,9 @@ android_device_huawei_c8860
 
 ICS device tree for Huawei Mercury.
 
-The files in proprietary-files.txt were pulled from gingerbread.
+I would like to thank fredvj and playfulgod for there repo's.Reading through there work has helped me to understand androids a little better.Now if I could just learn how to use github a little better!
+
+The files in my proprietary-files.txt were pulled from gingerbread.
 All other files added were from playfulgods rom.
 These will have to be added to device_c8860.mk,so the build will know where to pull from and where to place it.
 If you pull autorun.iso from gingerbread you will have to edit c8860-vendor-blobs.mk to put it in system/cdrom/autorun.iso. So it will be"vendor/huawei/c8860/proprietary/../data/cdrom/autorun.iso:system/cdrom/autorun.iso"
@@ -77,4 +79,5 @@ $ sudo apt-get install git-core gnupg flex bison gperf build-essential \
 
 $ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
 
-
+I hope someone can learn from this and always remember to give credit to those people that have put alot of time and effort into making are androids better.
+Goodluck with you builds!
