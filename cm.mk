@@ -18,7 +18,7 @@ PRODUCT_VERSION_DEVICE_SPECIFIC := C8860
 $(call inherit-product, device/huawei/c8860/full_c8860.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := C8860
+PRODUCT_DEVICE := c8860
 PRODUCT_NAME := cm_c8860
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := C8860
