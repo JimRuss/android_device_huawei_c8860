@@ -33,7 +33,8 @@ PRODUCT_PACKAGES += \
         DSPManager \
         MusicFX \
         setup_fs \
-        hwcomposer.default 
+        hwcomposer.default \
+	libOmxVidEnc 
 	
 # Graphics
 PRODUCT_PACKAGES += \
@@ -163,17 +164,17 @@ frameworks/base/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:sy
 frameworks/base/data/etc/android.hardware.touchscreen.xml:system/etc/permissions/android.hardware.touchscreen.xml \
 frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+frameworks/base/data/etc/android.hardware.telephony.cdma.xml:system/etc/permissions/android.hardware.telephony.cdma.xml \
 frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
 frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_c8860
-PRODUCT_DEVICE := C8860
+PRODUCT_DEVICE := c8860
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := C8860
 PRODUCT_MANUFACTURER := Huawei
-PRODUCT_CHARACTERISTICS := default
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
