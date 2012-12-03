@@ -1,5 +1,5 @@
 #
-# system.prop for C8860
+# system.prop for c8860
 #
 
 sys.usb.config=adb
@@ -65,7 +65,7 @@ ro.qualcomm.bluetooth.ftp=true
 ro.bluetooth.request.master=true
 ro.bluetooth.remote.autoconnect=true
 ro.qualcomm.bluetooth.dun=true
-net.bt.name=CM9-C8860
+net.bt.name=CM9-c8860
 ro.bt.bdaddr_path=/system/etc/bluetooth/bluetooth.addr
 
 # GPS / Location services
