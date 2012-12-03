@@ -12,15 +12,15 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 
 # Release name
 PRODUCT_RELEASE_NAME := HuaweiMercury
-PRODUCT_VERSION_DEVICE_SPECIFIC := c8860
+PRODUCT_VERSION_DEVICE_SPECIFIC := C8860
 
 # Inherit device configuration
 $(call inherit-product, device/huawei/c8860/full_c8860.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := c8860
+PRODUCT_DEVICE := C8860
 PRODUCT_NAME := cm_c8860
-PRODUCT_BRAND := huawei
+PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := C8860
 PRODUCT_MANUFACTURER := HUAWEI
 PRODUCT_CHARACTERISTICS := default
