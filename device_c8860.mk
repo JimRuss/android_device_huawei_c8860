@@ -169,9 +169,9 @@ packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/pe
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_c8860
-PRODUCT_DEVICE := c8860
-PRODUCT_BRAND := huawei
-PRODUCT_MODEL := c8860
+PRODUCT_DEVICE := C8860
+PRODUCT_BRAND := Huawei
+PRODUCT_MODEL := C8860
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_CHARACTERISTICS := default
 
