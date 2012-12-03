@@ -28,6 +28,6 @@ $(call inherit-product, device/huawei/c8860/device_c8860.mk)
 # Discard inherited values and use our own instead.
 PRODUCT_NAME := full_c8860
 PRODUCT_DEVICE := c8860
-PRODUCT_BRAND := Cricket
+PRODUCT_BRAND := huawei
 PRODUCT_MODEL := C8860
 PRODUCT_MANUFACTURER := Huawei
