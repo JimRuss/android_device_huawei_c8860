@@ -29,5 +29,5 @@ $(call inherit-product, device/huawei/c8860/device_c8860.mk)
 PRODUCT_NAME := full_c8860
 PRODUCT_DEVICE := c8860
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := C8860
+PRODUCT_MODEL := c8860
 PRODUCT_MANUFACTURER := Huawei
