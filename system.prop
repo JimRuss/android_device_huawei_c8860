@@ -1,72 +1,324 @@
+
 #
 # system.prop for c8860
 #
 
-sys.usb.config=adb
-persist.service.adb.enable=1
-persist.service.adb.root=1
+================================================== ============================
+The following values are set to true or false. Some values are set to numerical numbers at a specific range starting with 0 on up.
+ "#" no comment option 
+================================================== ============================
+I'm not an expert by any means. But i've tried to break things up the best I could. I'm sure someone will come along and do a better job than me with better definitions for people to understand.
 
 # Default: /misc,/radio,/bootloader,/recovery,/efs
 ro.cwm.forbid_format=/boot,/cust
 
+# The configs
+# Quick restart option
+ro.config.hw_opta= 153
+ro.config.hw_optb = 840
+ro.config.hw_quickpoweron = true
+ro.config.hw_poanimation = 5000
+ro.config.hw_addsettingsdbex = 1
+
 # Enable console
 # ro.debuggable=1
 
-# Wireless LAN
-wifi.interface=eth0
-wifi.debug=true
-wifi.supplicant_scan_interval=15
+# Available wifi access point prompts
+ro.config.hw_RemindWifiToPdp = false
 
-# Radio Interface Layer (RIL)
-rild.libpath=/system/lib/libril-qc-1.so
-rild.libargs=-d /dev/smd0
-ro.telephony.default_network=4
-ro.telephony.ril_class=HuaweiRIL
-ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
-ril.subscription.types=NV,RUIM
-ro.ril.shutdown=true
-ro.ril.hsxpa=2
-ro.ril.gprsclass=10
-ro.use_data_netmgrd=true
-ro.config.ehrpd=true
-keyguard.no_require_sim=true
-mobiledata.interfaces=rmnet0,gprs,ppp0
-net.dns1=194.25.2.129
-net.dns2=194.25.2.130
-persist.rild.nitz_plmn=
-persist.rild.nitz_long_ons_0=
-persist.rild.nitz_long_ons_1=
-persist.rild.nitz_long_ons_2=
-persist.rild.nitz_long_ons_3=
-persist.rild.nitz_short_ons_0=
-persist.rild.nitz_short_ons_1=
-persist.rild.nitz_short_ons_2=
-persist.rild.nitz_short_ons_3=
+# Menu key to unlock the screen
+ro.config.hw_menu_unlockscreen = false
+ro.config.hw_virtualsdcard = true
+ro.config.hw_ascend_ringtone = true
 
+# Eap-sim, English stands for the Extensible Authentication Protocol-the Subscriber Identity Module
+ro.config.hw_eapsim = false
 
-# OpenGLES version
-ro.opengles.version=131072
+# Power saving mode
+ro.config.hw_power_saving = true
 
-# DPI
-ro.sf.lcd_density=240
+# Lock screen
+ro.config.hw_lockscreen = true
+ro.config.hw_omacp = 1
+ro.config.hw_isCustomize = true
+
+# Toolbox, plug-in
+ro.config.hw_toolbox = true
+
+# Distance sensing
+ro.config.hw_proximity = true
+
+# Distance sensor
+ro.config.hw_proximitySensor = true
+
+# Gravity sensor
+ro.config.hw_GSensorOptimize = true
+
+# Camera HDR algorithm to optimize
+ro.config.hw_camera_hdr = true
+
+# Default, this feature does not open, may be used as a regular dropped calls when debugging
+ro.config.hw_call_fail_disp = false
+
+# Call recording
+ro.config.hw_voicerecord = false
+
+# The above two support options ip dial
+ro.config.hw_support_ipcall = true
+ro.config.ipcall = true
+
+# SMS reject
+ro.config.hw_reject_message = true
+
+# E-mail signature
+ro.config.hw_email_signature=Sent from Huawei Mobile
+
+# 0: fast_dormancy, bit_1: smart_network_search
+ro.config.hw_fast_dormancy = 0
+
+# Cloud solution configuration, several options there are in cust redefine, I updated to here
+ro.config.hw_tether_dun_enable = false
+
+# Hw_sns_acc_support value of 7:00, the SNS social networking program Facebook and twitter in the Programs menu
+# Huawei built-domestic SNS Sina and happy, and just here to set hw_sns_acc_support value of 41 can use
+ro.config.hw_sns_acc_support = 41
+ro.config.hw_sns_acc_shortcut = 0
+ro.config.hw_sns_cloud_support = 0
+
+# Version Huawei to CM9
+ro.build.version.incremental= C8860VCM9
+ro.confg.hw_appsbootversion= C8860VCM9_APPSBOOT
+ro.confg.hw_appversion= C8860VCM9_KERNEL
+ro.confg.hw_appfsversion= C8860VCM9_SYSIMG
+
+# Browser
+#ro.config.hw_uaprof = [url=http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml]http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml[/url]
+ro.config.hw_use_browser_ua = true
+ro.config.hw_browser_ua3g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
+ro.config.hw_browser_ua2g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
+
+# Equalizer
+ro.config.KeyPassToUser = true
+ro.config.srs.equalizer = true
+ro.config.srs.default.type = 1
+
+# Streaming media services
+ro.config.helix_enable = true
+
+# Audio decoding
+ro.config.ape_flac_enable = false
+
+# If the value is true, when data service is unavailable, you can edit the MMS
+ro.config.hw_always_allow_mms = false
+ro.config.hw_customizeType = 02
+ro.config.hwft_MatchNum = 11
+
+# Screen tones, cold, cool colors and warm is warm
+ro.config.colortemperature = cold
+
+# The PUK locked to allow unlocking
+ro.config.hwft_PinPukUnlockscr = true
+
+# Drm, the full name of Digital Rights Management, meaning, encrypted digital content copyright protection technology
+ro.config.hwdrm=true
+ro.config.hwdrm.set_contact = false
+
+# Status bar clock "AM", "PM" "display 2 is large
+ro.config.AM_PM_STYLE = 1
+ro.config.usejsc = true
+ro.config.PopupTwink = false
+ro.config.SetStatusbarText = false
+ro.config.cricket.drmringtone = true
+
+# Sd card upgrade options
+ro.config.do_sdcard_upgrade = true
+ro.config.protocol_errors = false
+
+# The above two import data to support Bluetooth and network, such as import phone book (US) version did not open by default
+ro.config.ImportByBluetooth = true
+ro.config.ImportByInternet = true
+ro.config.tetherUseLocalDns = false
+
+# Allow safe mode
+ro.config.move_up_display = true
+
+# Allow the Task Manager
+ro.config.Huawei_Task_Manager = true
+
+# Dual microphone open, improve call quality
+ro.config.dualmic = true
+ro.config.memtype = true
+
+# Radio type, Broadcom
+ro.config.fm_type = libbcmfm_if
+
+# Autofocus, the camera automatically Jiaokai Qi
+ro.config.camera.afctl.enable = true
+
+# System props for telephony modules
+ro.config.bro_about = true
+ro.config.bro_exit = true
+ro.config.bc_wifi_apsta = 0
+
+# Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution, not a real 4G network) bridge
+ro.config.ehrpd = true
+
+# GPS enhancements, similar to the AGPS functionality, not found before the satellite in the GPS, the first use of the network to download ephemeris data
+Then these data can quickly find the satellite can be used to improve the speed of Star Search.
+ro.config.xtra_support = true
+================================================== =====================
+#
+# Persist settings
+#
+persist.sys.quickpoweron = normal
+persist.sys.animationstart = false
+persist.sys.powerup_reason =
+persist.sys.actualpoweron = true
+# Delete persist.sys.user_set_airplane =
+================================================== ======================
+#
+# Addtional properties
+#
+net.ntp.server = time.windows.com
+net.ntp.server2 = time.nist.gov
+net.ntp.time = 0
+net.ntp.timereference = 0
+
+# Above, several network timing, when the phone time is not accurate proofreading with the network server
+hw.sms.dellong.interval.time = 172.8 million
+# Short interest draft retention period, in milliseconds (ms), the default is to save only two days
+================================================== =======================
+#
+# System.prop for surf
+#
+rild.libpath = / system/lib/libril-qc-1.so
+rild.libargs =-d / dev/smd0
+persist.rild.nitz_plmn =
+persist.rild.nitz_long_ons_0 =
+persist.rild.nitz_long_ons_1 =
+persist.rild.nitz_long_ons_2 =
+persist.rild.nitz_long_ons_3 =
+persist.rild.nitz_short_ons_0 =
+persist.rild.nitz_short_ons_1 =
+persist.rild.nitz_short_ons_2 =
+persist.rild.nitz_short_ons_3 =
+
+# Open the shutdown alarm clock
+ro.poweroff_alarm = true
+
+# Enable hardware acceleration
+debug.sf.hw = 1
+
+# Screen density, do not modify
+ro.sf.lcd_density = 240
+
+# System prop for multi rild (DSDS case)
+ro.multi.rild = false
+
+# OpenGles version
+ro.opengles.version = 131072
+ro.secure=0
 
 # Graphics
-# See hwcomposer.cpp: CPU vs. GPU rendering
+#Rendering User Interface With GPU
+# 0 CPU
+# 1 GPU
 debug.sf.hw=1
+ro.dev.dmm=1
+# cpu (default)
+# gpu (quando il debug.sf.hw = 1)
+#debug.composition.type=gpu 
 # debug.composition.type=mdp|c2d|dyn; everthing else is GPU
 # Composition bypass
 # ro.sf.compbypass.enable=1
 # See hardware/qcom/display/libgralloc/framebuffer.cpp
 # Page flipping requires at least two framebuffers
-debug.gr.numframebuffers=2
+debug.gr.numframebuffers= 2
+dev.dmm.dpd.trigger_delay = 30
 
-# Bluetooth
-ro.qualcomm.bluetooth.ftp=true
-ro.bluetooth.request.master=true
-ro.bluetooth.remote.autoconnect=true
-ro.qualcomm.bluetooth.dun=true
-net.bt.name=CM9-c8860
-ro.bt.bdaddr_path=/system/etc/bluetooth/bluetooth.addr
+# Power dynamic sampling rate
+dev.pm.dyn_samplingrate = 1
+
+# Ro.kernel.android.checkjni = 1
+# Setup wizard, not much to explain
+ro.setupwizard.mode = OPTIONAL
+ro.wifi.channels =
+
+#The dalvik virtual machine settings
+dalvik.vm.stack-trace-file = / data / anr / traces.txt
+
+================================================== ==============================
+#
+# System props for the cne module
+#
+persist.cne.UseCne=vendor
+persist.cne.bat.range.low.med=30
+persist.cne.bat.range.med.high=60
+persist.cne.loc.policy.op=/system/etc/OperatorPolicy.xml
+persist.cne.loc.policy.user=/system/etc/UserPolicy.xml
+persist.cne.bwbased.rat.sel=false
+persist.cne.snsr.based.rat.mgt=false
+persist.cne.bat.based.rat.mgt=false
+persist.cne.rat.acq.time.out=30000
+persist.cne.rat.acq.retry.tout=0
+
+#
+# system props for the MM modules
+#
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=false
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-aac=true
+media.stagefright.enable-qcp=true
+lpa.use-stagefright=true
+lpa.decode=false
+
+#
+# Google program settings and Apps
+#
+ro.com.google.clientidbase = android-huawei
+ro.com.google.clientidbase= android-huawei-US
+ro.com.google.clientidbase.yt = android-huawei
+ro.com.google.clientidbase.am = android-huawei
+ro.com.google.clientidbase.gmm = android-huawei
+ro.com.google.clientidbase.ms = android-huawei
+#
+# Telephony and network settings(Cricket)
+#
+ro.carrier= cricket
+ro.telephony.default_network= 4
+ro.cdma.home.operator.numeric= 31016
+ro.telephony.call_ring.multiple = false
+ro.cdma.home.operator.alpha= cricket
+ro.config.cdma_subscription=1
+ro.cdma.voicemail.number=mine
+ro.ril.huawei_cdma=true
+#
+# Persist Radio
+#
+persist.radio.adb_log_on=0
+persist.radio.cdma.msgid=2
+persist.radio.net_pref_0=4
+persist.radio.net_pref_1=7
+persist.radio.paging_priority=0
+persist.radio.sma_voice_3gpp=0
+persist.radio.tuneaway=1
+
+# Buffersize
+net.tcp.buffersize.default = 4096,87380,256960,4096, 16384.256960
+net.tcp.buffersize.wifi 4096,87380,256960,4096,163 = 84.256960
+net.tcp.buffersize.lte 4096,87380,256960,4096,1638 = 4.256960
+net.tcp.buffersize.hsdpa 4096,87380,256960,4096,16 = 384.256960
+net.tcp.buffersize.evdo_b 4096,87380,256960,4096,1 = 6384.256960
+net.tcp.buffersize.umts 4096,87380,256960,4096,163 = 84.256960
+net.tcp.buffersize.hspa 4096,87380,256960,4096,163 = 84.256960
+net.tcp.buffersize.gprs 4096,87380,256960,4096,163 = 84.256960
+net.tcp.buffersize.edge 4096,87380,256960,4096,163 = 84.256960
+
+# Sim-free requirements
+keyguard.no_require_sim = true
 
 # GPS / Location services
 ro.com.google.locationfeatures=1
@@ -74,33 +326,93 @@ ro.com.google.networklocation=1
 ro.ril.def.agps.mode=2
 ro.ril.def.agps.feature=1
 
-# Storage (fredvj)
+# Bluetooth
+ro.qualcomm.bluetooth.ftp=true
+ro.bluetooth.request.master=true
+ro.bluetooth.remote.autoconnect=true
+ro.qualcomm.bluetooth.dun=true
+# The default name of the Bluetooth mobile phone "customize to what-ever" 
+net.bt.name = Android
+
+# USB
+sys.usb.config=adb
+persist.service.adb.enable=1
+persist.service.adb.root=1
+persist.sys.usb.config=mass_storage,adb
+sys.usb.config=mass_storage
+
+# Wireless LAN
+wifi.interface=eth0
+wifi.debug=true
+wifi.supplicant_scan_interval=15
+
+# System
+dalvik.vm.heapsize = 128m
+dalvik.vm.dexopt-data-only = 1
+dalvik.vm.dexopt-flags = m = y
+
+# Radio Interface Layer (RIL)
+
+ro.telephony.default_network=4
+ro.telephony.ril_class=HwQcomRIL
+ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
+ril.subscription.types= NV,RUIM
+ro.ril.shutdown=true
+ro.ril.hsxpa=2
+ro.ril.gprsclass=10
+ro.ril.hep = 1
+ro.ril.enable.dtm = 1
+ro.ril.hsdpa.category = 10
+ro.ril.enable.a53 = 1
+ro.ril.enable.3g.prefix = 1
+ro.ril.htcmaskw1.bitmask = 4294967295
+ro.ril.htcmaskw1 = 14449
+ro.ril.hsupa.category = 5
+ro.use_data_netmgrd=true
+mobiledata.interfaces=rmnet0,gprs,ppp0
+net.dns1=194.25.2.129
+net.dns2=194.25.2.130
+DEVICE_PROVISIONED=1
+com.qc.hardware=true
+
+# The HDMI output? 
+ro.hdmi.enable = true
+
+# Built-in SD card
+hw_internal_sd = true
+
+# Landscape layout preview in camera
+debug.camera.landscape = true
+debug.camcorder.disablemeta = 0
+
+# SD card emulation in of emmc partition & Storage
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.emmc.sdcard.partition = 16
 
-# Others
-# sys.checkfs.fat=false
-ro.tether.denied=false
-ro.rommanager.developerid=cyanogenmod
-ro.setupwizard.enable_bypass=1
+# Graphics, media acceleration related, rtsp streaming protocol a default no open support
+media.stagefright.enable-player = true
+media.stagefright.enable-http = true
+media.stagefright.enable-rtsp = false
+media.stagefright.enable-scan = true
 
-
-# Huawei
-ro.confg.hw_appsbootversion=C8860VCM9_APPSBOOT
-ro.confg.hw_appversion=C8860VCM9_KERNEL
-ro.confg.hw_appfsversion=C8860VCM9_SYSIMG
-
-# CRICKET (playfulgod)
-ro.com.google.clientidbase=android-cricket-us
-ro.cdma.home.operator.alpha=Cricket
-ro.cdma.home.operator.numeric=31016
-ro.config.cdma_subscription=1
-ro.cdma.voicemail.number=mine
+# pm.sleep_mode - The mode used when the phone is off
+# 0=Power Collapse Suspend, 1=Power Collapse, 2=Apps Sleep,
+# 3=Slow Clock and Wait for Interrupt 4=Wait for Interrupt
+# Use 2 for best power savings
+#
+pm.sleep_mode=2
+ro.ril.disable.power.collapse=0
 
 # ETC
 hwui.render_dirty_regions=false
 hwui.disable_vsync=false
 hwui.print_config=choice
+
+# Misc.
+ro.com.android.dateformat=dd-MM-yyyy
+ro.com.google.locationfeatures=0
+ro.adb.qemud = 1
 
 # Camera hack (fredvj)
 ro.camera.hack=msm7630_surf
