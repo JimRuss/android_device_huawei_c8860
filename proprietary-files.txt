@@ -134,6 +134,8 @@ lib/libOmxWmaDec.so
 etc/permissions/android.hardware.bluetooth.xml
 etc/permissions/android.hardware.microphone.xml
 etc/permissions/com.qualcomm.location.vzw_library.xml
+etc/OperatorPolicy.xml
+etc/UserPolicy.xml
 
 # BIN
 bin/port-bridge
