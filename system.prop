@@ -5,10 +5,10 @@
 
 ================================================== ============================
 The following values are set to true or false. Some values are set to numerical numbers at a specific range starting with 0 on up.
- "#" no comment option 
+ "#"is the no commit option 
 ================================================== ============================
 I'm not an expert by any means. But i've tried to break things up the best I could. I'm sure someone will come along and do a better job than me with better definitions for people to understand.
-
+================================================== ============================
 # Default: /misc,/radio,/bootloader,/recovery,/efs
 ro.cwm.forbid_format=/boot,/cust
 
@@ -31,7 +31,7 @@ ro.config.hw_menu_unlockscreen = false
 ro.config.hw_virtualsdcard = true
 ro.config.hw_ascend_ringtone = true
 
-# Eap-sim, English stands for the Extensible Authentication Protocol-the Subscriber Identity Module
+# Eapsim the "Extensible Authentication Protocol"-the Subscriber Identity Module
 ro.config.hw_eapsim = false
 
 # Power saving mode
@@ -63,7 +63,7 @@ ro.config.hw_call_fail_disp = false
 # Call recording
 ro.config.hw_voicerecord = false
 
-# The above two support options ip dial
+# The two support options ip dial
 ro.config.hw_support_ipcall = true
 ro.config.ipcall = true
 
@@ -76,11 +76,10 @@ ro.config.hw_email_signature=Sent from Huawei Mobile
 # 0: fast_dormancy, bit_1: smart_network_search
 ro.config.hw_fast_dormancy = 0
 
-# Cloud solution configuration, several options there are in cust redefine, I updated to here
+# Cloud solution configuration
 ro.config.hw_tether_dun_enable = false
 
-# Hw_sns_acc_support value of 7:00, the SNS social networking program Facebook and twitter in the Programs menu
-# Huawei built-domestic SNS Sina and happy, and just here to set hw_sns_acc_support value of 41 can use
+# Huawei built-domestic SNS Sina "set hw_sns_acc_support value of 41 can be used here"This is for facebook and twitter
 ro.config.hw_sns_acc_support = 41
 ro.config.hw_sns_acc_shortcut = 0
 ro.config.hw_sns_cloud_support = 0
@@ -92,7 +91,7 @@ ro.confg.hw_appversion= C8860VCM9_KERNEL
 ro.confg.hw_appfsversion= C8860VCM9_SYSIMG
 
 # Browser
-#ro.config.hw_uaprof = [url=http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml]http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml[/url]
+ro.config.hw_uaprof = [url=http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml]http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml[/url]
 ro.config.hw_use_browser_ua = true
 ro.config.hw_browser_ua3g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
 ro.config.hw_browser_ua2g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
@@ -113,17 +112,17 @@ ro.config.hw_always_allow_mms = false
 ro.config.hw_customizeType = 02
 ro.config.hwft_MatchNum = 11
 
-# Screen tones, cold, cool colors and warm is warm
+# Screen tones, cold=cold colors and warm=warm colors
 ro.config.colortemperature = cold
 
 # The PUK locked to allow unlocking
 ro.config.hwft_PinPukUnlockscr = true
 
-# Drm, the full name of Digital Rights Management, meaning, encrypted digital content copyright protection technology
+# Drm, "Digital Rights Management" meaning, encrypted digital content copyright protection technology
 ro.config.hwdrm=true
 ro.config.hwdrm.set_contact = false
 
-# Status bar clock "AM", "PM" "display 2 is large
+# Status bar clock "AM", "PM" display 2 is large
 ro.config.AM_PM_STYLE = 1
 ro.config.usejsc = true
 ro.config.PopupTwink = false
@@ -134,7 +133,7 @@ ro.config.cricket.drmringtone = true
 ro.config.do_sdcard_upgrade = true
 ro.config.protocol_errors = false
 
-# The above two import data to support Bluetooth and network, such as import phone book (US) version did not open by default
+# These two imports are for data to support Bluetooth and network, such as import phone book 
 ro.config.ImportByBluetooth = true
 ro.config.ImportByInternet = true
 ro.config.tetherUseLocalDns = false
@@ -164,33 +163,27 @@ ro.config.bc_wifi_apsta = 0
 ro.config.ehrpd = true
 
 # GPS enhancements, similar to the AGPS functionality, not found before the satellite in the GPS, the first use of the network to download ephemeris data
-Then these data can quickly find the satellite can be used to improve the speed of Star Search.
+Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
 ro.config.xtra_support = true
-================================================== =====================
-#
+
 # Persist settings
-#
 persist.sys.quickpoweron = normal
 persist.sys.animationstart = false
 persist.sys.powerup_reason =
 persist.sys.actualpoweron = true
 # Delete persist.sys.user_set_airplane =
-================================================== ======================
-#
+
 # Addtional properties
-#
 net.ntp.server = time.windows.com
 net.ntp.server2 = time.nist.gov
 net.ntp.time = 0
 net.ntp.timereference = 0
 
-# Above, several network timing, when the phone time is not accurate proofreading with the network server
+# Network timing, when the phone time is not accurate this is to proofread with the network server
 hw.sms.dellong.interval.time = 172.8 million
 # Short interest draft retention period, in milliseconds (ms), the default is to save only two days
-================================================== =======================
-#
+
 # System.prop for surf
-#
 rild.libpath = / system/lib/libril-qc-1.so
 rild.libargs =-d / dev/smd0
 persist.rild.nitz_plmn =
@@ -240,14 +233,16 @@ dev.dmm.dpd.trigger_delay = 30
 dev.pm.dyn_samplingrate = 1
 
 # Ro.kernel.android.checkjni = 1
-# Setup wizard, not much to explain
+
+# Setup wizard
 ro.setupwizard.mode = OPTIONAL
 ro.wifi.channels =
 
 #The dalvik virtual machine settings
 dalvik.vm.stack-trace-file = / data / anr / traces.txt
 
-================================================== ==============================
+#                             (MODULES)
+--------------------------------------------------------------------------------
 #
 # System props for the cne module
 #
@@ -275,8 +270,10 @@ media.stagefright.enable-qcp=true
 lpa.use-stagefright=true
 lpa.decode=false
 
+#                          (ENDING IF MODULES)
+--------------------------------------------------------------------------------
 #
-# Google program settings and Apps
+# Google program settings and Apps settings
 #
 ro.com.google.clientidbase = android-huawei
 ro.com.google.clientidbase= android-huawei-US
@@ -305,8 +302,9 @@ persist.radio.net_pref_1=7
 persist.radio.paging_priority=0
 persist.radio.sma_voice_3gpp=0
 persist.radio.tuneaway=1
-
+#
 # Buffersize
+#
 net.tcp.buffersize.default = 4096,87380,256960,4096, 16384.256960
 net.tcp.buffersize.wifi 4096,87380,256960,4096,163 = 84.256960
 net.tcp.buffersize.lte 4096,87380,256960,4096,1638 = 4.256960
@@ -352,7 +350,6 @@ dalvik.vm.dexopt-data-only = 1
 dalvik.vm.dexopt-flags = m = y
 
 # Radio Interface Layer (RIL)
-
 ro.telephony.default_network=4
 ro.telephony.ril_class=HwQcomRIL
 ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
@@ -385,12 +382,12 @@ hw_internal_sd = true
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
-# SD card emulation in of emmc partition & Storage
+# SD card emulation in of emmc partition & Storage(Some Huawei devices call for 14 on sdcard partition.
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 ro.emmc.sdcard.partition = 16
 
-# Graphics, media acceleration related, rtsp streaming protocol a default no open support
+# Graphics, media acceleration related, rtsp streaming protocol the default is no open support
 media.stagefright.enable-player = true
 media.stagefright.enable-http = true
 media.stagefright.enable-rtsp = false
