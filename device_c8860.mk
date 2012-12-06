@@ -69,7 +69,7 @@ PRODUCT_PACKAGES += \
         gps.msm7x30 \
         gps.default \
         libgps \
-        gps.conf
+        gps.conf 
 
 # Wireless AP
 PRODUCT_PACKAGES += \
@@ -173,7 +173,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := full_c8860
 PRODUCT_DEVICE := c8860
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := C8860
+PRODUCT_MODEL := c8860
 PRODUCT_MANUFACTURER := Huawei
 
 # Device uses high-density artwork where available
