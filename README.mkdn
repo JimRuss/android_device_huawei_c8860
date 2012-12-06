@@ -75,7 +75,11 @@ To build for the Huawei Mercury: You may want to "repo sync" every few weeks for
 
 Or you can make a copy of warn.log without displaying warnings in terminal!
 
-    $ . build/envsetup.sh && brunch c8860 2> warn.log    
+    $ . build/envsetup.sh && brunch c8860 2> warn.log
+
+If you have a 4 core processor you can use -j5
+
+    $ . build/envsetup.sh && brunch c8860 -j5 2> warn.log    
 
 Installing CM9
 ---------------
