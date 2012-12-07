@@ -179,6 +179,7 @@ lib/libgemini.so
 
 lib/libaudioalsa.so
 etc/vold.fstab
+etc/loc_parameter.ini
 
 # GPS
 etc/gps.conf
