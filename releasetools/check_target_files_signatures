@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,27 +15,27 @@
 # limitations under the License.
 
 """
-Check the signatures of all APKs in a target_files .zip file.  With
+Check the signatures of all APKs in a target_files .zip file. With
 -c, compare the signatures of each package to the ones in a separate
 target_files (usually a previously distributed build for the same
 device) and flag any changes.
 
-Usage:  check_target_file_signatures [flags] target_files
+Usage: check_target_file_signatures [flags] target_files
 
-  -c  (--compare_with)  <other_target_files>
-      Look for compatibility problems between the two sets of target
-      files (eg., packages whose keys have changed).
+-c (--compare_with) <other_target_files>
+Look for compatibility problems between the two sets of target
+files (eg., packages whose keys have changed).
 
-  -l  (--local_cert_dirs)  <dir,dir,...>
-      Comma-separated list of top-level directories to scan for
-      .x509.pem files.  Defaults to "vendor,build".  Where cert files
-      can be found that match APK signatures, the filename will be
-      printed as the cert name, otherwise a hash of the cert plus its
-      subject string will be printed instead.
+-l (--local_cert_dirs) <dir,dir,...>
+Comma-separated list of top-level directories to scan for
+.x509.pem files. Defaults to "vendor,build". Where cert files
+can be found that match APK signatures, the filename will be
+printed as the cert name, otherwise a hash of the cert plus its
+subject string will be printed instead.
 
-  -t  (--text)
-      Dump the certificate information for both packages in comparison
-      mode (this output is normally suppressed).
+-t (--text)
+Dump the certificate information for both packages in comparison
+mode (this output is normally suppressed).
 
 """
 
@@ -61,7 +61,7 @@ import common
 
 # Work around a bug in python's zipfile module that prevents opening
 # of zipfiles if any entry has an extra field of between 1 and 3 bytes
-# (which is common with zipaligned APKs).  This overrides the
+# (which is common with zipaligned APKs). This overrides the
 # ZipInfo._decodeExtra() method (which contains the bug) with an empty
 # version (since we don't need to decode the extra field anyway).
 class MyZipInfo(zipfile.ZipInfo):
@@ -88,7 +88,7 @@ def Pop():
 
 def Banner(msg):
   print "-" * 70
-  print "  ", msg
+  print " ", msg
   print "-" * 70
 
 
@@ -161,7 +161,7 @@ def ParseCertificate(data):
 
 def CertFromPKCS7(data, filename):
   """Read the cert out of a PKCS#7-format file (which is what is
-  stored in a signed .apk)."""
+stored in a signed .apk)."""
   Push(filename + ":")
   try:
     p = common.Run(["openssl", "pkcs7",
@@ -272,7 +272,7 @@ class TargetFiles(object):
 
   def CheckSharedUids(self):
     """Look for any instances where packages signed with different
-    certs request the same sharedUserId."""
+certs request the same sharedUserId."""
     apks_by_uid = {}
     for apk in self.apks.itervalues():
       if apk.shared_uid:
@@ -291,9 +291,9 @@ class TargetFiles(object):
 
       print "uid %s is shared by packages with different cert sets:" % (uid,)
       for apk in apks:
-        print "%-*s  [%s]" % (self.max_pkg_len, apk.package, apk.filename)
+        print "%-*s [%s]" % (self.max_pkg_len, apk.package, apk.filename)
         for cert in apk.certs:
-          print "   ", ALL_CERTS.Get(cert)
+          print " ", ALL_CERTS.Get(cert)
       print
 
   def CheckExternalSignatures(self):
@@ -301,7 +301,7 @@ class TargetFiles(object):
       if certname == "EXTERNAL":
         # Apps marked EXTERNAL should be signed with the test key
         # during development, then manually re-signed after
-        # predexopting.  Consider it an error if this app is now
+        # predexopting. Consider it an error if this app is now
         # signed with any key that is present in our tree.
         apk = self.apks_by_basename[apk_filename]
         name = ALL_CERTS.Get(apk.cert)
@@ -326,17 +326,17 @@ class TargetFiles(object):
       apks.sort()
       for _, apk in apks:
         if apk.shared_uid:
-          print "  %-*s  %-*s  [%s]" % (self.max_fn_len, apk.filename,
+          print " %-*s %-*s [%s]" % (self.max_fn_len, apk.filename,
                                         self.max_pkg_len, apk.package,
                                         apk.shared_uid)
         else:
-          print "  %-*s  %-*s" % (self.max_fn_len, apk.filename,
+          print " %-*s %-*s" % (self.max_fn_len, apk.filename,
                                   self.max_pkg_len, apk.package)
       print
 
   def CompareWith(self, other):
     """Look for instances where a given package that exists in both
-    self and other have different certs."""
+self and other have different certs."""
 
     all = set(self.apks.keys())
     all.update(other.apks.keys())
@@ -368,19 +368,19 @@ class TargetFiles(object):
           if i == 0:
             print "was", ALL_CERTS.Get(o)
           else:
-            print "   ", ALL_CERTS.Get(o)
+            print " ", ALL_CERTS.Get(o)
         for i, n in enumerate(new):
           if i == 0:
             print "now", ALL_CERTS.Get(n)
           else:
-            print "   ", ALL_CERTS.Get(n)
+            print " ", ALL_CERTS.Get(n)
         for i in sorted(packages):
           old_fn = other.apks[i].filename
           new_fn = self.apks[i].filename
           if old_fn == new_fn:
-            print "  %-*s  [%s]" % (max_pkg_len, i, old_fn)
+            print " %-*s [%s]" % (max_pkg_len, i, old_fn)
           else:
-            print "  %-*s  [was: %s; now: %s]" % (max_pkg_len, i,
+            print " %-*s [was: %s; now: %s]" % (max_pkg_len, i,
                                                   old_fn, new_fn)
         print
 
@@ -451,6 +451,6 @@ if __name__ == '__main__':
     sys.exit(r)
   except common.ExternalError, e:
     print
-    print "   ERROR: %s" % (e,)
+    print " ERROR: %s" % (e,)
     print
     sys.exit(1)
