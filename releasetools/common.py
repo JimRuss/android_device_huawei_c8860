@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -56,15 +56,15 @@ class ExternalError(RuntimeError): pass
 
 def Run(args, **kwargs):
   """Create and return a subprocess.Popen object, printing the command
-  line on the terminal if -v was specified."""
+line on the terminal if -v was specified."""
   if OPTIONS.verbose:
-    print "  running: ", " ".join(args)
+    print " running: ", " ".join(args)
   return subprocess.Popen(args, **kwargs)
 
 
 def CloseInheritedPipes():
   """ Gmake in MAC OS has file descriptor (PIPE) leak. We close those fds
-  before doing other work."""
+before doing other work."""
   if platform.system() != "Darwin":
     return
   for d in range(3, 1025):
@@ -80,7 +80,7 @@ def CloseInheritedPipes():
 
 def LoadInfoDict(zip):
   """Read and parse the META/misc_info.txt key/value pairs from the
-  input target files and return a dict."""
+input target files and return a dict."""
 
   d = {}
   try:
@@ -94,7 +94,7 @@ def LoadInfoDict(zip):
     pass
 
   # backwards compatibility: These values used to be in their own
-  # files.  Look for them, in case we're processing an old
+  # files. Look for them, in case we're processing an old
   # target_files zip.
 
   if "mkyaffs2_extra_flags" not in d:
@@ -197,9 +197,9 @@ def DumpInfoDict(d):
 
 def BuildBootableImage(sourcedir):
   """Take a kernel, cmdline, and ramdisk directory from the input (in
-  'sourcedir'), and turn them into a boot image.  Return the image
-  data, or None if sourcedir does not appear to contains files for
-  building the requested image."""
+'sourcedir'), and turn them into a boot image. Return the image
+data, or None if sourcedir does not appear to contains files for
+building the requested image."""
 
   if (not os.access(os.path.join(sourcedir, "RAMDISK"), os.F_OK) or
       not os.access(os.path.join(sourcedir, "kernel"), os.F_OK)):
@@ -270,9 +270,9 @@ def BuildBootableImage(sourcedir):
 
 def GetBootableImage(name, prebuilt_name, unpack_dir, tree_subdir):
   """Return a File object (with name 'name') with the desired bootable
-  image.  Look for it in 'unpack_dir'/BOOTABLE_IMAGES under the name
-  'prebuilt_name', otherwise construct it from the source files in
-  'unpack_dir'/'tree_subdir'."""
+image. Look for it in 'unpack_dir'/BOOTABLE_IMAGES under the name
+'prebuilt_name', otherwise construct it from the source files in
+'unpack_dir'/'tree_subdir'."""
 
   prebuilt_path = os.path.join(unpack_dir, "BOOTABLE_IMAGES", prebuilt_name)
   if os.path.exists(prebuilt_path):
@@ -286,12 +286,12 @@ def GetBootableImage(name, prebuilt_name, unpack_dir, tree_subdir):
 def UnzipTemp(filename, pattern=None):
   """Unzip the given archive into a temporary directory and return the name.
 
-  If filename is of the form "foo.zip+bar.zip", unzip foo.zip into a
-  temp dir, then unzip bar.zip into that_dir/BOOTABLE_IMAGES.
+If filename is of the form "foo.zip+bar.zip", unzip foo.zip into a
+temp dir, then unzip bar.zip into that_dir/BOOTABLE_IMAGES.
 
-  Returns (tempdir, zipobj) where zipobj is a zipfile.ZipFile (of the
-  main file), open for reading.
-  """
+Returns (tempdir, zipobj) where zipobj is a zipfile.ZipFile (of the
+main file), open for reading.
+"""
 
   tmp = tempfile.mkdtemp(prefix="targetfiles-")
   OPTIONS.tempfiles.append(tmp)
@@ -319,8 +319,8 @@ def UnzipTemp(filename, pattern=None):
 
 def GetKeyPasswords(keylist):
   """Given a list of keys, prompt the user to enter passwords for
-  those which require them.  Return a {key: password} dict.  password
-  will be None if the key has no password."""
+those which require them. Return a {key: password} dict. password
+will be None if the key has no password."""
 
   no_passwords = []
   need_passwords = []
@@ -350,17 +350,17 @@ def GetKeyPasswords(keylist):
 
 def SignFile(input_name, output_name, key, password, align=None,
              whole_file=False):
-  """Sign the input_name zip/jar/apk, producing output_name.  Use the
-  given key and password (the latter may be None if the key does not
-  have a password.
+  """Sign the input_name zip/jar/apk, producing output_name. Use the
+given key and password (the latter may be None if the key does not
+have a password.
 
-  If align is an integer > 1, zipalign is run to align stored files in
-  the output zip on 'align'-byte boundaries.
+If align is an integer > 1, zipalign is run to align stored files in
+the output zip on 'align'-byte boundaries.
 
-  If whole_file is true, use the "-w" option to SignApk to embed a
-  signature that covers the whole file in the archive comment of the
-  zip file.
-  """
+If whole_file is true, use the "-w" option to SignApk to embed a
+signature that covers the whole file in the archive comment of the
+zip file.
+"""
 
   if align == 0 or align == 1:
     align = None
@@ -401,8 +401,8 @@ def SignFile(input_name, output_name, key, password, align=None,
 
 def CheckSize(data, target, info_dict):
   """Check the data string passed against the max size limit, if
-  any, for the given target.  Raise exception if the data is too big.
-  Print a warning if the data is nearing the maximum size."""
+any, for the given target. Raise exception if the data is too big.
+Print a warning if the data is nearing the maximum size."""
 
   if target.endswith(".img"): target = target[:-4]
   mount_point = "/" + target
@@ -425,15 +425,15 @@ def CheckSize(data, target, info_dict):
       raise ExternalError(msg)
     elif pct >= 95.0:
       print
-      print "  WARNING: ", msg
+      print " WARNING: ", msg
       print
     elif OPTIONS.verbose:
-      print "  ", msg
+      print " ", msg
 
 
 def ReadApkCerts(tf_zip):
   """Given a target_files ZipFile, parse the META/apkcerts.txt file
-  and return a {package: cert} dict."""
+and return a {package: cert} dict."""
   certmap = {}
   for line in tf_zip.read("META/apkcerts.txt").split("\n"):
     line = line.strip()
@@ -454,23 +454,23 @@ def ReadApkCerts(tf_zip):
 
 
 COMMON_DOCSTRING = """
-  -p  (--path)  <dir>
-      Prepend <dir>/bin to the list of places to search for binaries
-      run by this script, and expect to find jars in <dir>/framework.
+-p (--path) <dir>
+Prepend <dir>/bin to the list of places to search for binaries
+run by this script, and expect to find jars in <dir>/framework.
 
-  -s  (--device_specific) <file>
-      Path to the python module containing device-specific
-      releasetools code.
+-s (--device_specific) <file>
+Path to the python module containing device-specific
+releasetools code.
 
-  -x  (--extra)  <key=value>
-      Add a key/value pair to the 'extras' dict, which device-specific
-      extension code may look at.
+-x (--extra) <key=value>
+Add a key/value pair to the 'extras' dict, which device-specific
+extension code may look at.
 
-  -v  (--verbose)
-      Show command lines being executed.
+-v (--verbose)
+Show command lines being executed.
 
-  -h  (--help)
-      Display this usage message and exit.
+-h (--help)
+Display this usage message and exit.
 """
 
 def Usage(docstring):
@@ -483,10 +483,10 @@ def ParseOptions(argv,
                  extra_opts="", extra_long_opts=(),
                  extra_option_handler=None):
   """Parse the options in argv and return any arguments that aren't
-  flags.  docstring is the calling module's docstring, to be displayed
-  for errors and -h.  extra_opts and extra_long_opts are for flags
-  defined by the caller, which are processed by passing them to
-  extra_option_handler."""
+flags. docstring is the calling module's docstring, to be displayed
+for errors and -h. extra_opts and extra_long_opts are for flags
+defined by the caller, which are processed by passing them to
+extra_option_handler."""
 
   try:
     opts, args = getopt.getopt(
@@ -538,14 +538,14 @@ class PasswordManager(object):
 
   def GetPasswords(self, items):
     """Get passwords corresponding to each string in 'items',
-    returning a dict.  (The dict may have keys in addition to the
-    values in 'items'.)
+returning a dict. (The dict may have keys in addition to the
+values in 'items'.)
 
-    Uses the passwords in $ANDROID_PW_FILE if available, letting the
-    user edit that file to add more needed passwords.  If no editor is
-    available, or $ANDROID_PW_FILE isn't define, prompts the user
-    interactively in the ordinary way.
-    """
+Uses the passwords in $ANDROID_PW_FILE if available, letting the
+user edit that file to add more needed passwords. If no editor is
+available, or $ANDROID_PW_FILE isn't define, prompts the user
+interactively in the ordinary way.
+"""
 
     current = self.ReadFile()
 
@@ -572,9 +572,9 @@ class PasswordManager(object):
 
   def PromptResult(self, current):
     """Prompt the user to enter a value (password) for each key in
-    'current' whose value is fales.  Returns a new dict with all the
-    values.
-    """
+'current' whose value is fales. Returns a new dict with all the
+values.
+"""
     result = {}
     for k, v in sorted(current.iteritems()):
       if v:
@@ -599,7 +599,7 @@ class PasswordManager(object):
     sorted = [(not v, k, v) for (k, v) in current.iteritems()]
     sorted.sort()
     for i, (_, k, v) in enumerate(sorted):
-      f.write("[[[  %s  ]]] %s\n" % (v, k))
+      f.write("[[[ %s ]]] %s\n" % (v, k))
       if not v and first_line is None:
         # position cursor on first line with no password.
         first_line = i + 4
@@ -643,8 +643,8 @@ class DeviceSpecificParams(object):
   module = None
   def __init__(self, **kwargs):
     """Keyword arguments to the constructor become attributes of this
-    object, which is passed to all functions in the device-specific
-    module."""
+object, which is passed to all functions in the device-specific
+module."""
     for k, v in kwargs.iteritems():
       setattr(self, k, v)
     self.extras = OPTIONS.extras
@@ -667,41 +667,41 @@ class DeviceSpecificParams(object):
 
   def _DoCall(self, function_name, *args, **kwargs):
     """Call the named function in the device-specific module, passing
-    the given args and kwargs.  The first argument to the call will be
-    the DeviceSpecific object itself.  If there is no module, or the
-    module does not define the function, return the value of the
-    'default' kwarg (which itself defaults to None)."""
+the given args and kwargs. The first argument to the call will be
+the DeviceSpecific object itself. If there is no module, or the
+module does not define the function, return the value of the
+'default' kwarg (which itself defaults to None)."""
     if self.module is None or not hasattr(self.module, function_name):
       return kwargs.get("default", None)
     return getattr(self.module, function_name)(*((self,) + args), **kwargs)
 
   def FullOTA_Assertions(self):
     """Called after emitting the block of assertions at the top of a
-    full OTA package.  Implementations can add whatever additional
-    assertions they like."""
+full OTA package. Implementations can add whatever additional
+assertions they like."""
     return self._DoCall("FullOTA_Assertions")
 
   def FullOTA_InstallEnd(self):
     """Called at the end of full OTA installation; typically this is
-    used to install the image for the device's baseband processor."""
+used to install the image for the device's baseband processor."""
     return self._DoCall("FullOTA_InstallEnd")
 
   def IncrementalOTA_Assertions(self):
     """Called after emitting the block of assertions at the top of an
-    incremental OTA package.  Implementations can add whatever
-    additional assertions they like."""
+incremental OTA package. Implementations can add whatever
+additional assertions they like."""
     return self._DoCall("IncrementalOTA_Assertions")
 
   def IncrementalOTA_VerifyEnd(self):
     """Called at the end of the verification phase of incremental OTA
-    installation; additional checks can be placed here to abort the
-    script before any changes are made."""
+installation; additional checks can be placed here to abort the
+script before any changes are made."""
     return self._DoCall("IncrementalOTA_VerifyEnd")
 
   def IncrementalOTA_InstallEnd(self):
     """Called at the end of incremental OTA installation; typically
-    this is used to install the image for the device's baseband
-    processor."""
+this is used to install the image for the device's baseband
+processor."""
     return self._DoCall("IncrementalOTA_InstallEnd")
 
 class File(object):
@@ -743,7 +743,7 @@ class Difference(object):
 
   def ComputePatch(self):
     """Compute the patch (as a string of data) needed to turn sf into
-    tf.  Returns the same tuple as GetPatch()."""
+tf. Returns the same tuple as GetPatch()."""
 
     tf = self.tf
     sf = self.sf
@@ -782,8 +782,8 @@ class Difference(object):
 
   def GetPatch(self):
     """Return a tuple (target_file, source_file, patch_data).
-    patch_data may be None if ComputePatch hasn't been called, or if
-    computing the patch failed."""
+patch_data may be None if ComputePatch hasn't been called, or if
+computing the patch failed."""
     return self.tf, self.sf, self.patch
 
 
@@ -797,7 +797,7 @@ def ComputeDifferences(diffs):
   by_size = [i[1] for i in by_size]
 
   lock = threading.Lock()
-  diff_iter = iter(by_size)   # accessed under lock
+  diff_iter = iter(by_size) # accessed under lock
 
   def worker():
     try:
@@ -815,7 +815,7 @@ def ComputeDifferences(diffs):
         else:
           name = "%s (%s)" % (tf.name, sf.name)
         if patch is None:
-          print "patching failed!                                  %s" % (name,)
+          print "patching failed! %s" % (name,)
         else:
           print "%8.2f sec %8d / %8d bytes (%6.2f%%) %s" % (
               dur, len(patch), tf.size, 100.0 * len(patch) / tf.size, name)
