@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,50 +18,50 @@
 Signs all the APK files in a target-files zipfile, producing a new
 target-files zip.
 
-Usage: sign_target_files_apks [flags] input_target_files output_target_files
+Usage:  sign_target_files_apks [flags] input_target_files output_target_files
 
--e (--extra_apks) <name,name,...=key>
-Add extra APK name/key pairs as though they appeared in
-apkcerts.txt (so mappings specified by -k and -d are applied).
-Keys specified in -e override any value for that app contained
-in the apkcerts.txt file. Option may be repeated to give
-multiple extra packages.
+  -e  (--extra_apks)  <name,name,...=key>
+      Add extra APK name/key pairs as though they appeared in
+      apkcerts.txt (so mappings specified by -k and -d are applied).
+      Keys specified in -e override any value for that app contained
+      in the apkcerts.txt file.  Option may be repeated to give
+      multiple extra packages.
 
--k (--key_mapping) <src_key=dest_key>
-Add a mapping from the key name as specified in apkcerts.txt (the
-src_key) to the real key you wish to sign the package with
-(dest_key). Option may be repeated to give multiple key
-mappings.
+  -k  (--key_mapping)  <src_key=dest_key>
+      Add a mapping from the key name as specified in apkcerts.txt (the
+      src_key) to the real key you wish to sign the package with
+      (dest_key).  Option may be repeated to give multiple key
+      mappings.
 
--d (--default_key_mappings) <dir>
-Set up the following key mappings:
+  -d  (--default_key_mappings)  <dir>
+      Set up the following key mappings:
 
-$devkey/devkey ==> $dir/releasekey
-$devkey/testkey ==> $dir/releasekey
-$devkey/media ==> $dir/media
-$devkey/shared ==> $dir/shared
-$devkey/platform ==> $dir/platform
+        $devkey/devkey    ==>  $dir/releasekey
+        $devkey/testkey   ==>  $dir/releasekey
+        $devkey/media     ==>  $dir/media
+        $devkey/shared    ==>  $dir/shared
+        $devkey/platform  ==>  $dir/platform
 
-where $devkey is the directory part of the value of
-default_system_dev_certificate from the input target-files's
-META/misc_info.txt. (Defaulting to "build/target/product/security"
-if the value is not present in misc_info.
+      where $devkey is the directory part of the value of
+      default_system_dev_certificate from the input target-files's
+      META/misc_info.txt.  (Defaulting to "build/target/product/security"
+      if the value is not present in misc_info.
 
--d and -k options are added to the set of mappings in the order
-in which they appear on the command line.
+      -d and -k options are added to the set of mappings in the order
+      in which they appear on the command line.
 
--o (--replace_ota_keys)
-Replace the certificate (public key) used by OTA package
-verification with the one specified in the input target_files
-zip (in the META/otakeys.txt file). Key remapping (-k and -d)
-is performed on this key.
+  -o  (--replace_ota_keys)
+      Replace the certificate (public key) used by OTA package
+      verification with the one specified in the input target_files
+      zip (in the META/otakeys.txt file).  Key remapping (-k and -d)
+      is performed on this key.
 
--t (--tag_changes) <+tag>,<-tag>,...
-Comma-separated list of changes to make to the set of tags (in
-the last component of the build fingerprint). Prefix each with
-'+' or '-' to indicate whether that tag should be added or
-removed. Changes are processed in the order they appear.
-Default value is "-test-keys,-dev-keys,+release-keys".
+  -t  (--tag_changes)  <+tag>,<-tag>,...
+      Comma-separated list of changes to make to the set of tags (in
+      the last component of the build fingerprint).  Prefix each with
+      '+' or '-' to indicate whether that tag should be added or
+      removed.  Changes are processed in the order they appear.
+      Default value is "-test-keys,-dev-keys,+release-keys".
 
 """
 
@@ -106,7 +106,7 @@ def GetApkCerts(tf_zip):
 
 def CheckAllApksSigned(input_tf_zip, apk_key_map):
   """Check that all the APKs we want to sign have keys specified, and
-error out if they don't."""
+  error out if they don't."""
   unknown_apks = []
   for info in input_tf_zip.infolist():
     if info.filename.endswith(".apk"):
@@ -115,7 +115,7 @@ error out if they don't."""
         unknown_apks.append(name)
   if unknown_apks:
     print "ERROR: no key specified for:\n\n ",
-    print "\n ".join(unknown_apks)
+    print "\n  ".join(unknown_apks)
     print "\nUse '-e <apkname>=' to specify a key (which may be an"
     print "empty string to not sign this apk)."
     sys.exit(1)
@@ -149,7 +149,7 @@ def SignApks(input_tf_zip, output_tf_zip, apk_key_map, key_passwords):
       name = os.path.basename(info.filename)
       key = apk_key_map[name]
       if key not in common.SPECIAL_CERT_STRINGS:
-        print " signing: %-*s (%s)" % (maxsize, name, key)
+        print "    signing: %-*s (%s)" % (maxsize, name, key)
         signed_data = SignApk(data, key, key_passwords[key])
         output_tf_zip.writestr(out_info, signed_data)
       else:
@@ -168,7 +168,7 @@ def SignApks(input_tf_zip, output_tf_zip, apk_key_map, key_passwords):
 
 def EditTags(tags):
   """Given a string containing comma-separated tags, apply the edits
-specified in OPTIONS.tag_changes and return the updated string."""
+  specified in OPTIONS.tag_changes and return the updated string."""
   tags = set(tags.split(","))
   for ch in OPTIONS.tag_changes:
     if ch[0] == "-":
@@ -198,8 +198,8 @@ def RewriteProps(data):
         value = EditTags(value)
       line = key + "=" + value
     if line != original_line:
-      print " replace: ", original_line
-      print " with: ", line
+      print "  replace: ", original_line
+      print "     with: ", line
     output.append(line)
   return "\n".join(output) + "\n"
 
@@ -228,7 +228,7 @@ def ReplaceOtaKeys(input_tf_zip, output_tf_zip, misc_info):
     mapped_keys.append(OPTIONS.key_map.get(k, k) + ".x509.pem")
 
   if mapped_keys:
-    print "using:\n ", "\n ".join(mapped_keys)
+    print "using:\n   ", "\n   ".join(mapped_keys)
     print "for OTA package verification"
   else:
     devkey = misc_info.get("default_system_dev_certificate",
@@ -265,16 +265,16 @@ def ReplaceOtaKeys(input_tf_zip, output_tf_zip, misc_info):
 
 def BuildKeyMap(misc_info, key_mapping_options):
   for s, d in key_mapping_options:
-    if s is None: # -d option
+    if s is None:   # -d option
       devkey = misc_info.get("default_system_dev_certificate",
                              "build/target/product/security/testkey")
       devkeydir = os.path.dirname(devkey)
 
       OPTIONS.key_map.update({
-          devkeydir + "/testkey": d + "/releasekey",
-          devkeydir + "/devkey": d + "/releasekey",
-          devkeydir + "/media": d + "/media",
-          devkeydir + "/shared": d + "/shared",
+          devkeydir + "/testkey":  d + "/releasekey",
+          devkeydir + "/devkey":   d + "/releasekey",
+          devkeydir + "/media":    d + "/media",
+          devkeydir + "/shared":   d + "/shared",
           devkeydir + "/platform": d + "/platform",
           })
     else:
@@ -349,6 +349,6 @@ if __name__ == '__main__':
     main(sys.argv[1:])
   except common.ExternalError, e:
     print
-    print " ERROR: %s" % (e,)
+    print "   ERROR: %s" % (e,)
     print
     sys.exit(1)
