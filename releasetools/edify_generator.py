@@ -4,7 +4,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -19,7 +19,7 @@ import common
 
 class EdifyGenerator(object):
   """Class to generate scripts in the 'edify' recovery script language
-  used from donut onwards."""
+used from donut onwards."""
 
   def __init__(self, version, info):
     self.script = []
@@ -29,8 +29,8 @@ class EdifyGenerator(object):
 
   def MakeTemporary(self):
     """Make a temporary script object whose commands can latter be
-    appended to the parent script with AppendScript().  Used when the
-    caller wants to generate script commands out-of-order."""
+appended to the parent script with AppendScript(). Used when the
+caller wants to generate script commands out-of-order."""
     x = EdifyGenerator(self.version, self.info)
     x.mounts = self.mounts
     return x
@@ -38,9 +38,9 @@ class EdifyGenerator(object):
   @staticmethod
   def _WordWrap(cmd, linelen=80):
     """'cmd' should be a function call with null characters after each
-    parameter (eg, "somefun(foo,\0bar,\0baz)").  This function wraps cmd
-    to a given line length, replacing nulls with spaces and/or newlines
-    to format it nicely."""
+parameter (eg, "somefun(foo,\0bar,\0baz)"). This function wraps cmd
+to a given line length, replacing nulls with spaces and/or newlines
+to format it nicely."""
     indent = cmd.index("(")+1
     out = []
     first = True
@@ -65,7 +65,7 @@ class EdifyGenerator(object):
 
   def AppendScript(self, other):
     """Append the contents of another script (which should be created
-    with temporary=True) to this one."""
+with temporary=True) to this one."""
     self.script.extend(other.script)
 
   def AssertSomeFingerprint(self, *fp):
@@ -81,7 +81,7 @@ class EdifyGenerator(object):
 
   def AssertOlderBuild(self, timestamp):
     """Assert that the build on the device is older (or the same as)
-    the given timestamp."""
+the given timestamp."""
     self.script.append(('assert(!less_than_int(%s, '
                         'getprop("ro.build.date.utc")));') % (timestamp,))
 
@@ -108,34 +108,34 @@ class EdifyGenerator(object):
 
   def ShowProgress(self, frac, dur):
     """Update the progress bar, advancing it over 'frac' over the next
-    'dur' seconds.  'dur' may be zero to advance it via SetProgress
-    commands instead of by time."""
+'dur' seconds. 'dur' may be zero to advance it via SetProgress
+commands instead of by time."""
     self.script.append("show_progress(%f, %d);" % (frac, int(dur)))
 
   def SetProgress(self, frac):
     """Set the position of the progress bar within the chunk defined
-    by the most recent ShowProgress call.  'frac' should be in
-    [0,1]."""
+by the most recent ShowProgress call. 'frac' should be in
+[0,1]."""
     self.script.append("set_progress(%f);" % (frac,))
 
   def PatchCheck(self, filename, *sha1):
     """Check that the given file (or MTD reference) has one of the
-    given *sha1 hashes, checking the version saved in cache if the
-    file does not match."""
+given *sha1 hashes, checking the version saved in cache if the
+file does not match."""
     self.script.append('assert(apply_patch_check("%s"' % (filename,) +
                        "".join([', "%s"' % (i,) for i in sha1]) +
                        '));')
 
   def FileCheck(self, filename, *sha1):
     """Check that the given file (or MTD reference) has one of the
-    given *sha1 hashes."""
+given *sha1 hashes."""
     self.script.append('assert(sha1_check(read_file("%s")' % (filename,) +
                        "".join([', "%s"' % (i,) for i in sha1]) +
                        '));')
 
   def CacheFreeSpaceCheck(self, amount):
     """Check that there's at least 'amount' space that can be made
-    available on /cache."""
+available on /cache."""
     self.script.append("assert(apply_patch_space(%d));" % (amount,))
 
   def Mount(self, mount_point):
@@ -150,7 +150,7 @@ class EdifyGenerator(object):
 
   def UnpackPackageDir(self, src, dst):
     """Unpack a given directory from the OTA package into the given
-    destination directory."""
+destination directory."""
     self.script.append('package_extract_dir("%s", "%s");' % (src, dst))
 
   def Comment(self, comment):
@@ -166,7 +166,7 @@ class EdifyGenerator(object):
 
   def FormatPartition(self, partition):
     """Format the given partition, specified by its mount point (eg,
-    "/system")."""
+"/system")."""
 
     reserve_size = 0
     fstab = self.info.get("fstab", None)
@@ -184,8 +184,8 @@ class EdifyGenerator(object):
 
   def ApplyPatch(self, srcfile, tgtfile, tgtsize, tgtsha1, *patchpairs):
     """Apply binary patches (in *patchpairs) to the given srcfile to
-    produce tgtfile (which may be "-" to indicate overwriting the
-    source file."""
+produce tgtfile (which may be "-" to indicate overwriting the
+source file."""
     if len(patchpairs) % 2 != 0 or len(patchpairs) == 0:
       raise ValueError("bad patches given to ApplyPatch")
     cmd = ['apply_patch("%s",\0"%s",\0%s,\0%d'
@@ -198,7 +198,7 @@ class EdifyGenerator(object):
 
   def WriteRawImage(self, mount_point, fn):
     """Write the given package file into the partition for the given
-    mount point."""
+mount point."""
 
     fstab = self.info["fstab"]
     if fstab:
@@ -221,7 +221,7 @@ class EdifyGenerator(object):
   # due to U8800 having recovery, boot and other in the same partition.
   def WriteRawImage(self, mount_point, location, fn):
     """Write the given package file into the partition for the given
-    mount point."""
+mount point."""
 
     fstab = self.info["fstab"]
     if fstab:
@@ -285,10 +285,10 @@ class EdifyGenerator(object):
     self.mounts = set()
 
   def AddToZip(self, input_zip, output_zip, input_path=None):
-    """Write the accumulated script to the output_zip file.  input_zip
-    is used as the source for the 'updater' binary needed to run
-    script.  If input_path is not None, it will be used as a local
-    path for the binary instead of input_zip."""
+    """Write the accumulated script to the output_zip file. input_zip
+is used as the source for the 'updater' binary needed to run
+script. If input_path is not None, it will be used as a local
+path for the binary instead of input_zip."""
 
     self.UnmountAll()
 

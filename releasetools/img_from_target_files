@@ -6,7 +6,7 @@
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,14 +18,14 @@
 Given a target-files zipfile, produces an image zipfile suitable for
 use with 'fastboot update'.
 
-Usage:  img_from_target_files [flags] input_target_files output_image_zip
+Usage: img_from_target_files [flags] input_target_files output_image_zip
 
-  -b  (--board_config)  <file>
-      Deprecated.
+-b (--board_config) <file>
+Deprecated.
 
-  -z  (--bootable_zip)
-      Include only the bootable images (eg 'boot' and 'recovery') in
-      the output.
+-z (--bootable_zip)
+Include only the bootable images (eg 'boot' and 'recovery') in
+the output.
 
 """
 
@@ -57,7 +57,7 @@ def AddUserdata(output_zip):
   print "creating userdata.img..."
 
   # The name of the directory it is making an image out of matters to
-  # mkyaffs2image.  So we create a temp dir, and within it we create an
+  # mkyaffs2image. So we create a temp dir, and within it we create an
   # empty dir named "data", and build the image from that.
   temp_dir = tempfile.mkdtemp()
   user_dir = os.path.join(temp_dir, "data")
@@ -95,22 +95,22 @@ def AddUserdata(output_zip):
 
 def AddSystem(output_zip):
   """Turn the contents of SYSTEM into a system image and store it in
-  output_zip."""
+output_zip."""
 
   print "creating system.img..."
 
   img = tempfile.NamedTemporaryFile()
 
   # The name of the directory it is making an image out of matters to
-  # mkyaffs2image.  It wants "system" but we have a directory named
+  # mkyaffs2image. It wants "system" but we have a directory named
   # "SYSTEM", so create a symlink.
   try:
     os.symlink(os.path.join(OPTIONS.input_tmp, "SYSTEM"),
                os.path.join(OPTIONS.input_tmp, "system"))
   except OSError, e:
       # bogus error on my mac version?
-      #   File "./build/tools/releasetools/img_from_target_files", line 86, in AddSystem
-      #     os.path.join(OPTIONS.input_tmp, "system"))
+      # File "./build/tools/releasetools/img_from_target_files", line 86, in AddSystem
+      # os.path.join(OPTIONS.input_tmp, "system"))
       # OSError: [Errno 17] File exists
     if (e.errno == errno.EEXIST):
       pass
@@ -157,7 +157,7 @@ def main(argv):
 
   def option_handler(o, a):
     if o in ("-b", "--board_config"):
-      pass       # deprecated
+      pass # deprecated
     if o in ("-z", "--bootable_zip"):
       bootable_only[0] = True
     else:
@@ -205,6 +205,6 @@ if __name__ == '__main__':
     main(sys.argv[1:])
   except common.ExternalError, e:
     print
-    print "   ERROR: %s" % (e,)
+    print " ERROR: %s" % (e,)
     print
     sys.exit(1)
