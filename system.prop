@@ -91,7 +91,6 @@ ro.confg.hw_appversion= C8860VCM9_KERNEL
 ro.confg.hw_appfsversion= C8860VCM9_SYSIMG
 
 # Browser
-ro.config.hw_uaprof = [url=http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml]http://wap1.huawei.com/uaprof/Huaweic8860WCDMA-NORMAL.xml[/url]
 ro.config.hw_use_browser_ua = true
 ro.config.hw_browser_ua3g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
 ro.config.hw_browser_ua2g=http://wap1.huawei.com/uaprof/HW_HUAWEI_C8860_1_20110704.xml
