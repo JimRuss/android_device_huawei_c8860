@@ -11,7 +11,7 @@ kick in some ideas that I can try or who can try it themselves. I know this is n
 time this has occurred and these are the people who can solve this.fredvj has put alot of time
 and effort into the Huawei Honor and I have used alot of his ideas and files to get the ball
 rolling on the Merc's and he deserves an extreme amount of credit for how much i've accomplished
-so far. I think he has the "OTA-RELEASE" working for the Honor by going back to gingerbread.
+so far. I think fredvj has the "OTA-RELEASE" working for the Honor by going back to gingerbread.
  We are already on gingerbread so I don't have the answer as to why OTA wont work for us,
 but I will keep trying to fix this.I don't want to edit the "ota_from_target file" to leave out 
 devices like many have done with the u8800.People will be installing this by acident on devices it wasn't
