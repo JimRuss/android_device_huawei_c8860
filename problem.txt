@@ -1,9 +1,41 @@
-"TARGET_RELEASE-TOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files" This is not working for the Mercury yet. I,ve tried many different ways of listing the OTA_DEVICES. The original build.prop list "ro.product.device = msm7630_surf" so i've used this with no luck so far. I guess I could edit the build prop with root explorer to see if that works, but that kind of defeats the purpose in which I was trying to accomplish. I was wanting this setup to install on a variety of Mercury's in which the build.prop might not be the same. The only way to install now is to remove all devices from the updater script.I'm always open to ideas of improving anything we can for are androids including solving this problem that i've come acrossed. Since the manufacturers won't do it we have to. There are alot of people smarter than me who I hope will kick in some ideas that I can try or who can try it themselves. I know this is not the first time this has occurred and these are the people who can solve this.fredvj has put alot of time and effort into the Huawei Honor and I have used alot of his ideas and files to get the ball rolling on the Merc's and he deserves an extreme amount of credit for how much i've accomplished so far. I think he has the "OTA-RELEASE" working for the Honor by going back to gingerbread. We are already on gingerbread so I don't have the answer as to why OTA wont work for us, but I will keep trying to fix this. If anyone has an ideal to try please get a hold of me at (JimRuss.886@gmail.com) and all the credits will go to you.
+"TARGET_RELEASE-TOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files"
+ This is not working for the Mercury yet. I,ve tried many different ways of listing the OTA_DEVICES.
+ The original build.prop list "ro.product.device = msm7630_surf" so i've used this with no luck so far.
+ I guess I could edit the build prop with root explorer to see if that works,
+ but that kind of defeats the purpose in which I was trying to accomplish.
+ I was wanting this setup to install on a variety of Mercury's in which the build.prop might not be the same. 
+The only way to install now is to remove all devices from the updater script.
+I'm always open to ideas of improving anything we can for are androids including solving this
+ problem that i've come acrossed.
+ Since the manufacturers won't do it we have to. There are alot of people smarter than me who 
+I hope will kick in some ideas that I can try or who can try it themselves. I know this is not
+ the first time this has occurred and these are the people who can solve this.fredvj has put
+ alot of time and effort into the Huawei Honor and I have used alot of his ideas and files to 
+get the ball rolling on the Merc's and he deserves an extreme amount of credit for how much 
+i've accomplished so far. I think he has the "OTA-RELEASE" working for the Honor by going back 
+to gingerbread. We are already on gingerbread so I don't have the answer as to why OTA wont work for us,
+ but I will keep trying to fix this. If anyone has an ideal to try please get a hold of me at
+ (JimRuss.886@gmail.com) and all the credits will go to you.
 
-Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a modern operating systems so we don't lag behind.There are many others who have contibuted to my learning just by all their posts they have made and the answers they have given my hats off to you and thanks for teaching a middle aged man something new.
+Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a
+ modern operating systems so we don't lag behind.There are many others who have contibuted to my 
+learning just by all their posts they have made and the answers they have given my hats off to you
+ and thanks for teaching a middle aged man something new.
 
 "Brief discription of me"
- I'm 50 years old and work in the Aerospace industry as an Xray tech.I have many hobbies including classic cars,fishing,racing and of course computers.I got started with computers in high school,when they were as big as a fridge and still used magnetic tape,so yes they have come a long way.Your android is faster than those computers.I took c+ and fortran in school and finally someone gave me a computer and the computer bug bit and i've been hooked ever since. I had so much trouble with windows I tried redhat and mandrake but they were a little confusing to use.But finally windows bit the dust again and I decided to give linux another try and have been with it ever since.I've even have my 77 year old dad using Ubuntu and my sister and they love linux.I have been trying to read every thing I can on androids and that's not easy to do when you work as many hours as I do but I manage.So this has become another hobby to the list which will keep on growing i'm sure.I like helping to make something better than what people have and i'm certainly no Einstein but am willing to help anyway I can.So i'm just trying to learn and this is the best way I know how by actually doing it,if you can teach me something by all means shoot me an email.Good luck with all your builds and many of you are the true Dev's.
+ I'm 50 years old and work in the Aerospace industry as an Xray tech.I have many hobbies including 
+classic cars,fishing,racing and of course computers.I got started with computers in high school,when 
+they were as big as a fridge and still used magnetic tape,so yes they have come a long way.
+Your android is faster than those computers.I took c+ and fortran in school and finally someone 
+gave me a computer and the computer bug bit and i've been hooked ever since. I had so much trouble
+ with windows I tried redhat and mandrake but they were a little confusing to use.But finally windows
+ bit the dust again and I decided to give linux another try and have been with it ever since.I've even
+ have my 77 year old dad using Ubuntu and my sister and they love linux.I have been trying to read every
+ thing I can on androids and that's not easy to do when you work as many hours as I do but I manage.
+So this has become another hobby to the list which will keep on growing i'm sure.I like helping to make
+ something better than what people have and i'm certainly no Einstein but am willing to help anyway I can.
+So i'm just trying to learn and this is the best way I know how by actually doing it,if you can teach me
+something by all means shoot me an email.Good luck with all your builds and many of you are the true Dev's.
 
 Sincerly,JimRuss
 JimRuss.886@gmail.com
