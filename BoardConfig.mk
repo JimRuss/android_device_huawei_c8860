@@ -47,7 +47,7 @@ BOARD_USES_GENERIC_AUDIO := true
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := c8860
-TARGET_OTA_ASSERT_DEVICE :=msm7630_surf,hwc8860,c8860,C8860,M886
+TARGET_OTA_ASSERT_DEVICE :=c8860,C8860,c8860,C8860
 
 # HUAWEI c8860 PLATFORM
 TARGET_ARCH := arm
@@ -62,15 +62,16 @@ ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_NEON := true
 ARCH_ARM_HAVE_ARMV7A_BUG := true
 
-# KERNEL (BUILD FROM SOURCE)(HAVE TO EDIT device_c8860.mk)*=create
+# KERNEL (BUILD FROM SOURCE)(HAVE TO EDIT device_c8860.mk) *=create
 #BUILD_KERNEL := true
 #TARGET_CROSS_COMPILE := arm-eabi-  
 #TARGET_KERNEL_SOURCE := kernel/huawei/c8860(not sure about path)
 #TARGET_KERNEL_CONFIG := cm9_c8860_defconfig
 #KERNEL_EXTERNAL_MODULES := $(LOCAL_PATH)/prebuilt/modules/ *(modules.mk)
-#TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
+#TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES           *(Androidkernel.mk)
 TARGET_PREBUILT_KERNEL := device/huawei/c8860/prebuilt/kernel
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN:= $(SRC_PATH)/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin(maybe able to shorten to "arm-eabi-4.4.3")
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN:= $(SRC_PATH)/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
+#(maybe able to shorten to "arm-eabi-4.4.3")
 
 # KERNEL (KERNEL BASE INFLATES)(CHANGE SIZE TO = PHYS_OFFSET= 0x00200000)  
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true 
@@ -85,13 +86,13 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_HARDWARE_3D := false
 USE_OPENGL_RENDERER := true
 BOARD_USES_ADRENO_200 := true
-#TARGET_USES_C2D_COMPOSITION := true
+TARGET_USES_C2D_COMPOSITION := true
 TARGET_HAVE_BYPASS := false
 TARGET_QCOM_HDMI_OUT := true
 TARGET_QCOM_HDMI_RESOLUTION_AUTO := true
 TARGET_GRALLOC_USES_ASHMEM := true
 #if (TARGET_GRALLOC_USES_ASHMEM) is enabled, set debug.sf.hw=1 in system.prop
-#TARGET_USES_OVERLAY := true
+TARGET_USES_OVERLAY := true
 TARGET_USES_GENLOCK := true
 TARGET_FORCE_CPU_UPLOAD := true
 BOARD_USES_HWCOMPOSER := true
