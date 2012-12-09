@@ -16,7 +16,7 @@ so far. I think fredvj has the "OTA-RELEASE" working for the Honor by going back
 but I will keep trying to fix this.I don't want to edit the "ota_from_target file" to leave out 
 devices like many have done with the u8800.People will be installing this by acident on devices it wasn't
 intended for.If anyone has an ideals please get a hold of me at (JimRuss.886@gmail.com) and all
-the credits will go to you.
+the credits will go to you. "I'm using cwm recovery 5.0.2.7" to flash the roms.
  
 
  "Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a
