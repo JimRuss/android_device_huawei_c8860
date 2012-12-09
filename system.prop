@@ -4,10 +4,11 @@
 #
 
 ================================================== ============================
-# The following values are set to true or false. Some values are set to numerical
-#numbers at a specific range starting with 0 on up."#"is the no commit option
+# The following values are set to true or false. Some values are set to 
+# numerical
+# numbers at a specific range starting with 0 on up."#"is the no commit option
 ================================================== ============================
-# I'm not an expert by any means. But i've tried to break things up the best I could.
+# I'm not an expert by any means. But i've tried to break things up the best I # could.
 # I'm sure someone will come along and do a better job than me with better
 # definitions for people to understand.
 ================================================== ============================
@@ -59,7 +60,7 @@ ro.config.hw_GSensorOptimize = true
 # Camera HDR algorithm to optimize
 ro.config.hw_camera_hdr = true
 
-# Default, this feature does not open, may be used as a regular dropped calls when debugging
+# Default, this feature does not open,used for debugging
 ro.config.hw_call_fail_disp = false
 
 # Call recording
@@ -81,7 +82,7 @@ ro.config.hw_fast_dormancy = 0
 # Cloud solution configuration
 ro.config.hw_tether_dun_enable = false
 
-# Huawei built-domestic SNS Sina "set hw_sns_acc_support value of 41 can be used here"This is for facebook and twitter
+# Huawei built-domestic SNS Sina "set hw_sns_acc_support value of 41 can be used here"This is for facebook and twitter"
 ro.config.hw_sns_acc_support = 41
 ro.config.hw_sns_acc_shortcut = 0
 ro.config.hw_sns_cloud_support = 0
@@ -119,7 +120,8 @@ ro.config.colortemperature = cold
 # The PUK locked to allow unlocking
 ro.config.hwft_PinPukUnlockscr = true
 
-# Drm, "Digital Rights Management" meaning, encrypted digital content copyright protection technology
+# Drm, "Digital Rights Management" meaning, encrypted digital content 
+# copyright protection technology
 ro.config.hwdrm=true
 ro.config.hwdrm.set_contact = false
 
@@ -134,7 +136,8 @@ ro.config.cricket.drmringtone = true
 ro.config.do_sdcard_upgrade = true
 ro.config.protocol_errors = false
 
-# These two imports are for data to support Bluetooth and network, such as import phone book 
+# These two imports are for data to support Bluetooth and network, such as 
+# import phone book 
 ro.config.ImportByBluetooth = true
 ro.config.ImportByInternet = true
 ro.config.tetherUseLocalDns = false
@@ -160,12 +163,14 @@ ro.config.bro_about = true
 ro.config.bro_exit = true
 ro.config.bc_wifi_apsta = 0
 
-# Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution, not a real 4G network) bridge
+# Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution, 
+# not a real 4G network) bridge
 ro.config.ehrpd = true
 
-# GPS enhancements, similar to the AGPS functionality, not found before the satellite in the GPS, the first use
+# GPS enhancements, similar to the AGPS functionality, not found before the 
+# satellite in the GPS, the first use
 # of the network to download ephemeris data
-# Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
+# Then this data can quickly find the satellite and can be used to improve the # speed of Star Search.
 ro.config.xtra_support = true
 
 # Persist settings
@@ -181,9 +186,10 @@ net.ntp.server2 = time.nist.gov
 net.ntp.time = 0
 net.ntp.timereference = 0
 
-# Network timing, when the phone time is not accurate this is to proofread with the network server
+# Network timing, when the phone time is not accurate this is to proofread 
+# with the network server
 hw.sms.dellong.interval.time = 172.8 million
-# Short interest draft retention period, in milliseconds (ms), the default is to save only two days
+# Short interest draft retention period, in milliseconds (ms), the default is # two days
 
 # System.prop for surf
 rild.libpath = / system/lib/libril-qc-1.so
@@ -200,9 +206,6 @@ persist.rild.nitz_short_ons_3 =
 
 # Open the shutdown alarm clock
 ro.poweroff_alarm = true
-
-# Enable hardware acceleration(Render UI with GPU)
-debug.sf.hw = 1
 
 # Screen density, do not modify
 ro.sf.lcd_density = 240
@@ -374,17 +377,19 @@ hw_internal_sd = true
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
-# SD card emulation in of emmc partition & Storage(Some Huawei devices call for 14 on sdcard partition.
+# SD card emulation in of emmc partition & Storage(Some Huawei devices call 
+# for 14 on sdcard partition).Mercury calls for 16 
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 ro.emmc.sdcard.partition = 16
 
-# Graphics, media acceleration related, rtsp streaming protocol the default is no open support
+# Graphics, media acceleration related, rtsp streaming protocol the default is # no open support
 media.stagefright.enable-player = true
 media.stagefright.enable-http = true
 media.stagefright.enable-rtsp = false
 media.stagefright.enable-scan = true
 
+#   (These settings are for better battery life)
 # pm.sleep_mode - This mode is used when the phone is off
 # 0=Power Collapse Suspend, 1=Power Collapse, 2=Apps Sleep,
 # 3=Slow Clock and Wait for Interrupt, 4=Wait for Interrupt
@@ -403,10 +408,11 @@ Debug.performance.tuning=1
 windowsmgr.max_events_per_sec=150 
 
 # Extended JNI checks
-# The extended JNI checks will cause the system to run more slowly, but they can spot a variety of nasty bugs
+# The extended JNI checks will cause the system to run more slowly, but they 
+# can spot a variety of nasty bugs
 # before they have a chance to cause problems.
 # Default=true for development builds, set by android buildsystem.
-# (Tweaks for Dev's)
+# ****(Tweaks for Dev's)****
 #dalvik.vm.execution-mode=int:jit 
 #ro.kernel.android.checkjni=0 
 #dalvik.vm.checkjni=false 
