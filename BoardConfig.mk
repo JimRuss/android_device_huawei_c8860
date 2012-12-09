@@ -67,10 +67,10 @@ ARCH_ARM_HAVE_ARMV7A_BUG := true
 #TARGET_CROSS_COMPILE := arm-eabi-  
 #TARGET_KERNEL_SOURCE := kernel/huawei/c8860(not sure about path)
 #TARGET_KERNEL_CONFIG := cm9_c8860_defconfig
-#KERNEL_EXTERNAL_MODULES := device/huawei/c8860/prebuilt/modules *(Android.mk)
+#KERNEL_EXTERNAL_MODULES := $(LOCAL_PATH)/prebuilt/modules/ *(modules.mk)
 #TARGET_KERNEL_MODULES := KERNEL_EXTERNAL_MODULES
 TARGET_PREBUILT_KERNEL := device/huawei/c8860/prebuilt/kernel
-#TARGET_KERNEL_CUSTOM_TOOLCHAIN:= android/system/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin
+#TARGET_KERNEL_CUSTOM_TOOLCHAIN:= $(SRC_PATH)/prebuilt/linux-x86/toolchain/arm-eabi-4.4.3/bin(maybe able to shorten to "arm-eabi-4.4.3")
 
 # KERNEL (KERNEL BASE INFLATES)(CHANGE SIZE TO = PHYS_OFFSET= 0x00200000)  
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true 
