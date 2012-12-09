@@ -13,7 +13,9 @@ and effort into the Huawei Honor and I have used alot of his ideas and files to 
 rolling on the Merc's and he deserves an extreme amount of credit for how much i've accomplished
 so far. I think he has the "OTA-RELEASE" working for the Honor by going back to gingerbread.
  We are already on gingerbread so I don't have the answer as to why OTA wont work for us,
-but I will keep trying to fix this.Maybe I should consider a release tool like they use on the u8800 with it's own updater script so I can leave the devices out.If anyone has an ideal to try please get a hold of me at (JimRuss.886@gmail.com) and all the credits will go to you.
+but I will keep trying to fix this.Maybe I should consider a release tool like they use on the u8800
+with it's own updater script so I can leave the devices out.If anyone has an ideal to try please get 
+a hold of me at (JimRuss.886@gmail.com) and all the credits will go to you.
  
 
  Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a
