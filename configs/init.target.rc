@@ -8,12 +8,18 @@ on emmc-fs
 
 	mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev barrier=1
 
-service rmt_storage /system/bin/rmt_storage
+        # Mount the internal storage
+        # wait /dev/block/mmcblk0p14
+        # mount vfat /dev/block/mmcblk0p14 /mnt/emmc uid=1000,gid=1015,umask=0002,utf8
+
+        # Try to mount the partiton on the SD-card with an ext2|3|4 filesystem(Implimented by fredvj)
+        mount auto /dev/block/mmcblk0p2 /sd-ext
+
+        # Enable virtual MTD(Implimented by fredvj)
+        write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
+
+        service rmt_storage /system/bin/rmt_storage
 	class main
 
-service analyze_svc /system/bin/logwrapper /system/bin/analyze_service
-	class main
-	socket analyze_svc1 stream 0660 root system
-	socket analyze_svc2 stream 0660 root inet
-	oneshot
+        
 
