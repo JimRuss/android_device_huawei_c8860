@@ -8,7 +8,7 @@
 # numerical
 # numbers at a specific range starting with 0 on up."#"is the no commit option
 ================================================== ============================
-# I'm not an expert by any means. But i've tried to break things up the best I # could.
+# I'm not an expert by any means. But i've tried to break things up the best I could.
 # I'm sure someone will come along and do a better job than me with better
 # definitions for people to understand.
 ================================================== ============================
@@ -26,12 +26,13 @@ ro.config.hw_addsettingsdbex = 1
 # Enable console
 # ro.debuggable=1
 
-# Available wifi access point prompts
+# Available wifi access point prompts(True is always on)
 ro.config.hw_RemindWifiToPdp = false
 
 # Menu key to unlock the screen
 ro.config.hw_menu_unlockscreen = false
 ro.config.hw_virtualsdcard = true
+# Increase ringer volume
 ro.config.hw_ascend_ringtone = true
 
 # Eapsim the "Extensible Authentication Protocol"-the Subscriber Identity Module
@@ -170,7 +171,7 @@ ro.config.ehrpd = true
 # GPS enhancements, similar to the AGPS functionality, not found before the 
 # satellite in the GPS, the first use
 # of the network to download ephemeris data
-# Then this data can quickly find the satellite and can be used to improve the # speed of Star Search.
+# Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
 ro.config.xtra_support = true
 
 # Persist settings
@@ -189,7 +190,7 @@ net.ntp.timereference = 0
 # Network timing, when the phone time is not accurate this is to proofread 
 # with the network server
 hw.sms.dellong.interval.time = 172.8 million
-# Short interest draft retention period, in milliseconds (ms), the default is # two days
+# Short interest draft retention period, in milliseconds (ms), the default is two days
 
 # System.prop for surf
 rild.libpath = / system/lib/libril-qc-1.so
@@ -383,7 +384,7 @@ ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 ro.emmc.sdcard.partition = 16
 
-# Graphics, media acceleration related, rtsp streaming protocol the default is # no open support
+# Graphics, media acceleration related, rtsp streaming protocol the default has no open support
 media.stagefright.enable-player = true
 media.stagefright.enable-http = true
 media.stagefright.enable-rtsp = false
