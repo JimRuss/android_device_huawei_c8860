@@ -4,10 +4,12 @@
 #
 
 ================================================== ============================
-The following values are set to true or false. Some values are set to numerical numbers at a specific range starting with 0 on up.
- "#"is the no commit option 
+# The following values are set to true or false. Some values are set to numerical
+#numbers at a specific range starting with 0 on up."#"is the no commit option
 ================================================== ============================
-I'm not an expert by any means. But i've tried to break things up the best I could. I'm sure someone will come along and do a better job than me with better definitions for people to understand.
+# I'm not an expert by any means. But i've tried to break things up the best I could.
+# I'm sure someone will come along and do a better job than me with better
+# definitions for people to understand.
 ================================================== ============================
 # Default: /misc,/radio,/bootloader,/recovery,/efs
 ro.cwm.forbid_format=/boot,/cust
@@ -161,8 +163,9 @@ ro.config.bc_wifi_apsta = 0
 # Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution, not a real 4G network) bridge
 ro.config.ehrpd = true
 
-# GPS enhancements, similar to the AGPS functionality, not found before the satellite in the GPS, the first use of the network to download ephemeris data
-Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
+# GPS enhancements, similar to the AGPS functionality, not found before the satellite in the GPS, the first use
+# of the network to download ephemeris data
+# Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
 ro.config.xtra_support = true
 
 # Persist settings
@@ -198,7 +201,7 @@ persist.rild.nitz_short_ons_3 =
 # Open the shutdown alarm clock
 ro.poweroff_alarm = true
 
-# Enable hardware acceleration
+# Enable hardware acceleration(Render UI with GPU)
 debug.sf.hw = 1
 
 # Screen density, do not modify
@@ -231,8 +234,6 @@ dev.dmm.dpd.trigger_delay = 30
 # Power dynamic sampling rate
 dev.pm.dyn_samplingrate = 1
 
-# Ro.kernel.android.checkjni = 1
-
 # Setup wizard
 ro.setupwizard.mode = OPTIONAL
 ro.wifi.channels =
@@ -255,7 +256,6 @@ persist.cne.snsr.based.rat.mgt=false
 persist.cne.bat.based.rat.mgt=false
 persist.cne.rat.acq.time.out=30000
 persist.cne.rat.acq.retry.tout=0
-
 #
 # system props for the MM modules
 #
@@ -268,7 +268,6 @@ media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 lpa.use-stagefright=true
 lpa.decode=false
-
 #                          (ENDING IF MODULES)
 --------------------------------------------------------------------------------
 #
@@ -332,7 +331,6 @@ sys.usb.config=mass_storage
 # Wireless LAN
 wifi.interface=eth0
 wifi.debug=true
-wifi.supplicant_scan_interval=15
 
 # System
 dalvik.vm.heapsize = 128m
@@ -345,6 +343,8 @@ ro.telephony.ril_class=HwQcomRIL
 ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
 ril.subscription.types= NV,RUIM
 ro.ril.shutdown=true
+
+# Data Tweaks
 ro.ril.hsxpa=2
 ro.ril.gprsclass=10
 ro.ril.hep = 1
@@ -355,6 +355,8 @@ ro.ril.enable.3g.prefix = 1
 ro.ril.htcmaskw1.bitmask = 4294967295
 ro.ril.htcmaskw1 = 14449
 ro.ril.hsupa.category = 5
+
+#
 ro.use_data_netmgrd=true
 mobiledata.interfaces=rmnet0,gprs,ppp0
 net.dns1=194.25.2.129
@@ -383,13 +385,31 @@ media.stagefright.enable-http = true
 media.stagefright.enable-rtsp = false
 media.stagefright.enable-scan = true
 
-# pm.sleep_mode - The mode used when the phone is off
+# pm.sleep_mode - This mode is used when the phone is off
 # 0=Power Collapse Suspend, 1=Power Collapse, 2=Apps Sleep,
-# 3=Slow Clock and Wait for Interrupt 4=Wait for Interrupt
+# 3=Slow Clock and Wait for Interrupt, 4=Wait for Interrupt
 # Use 2 for best power savings
-#
+# Battery life (supposed to give better battery life)
 pm.sleep_mode=2
+# For power collapse 0=off, 1=on
 ro.ril.disable.power.collapse=0
+# I've read many places that this can be set from (150 to 180)wifi is supposed
+# to scan less frequently saving battery life.
+wifi.supplicant_scan_interval=15
+# Increases overall touch response
+video.accelerate.hw=1
+Debug.performance.tuning=1
+# Helps scrolling responsiveness
+windowsmgr.max_events_per_sec=150 
+
+# Extended JNI checks
+# The extended JNI checks will cause the system to run more slowly, but they can spot a variety of nasty bugs
+# before they have a chance to cause problems.
+# Default=true for development builds, set by android buildsystem.
+# (Tweaks for Dev's)
+#dalvik.vm.execution-mode=int:jit 
+#ro.kernel.android.checkjni=0 
+#dalvik.vm.checkjni=false 
 
 # ETC
 hwui.render_dirty_regions=false
