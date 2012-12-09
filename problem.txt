@@ -2,7 +2,7 @@
  This is not working for the Mercury yet. I,ve tried many different ways of listing the OTA_DEVICES.
  The original build.prop list "ro.product.device = msm7630_surf" so i've used this with no luck so far.
  I guess I could edit the build prop with root explorer to see if that works,but that kind of defeats
-the purpose in which I was trying to accomplish.I was wanting this setup to install on a variety
+the purpose on what I was trying to accomplish.I was wanting this setup to install on a variety
 of Mercury's in which the build.prop might not be the same. The only way to install now is to
 remove all devices from the updater script. I'm always open to ideas of improving anything
 we can for are androids including solving this problem that i've come acrossed.Since the
@@ -13,16 +13,16 @@ and effort into the Huawei Honor and I have used alot of his ideas and files to 
 rolling on the Merc's and he deserves an extreme amount of credit for how much i've accomplished
 so far. I think he has the "OTA-RELEASE" working for the Honor by going back to gingerbread.
  We are already on gingerbread so I don't have the answer as to why OTA wont work for us,
-but I will keep trying to fix this.Maybe I should consider a release tool like they use on the u8800
-with it's own updater script so I can leave the devices out.I really don"t want to do that just to keep poeple
-from installing the wrong rom.If anyone has an ideal to try please get a hold of me at (JimRuss.886@gmail.com)
-and all the credits will go to you.
+but I will keep trying to fix this.I don't want to edit the "ota_from_target file" to leave out 
+devices like many have done with the u8800.People will be installing this by acident on devices it wasn't
+intened for.If anyone has an ideals please get a hold of me at (JimRuss.886@gmail.com) and all
+the credits will go to you.
  
 
- Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a
+ "Special thanks to, fredvj and playfulgod for there time and effort to make are androids stay with a
 modern operating systems so we don't lag behind.There are many others who have contibuted to my 
 learning just by all their posts they have made and the answers they have given my hats off to you
-and thanks for teaching a middle aged man something new.
+and thanks for teaching a middle aged man something new".
 
 
 "Brief discription of me"
