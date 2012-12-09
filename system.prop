@@ -302,17 +302,8 @@ persist.radio.paging_priority=0
 persist.radio.sma_voice_3gpp=0
 persist.radio.tuneaway=1
 #
-# Buffersize
+# Buffersize(Implimented in init.huawei.rc)
 #
-net.tcp.buffersize.default = 4096,87380,256960,4096, 16384.256960
-net.tcp.buffersize.wifi 4096,87380,256960,4096,163 = 84.256960
-net.tcp.buffersize.lte 4096,87380,256960,4096,1638 = 4.256960
-net.tcp.buffersize.hsdpa 4096,87380,256960,4096,16 = 384.256960
-net.tcp.buffersize.evdo_b 4096,87380,256960,4096,1 = 6384.256960
-net.tcp.buffersize.umts 4096,87380,256960,4096,163 = 84.256960
-net.tcp.buffersize.hspa 4096,87380,256960,4096,163 = 84.256960
-net.tcp.buffersize.gprs 4096,87380,256960,4096,163 = 84.256960
-net.tcp.buffersize.edge 4096,87380,256960,4096,163 = 84.256960
 
 # Sim-free requirements
 keyguard.no_require_sim = true
