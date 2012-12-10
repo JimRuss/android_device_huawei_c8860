@@ -17,7 +17,7 @@ sysclktz 0
 	export EXTERNAL_STORAGE /sdcard
 
 	# Backup times are in UTC - check if recovery supports timezones
-	export TZ Europe/Berlin
+	export TZ US/Cincinnati
 
 	export HOME /
 
@@ -47,7 +47,7 @@ on boot
 	hostname localhost
 	domainname localdomain
 
-	write /sys/class/android_usb/android0/iSerial CM9-C8860
+	write /sys/class/android_usb/android0/iSerial CM9-c8860
 
 	symlink /sbin/linker /system/bin/linker
 
