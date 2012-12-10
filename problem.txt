@@ -1,3 +1,12 @@
+12-10-12
+ Well I was trying a few things out last night and I managed to overwrite my stock reovery,
+so now I have the dreaded blue screen.I've ordered a new phone which will be my primary phone a Galaxy S3.
+I'm just getting sick of the way Huawei does things,so now I can try alot more on my Mercury I don't have
+to worry about breaking it.That is once I get it fixed of course.I have a few ideals on that if they work
+I will make sure to post so others will know what to do if they run into the same problem.Spend a few days
+thinking things out and only a few minutes to break it,and they call this fun:)
+
+
 "TARGET_RELEASE-TOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files"
  This is not working for the Mercury yet. I,ve tried many different ways of listing the OTA_DEVICES.
  The original build.prop list "ro.product.device = msm7630_surf" so i've used this with no luck so far.
