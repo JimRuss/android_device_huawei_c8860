@@ -139,9 +139,8 @@ PRODUCT_COPY_FILES += \
         device/huawei/c8860/prebuilt/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
         device/huawei/c8860/prebuilt/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
         device/huawei/c8860/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-        device/huawei/c8860/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
-        vendor/huawei/c8860/data/cdrom/autorun.iso:system/cdrom/autorun.iso
-
+        vendor/huawei/c8860/data/cdrom/autorun.iso:system/cdrom/autorun.iso \
+        device/huawei/c8860/prebuilt/media_profiles.xml:system/etc/media_profiles.xml
 # PERMISSIONS
 
 PRODUCT_COPY_FILES += \
