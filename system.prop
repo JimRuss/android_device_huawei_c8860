@@ -125,6 +125,7 @@ ro.config.hwft_PinPukUnlockscr = true
 # copyright protection technology
 ro.config.hwdrm=true
 ro.config.hwdrm.set_contact = false
+ro.config.hw_DRMonlyFL=true
 
 # Status bar clock "AM", "PM" display 2 is large
 ro.config.AM_PM_STYLE = 1
@@ -139,8 +140,8 @@ ro.config.protocol_errors = false
 
 # These two imports are for data to support Bluetooth and network, such as 
 # import phone book 
-ro.config.ImportByBluetooth = true
-ro.config.ImportByInternet = true
+ro.config.ImportByBluetooth = false
+ro.config.ImportByInternet = false
 ro.config.tetherUseLocalDns = false
 
 # Allow safe mode
