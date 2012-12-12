@@ -1,6 +1,6 @@
 #!/sbin/sh
 echo "***"
-echo "*** Huawei C8860 - ClockworkMod Recovery ***"
+echo "*** Huawei c8860 - ClockworkMod Recovery ***"
 echo "***"
 echo "*** Recovery does not support logcat!"
 echo "*** However, \"adb shell\" is supported"
