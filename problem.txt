@@ -1,4 +1,4 @@
-12-10-12
+12-10-12      (Fastboot-BlueScreen)
  Well I was trying to use graphics.c in recovery last night, and I managed to overwrite my stock recovery.
 So now I have the dreaded blue screen.I've ordered a new phone which will be my primary phone a Galaxy S3.
 I'm just getting sick of the way Huawei does things,so now I can try alot more on my Mercury I don't have
