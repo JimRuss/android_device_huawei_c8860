@@ -381,8 +381,8 @@ debug.camcorder.disablemeta = 0
 
 # SD card emulation in of emmc partition & Storage(Some Huawei devices call 
 # for 14 on sdcard partition).Mercury calls for 16 
-ro.additionalmounts=/mnt/emmc
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.additionalmounts=/HWUserData
+ro.vold.switchablepair=/mnt/sdcard,/HWUserData
 ro.emmc.sdcard.partition = 16
 
 # Graphics, media acceleration related, rtsp streaming protocol the default has no open support
