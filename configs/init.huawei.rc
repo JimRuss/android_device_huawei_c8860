@@ -427,8 +427,8 @@ on boot
         chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
         chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
         chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-        chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-        chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+        chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 
+        chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 
 
 	chown bluetooth bluetooth /dev/ttyHS0
 	chmod 0660 /dev/ttyHS0
@@ -681,9 +681,8 @@ on boot
         service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
         -Dwext \
         -ieth0 \
--c/system/etc/wifi/wpa_supplicant.conf
+-W -c/system/etc/wifi/wpa_supplicant.conf
          class main
-
          socket wpa_eth0 dgram 0660 wifi wifi
          disabled
          oneshot
