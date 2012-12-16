@@ -175,9 +175,16 @@ PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := c8860
 PRODUCT_MANUFACTURER := Huawei
 
+PRODUCT_PROPERTY_OVERRIDES += \
+     ro.additionalmounts=/HWUserData \
+     ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
+
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# we have enough storage space to hold precise GC data
+PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Include Qualcomm open source features
 $(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
