@@ -34,7 +34,9 @@ TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
 
 # CAMERA & AUDIO
 USE_CAMERA_STUB := false
-BOARD_USES_GENERIC_AUDIO := true 
+BOARD_USES_GENERIC_AUDIO := false
+TARGET_PROVIDES_LIBAUDIO := true
+TARGET_PROVIDES_LIBRIL := true 
 
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
@@ -43,7 +45,7 @@ BOARD_USES_GENERIC_AUDIO := true
 # inherit from the proprietary version
 -include vendor/huawei/c8860/BoardConfigVendor.mk
 
-#BOOTLOADER
+# BOOTLOADER
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOOTLOADER_BOARD_NAME := c8860
@@ -67,11 +69,11 @@ TARGET_NO_KERNEL := false
 TARGET_PREBUILT_KERNEL := device/huawei/c8860/prebuilt/kernel
 
 # KERNEL (KERNEL BASE INFLATES)(CHANGE SIZE TO = PHYS_OFFSET= 0x00200000)  
-BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei androidboot.emmc=true 
+BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei  
 BOARD_KERNEL_BASE := 0x00200000
 BOARD_KERNEL_PAGESIZE := 4096
 
-#TARGET CFLAGS
+# TARGET CFLAGS
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 
@@ -118,7 +120,7 @@ BOARD_USE_QCOM_PMEM := true
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO
 
-#BLUETOOTH
+# BLUETOOTH
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_HAVE_DOWNLOAD_MODE := true
@@ -169,6 +171,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 104857600
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # RECOVERY
+BOARD_RECOVERY_RMT_STORAGE := true
 #BOARD_USES_RECOVERY_CHARGEMODE := true
 TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
 
