@@ -99,8 +99,8 @@ PRODUCT_COPY_FILES += \
 	device/huawei/c8860/configs/boot-c8860.rle:root/initlogo.rle \
 	device/huawei/c8860/configs/init.huawei.rc:root/init.huawei.rc \
 	device/huawei/c8860/configs/init.target.rc:root/init.target.rc \
-	device/huawei/c8860/configs/ueventd.huawei.rc:root/ueventd.huawei.rc 
-        
+	device/huawei/c8860/configs/ueventd.huawei.rc:root/ueventd.huawei.rc  
+          
 # WLAN MODULES
 PRODUCT_COPY_FILES += \
 	device/huawei/c8860/prebuilt/modules/dhd.ko:system/lib/modules/dhd.ko \
