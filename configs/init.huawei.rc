@@ -62,11 +62,13 @@ on emmc
         devwait /dev/block/mmcblk0p14
         mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
 
-        #Mount Custom Backup to /mnt/emmc
+        #Mount Custom Backup
+        mkdir /cust 
         mkdir /cust_backup
         devwait /dev/block/mmcblk0p1
-        mount vfat /dev/block/mmcblk0p1 /cust_backup ro
-        symlink /cust_backup/image/cust_data /cust
+        mount vfat /dev/block/mmcblk0p1 /cust_backup ro wait
+        mount ext4 loop@cust_backup/image/cust.img /cust ro
+        symlink /cust_backup/image/cust.img /cust
         
         # setup the global environment
         export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
