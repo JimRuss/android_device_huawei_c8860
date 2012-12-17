@@ -176,8 +176,8 @@ PRODUCT_MODEL := c8860
 PRODUCT_MANUFACTURER := Huawei
 
 PRODUCT_PROPERTY_OVERRIDES += \
-     ro.additionalmounts=/HWUserData \
-     ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
+ro.additionalmounts=/HWUserData \
+ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
