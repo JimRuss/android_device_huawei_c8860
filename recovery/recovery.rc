@@ -1,82 +1,51 @@
 on early-init
-	start ueventd
-
-# Let's keep charging if USB is connected
-
-# on boot-pause
-#	exec /sbin/charge
+    start ueventd
 
 on init
+    export PATH /sbin
+    export ANDROID_ROOT /system
+    export ANDROID_DATA /data
+    export EXTERNAL_STORAGE /sdcard
 
-# System clock os using UTC
-sysclktz 0
+    symlink /system/etc /etc
 
-	export PATH /sbin
-	export ANDROID_ROOT /system
-	export ANDROID_DATA /data
-	export EXTERNAL_STORAGE /sdcard
-
-	# Backup times are in UTC - check if recovery supports timezones
-	export TZ US/Cincinnati
-
-	export HOME /
-
-	symlink /system/etc /etc
-
-	mkdir /boot
-	mkdir /sdcard
-	mkdir /sd-ext
-	mkdir /datadata
-	mkdir /emmc
-	mkdir /system
-	mkdir /data
-	mkdir /cache
-
-	mkdir /misc
-	mkdir /cust
-	mkdir /HWUserData
-
-	mount /tmp /tmp tmpfs
-
-	# Recovery is not using menu keys for the moment - no need to show them
-	# write /sys/devices/platform/pmic-leds/leds/button-backlight/brightness 50
+    mkdir /boot
+    mkdir /sdcard
+    mkdir /sd-ext
+    mkdir /datadata
+    mkdir /system
+    mkdir /HWUserData
+    mkdir /data
+    mkdir /cache
+    mount /tmp /tmp tmpfs
 
 on boot
 
-	ifup lo
-	hostname localhost
-	domainname localdomain
+    ifup lo
+    hostname localhost
+    domainname localdomain
 
-	write /sys/class/android_usb/android0/iSerial CM9-c8860
+    class_start default
 
-	symlink /sbin/linker /system/bin/linker
-
-	class_start default
+service offmode_check /sbin/offmode_check
+    oneshot
 
 service ueventd /sbin/ueventd
-	critical
-
-service charge /sbin/charge
-
-service recovery /sbin/sh /sbin/ncm.sh
-	oneshot
+    critical
 
 service adbd /sbin/adbd recovery
+    disabled
 
-service rmt_storage /sbin/rmt_storage
+service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
+
+service offmode_charge /sbin/offmode_charge
+    disabled
+
+service recovery /sbin/recovery
+    disabled
 
 on property:persist.service.adb.enable=1
-	start adbd
+    start adbd
 
 on property:persist.service.adb.enable=0
-	stop adbd
-
-on property:sys.usb.config=adb
-	write /sys/class/android_usb/android0/enable 0
-	write /sys/class/android_usb/android0/idVendor 12d1
-	write /sys/class/android_usb/android0/idProduct 1038
-	write /sys/class/android_usb/android0/functions $sys.usb.config
-	write /sys/class/android_usb/android0/enable 1
-	start adbd
-	setprop sys.usb.state $sys.usb.config
-
+    stop adbd
