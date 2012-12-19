@@ -141,7 +141,7 @@ PRODUCT_COPY_FILES += \
         device/huawei/c8860/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
         vendor/huawei/c8860/data/cdrom/autorun.iso:system/cdrom/autorun.iso 
         
-# PERMISSIONS
+# PERMISSIONS(HARDWARE SPECIFIC) 
 
 PRODUCT_COPY_FILES += \
 frameworks/base/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
@@ -180,13 +180,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.additionalmounts=/HWUserData \
 ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
 
-# Device uses high-density artwork where available
+# DEVICE USES HIGH DENSITY ARTWORK WHERE AVAILABLE
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# we have enough storage space to hold precise GC data
+# WE HAVE ENOUGH SPACE TO HOLD PRECISE GC DATA
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# Include Qualcomm open source features
+# INCLUDE QUALCOMM OPEN SOURCE FEATURES
 $(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
 $(call inherit-product, vendor/qcom/opensource/omx/mm-video/Android.mk)
