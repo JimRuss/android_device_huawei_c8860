@@ -55,23 +55,17 @@ int device_reboot_now(volatile char* key_pressed, int key_code) {
 int device_handle_key(int key_code, int visible) {
     if (visible) {
         switch (key_code) {
-            case KEY_HOME:
             case KEY_DOWN:
             case KEY_VOLUMEDOWN:
                 return HIGHLIGHT_DOWN;
 
-            case KEY_MENU:
             case KEY_UP:
             case KEY_VOLUMEUP:
                 return HIGHLIGHT_UP;
 
-            case KEY_SEND:
             case KEY_POWER:
-            case KEY_SEARCH:
                 return SELECT_ITEM;
             
-            case KEY_END:
-            case KEY_BACKSPACE:
             case KEY_BACK:
                 if (!get_allow_toggle_display())
                 return GO_BACK;
