@@ -65,8 +65,7 @@ ARCH_ARM_HAVE_NEON := true
 TARGET_HAVE_ION := true
 TARGET_FORCE_CPU_UPLOAD := true
 
-# KERNEL ((TARGET)
-#TARGET_KERNEL_CONFIG := cm9_defconfig
+# KERNEL (TARGET)
 TARGET_NO_KERNEL := false
 TARGET_PREBUILT_KERNEL := device/huawei/c8860/prebuilt/kernel
 
