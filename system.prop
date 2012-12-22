@@ -344,7 +344,7 @@ dalvik.vm.dexopt-flags = m = y
 
 # Radio Interface Layer (RIL)
 ro.telephony.default_network=4
-ro.telephony.ril_class=HwQcomRIL
+ro.telephony.ril_class=HuaweiQualcommRIL
 ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
 ril.subscription.types= NV,RUIM
 ro.ril.shutdown=true
