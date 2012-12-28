@@ -137,7 +137,7 @@ on emmc
 on emmc-fs
         # mount mmc partitions
         wait /dev/block/mmcblk0p12
-        mount ext4 /dev/block/mmcblk0p12 /system ro barrier=1,nodelalloc
+        mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1,nodelalloc
         wait /dev/block/mmcblk0p13
         exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc,nodelalloc
@@ -238,7 +238,7 @@ on post-fs-data
         mkdir /data/misc/vpn/profiles 0770 system system
 	mkdir /data/misc/systemkeys 0700 system system
 
-	# Give system access to wpa_supplicant.conf for backup and restore
+	# Create directories used by wireless subsystem
 	mkdir /data/misc/wifi 0770 wifi wifi
 	chmod 0660 /data/misc/wifi/wpa_supplicant.conf
         chown wifi wifi /data/misc/wifi
@@ -470,6 +470,16 @@ on boot
         # Increase readahead buffers on MMC devices
         write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
         write /sys/block/mmcblk1/bdi/read_ahead_kb 1024 
+
+        service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/ block/mmcblk0p11 /dev/block/mmcblk0p17
+        user root
+        disabled
+
+service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
+        user bluetooth
+        group qcom_oncrpc bluetooth net_bt_admin
+        disabled
+        oneshot
 
         # Include extra init file
         import /system/etc/init.local.rc
