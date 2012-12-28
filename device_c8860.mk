@@ -68,8 +68,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         gps.msm7x30 \
         gps.default \
-        libgps \
-        gps.conf 
+        libgps 
+         
 
 # Wireless AP
 PRODUCT_PACKAGES += \
@@ -95,7 +95,7 @@ PRODUCT_COPY_FILES += \
 
 # VOLD CONFIG & BOOT LOGO & INIT SCRIPTS
 PRODUCT_COPY_FILES += \
-	device/huawei/c8860/configs/vold.fstab:system/etc/vold.fstab \
+        device/huawei/c8860/configs/vold.fstab:system/etc/vold.fstab \
 	device/huawei/c8860/configs/boot-c8860.rle:root/initlogo.rle \
 	device/huawei/c8860/configs/init.huawei.rc:root/init.huawei.rc \
 	device/huawei/c8860/configs/init.target.rc:root/init.target.rc \
@@ -179,6 +179,9 @@ PRODUCT_MANUFACTURER := Huawei
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.additionalmounts=/HWUserData \
 ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
+
+# Include initscripts
+$(call inherit-product-if-exists, device/huawei/c8860/initscripts/initscripts.mk)
 
 # DEVICE USES HIGH DENSITY ARTWORK WHERE AVAILABLE
 PRODUCT_AAPT_CONFIG := normal hdpi

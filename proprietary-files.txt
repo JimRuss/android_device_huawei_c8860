@@ -179,11 +179,9 @@ lib/libgemini.so
 # Other libraries and proprietary binaries
 
 lib/libaudioalsa.so
-etc/vold.fstab
 etc/loc_parameter.ini
 
 # GPS
-etc/gps.conf
 lib/libgps.so
 lib/libloc-rpc.so
 lib/libloc_api-rpc-qc.so
