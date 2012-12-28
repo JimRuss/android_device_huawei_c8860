@@ -1,7 +1,7 @@
 on emmc-fs
 # mount mmc partitions
         devwait /dev/block/mmcblk0p12
-        mount ext4 /dev/block/mmcblk0p12 /system ro barrier=1,nodelalloc 
+        mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1,nodelalloc 
         devwait /dev/block/mmcblk0p13
         exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc,nodelalloc
@@ -11,7 +11,7 @@ on emmc-fs
 
         # Mount the internal storage
         devwait /dev/block/mmcblk0p14
-        mount vfat /dev/block/mmcblk0p14 /HWUserData utf8 
+        #mount vfat /dev/block/mmcblk0p14 /mnt/emmc utf8 
 
         # Try to mount the partiton on the SD-card with an ext2|3|4 filesystem(Implimented by fredvj)
         mount auto /dev/block/mmcblk0p2 /sd-ext
