@@ -6,7 +6,8 @@ on init
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
-
+    export HOME /
+    
     symlink /system/etc /etc
 
     mkdir /boot
@@ -14,9 +15,12 @@ on init
     mkdir /sd-ext
     mkdir /datadata
     mkdir /system
+    mkdir /emmc
+    mkdir /misc
     mkdir /HWUserData
     mkdir /data
     mkdir /cache
+    mkdir /cust
     mount /tmp /tmp tmpfs
 
 on boot
@@ -27,19 +31,15 @@ on boot
 
     class_start default
 
-service offmode_check /sbin/offmode_check
-    oneshot
-
 service ueventd /sbin/ueventd
     critical
 
 service adbd /sbin/adbd recovery
     disabled
 
-service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
+service charge /sbin/charge
 
-service offmode_charge /sbin/offmode_charge
-    disabled
+service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
 
 service recovery /sbin/recovery
     disabled
