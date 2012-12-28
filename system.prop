@@ -361,7 +361,7 @@ ro.ril.htcmaskw1.bitmask = 4294967295
 ro.ril.htcmaskw1 = 14449
 ro.ril.hsupa.category = 5
 
-#
+# system props for the data modules and for telephony modules
 ro.use_data_netmgrd=true
 mobiledata.interfaces=rmnet0,gprs,ppp0
 net.dns1=194.25.2.129
