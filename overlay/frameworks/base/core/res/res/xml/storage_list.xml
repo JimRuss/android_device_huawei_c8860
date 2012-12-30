@@ -20,7 +20,7 @@
 <!-- The <device> element should contain one or more <storage> elements.
 Exactly one of these should have the attribute primary="true".
 This storage will be the primary external storage and should have mountPoint="/mnt/sdcard".
-Each storage should have both a mountPoint and storageDescription attribute.
+Each storage should have both a MountPoint and storageDescription attribute.
 The following attributes are optional:
 
 primary: (boolean) this storage is the primary external storage
