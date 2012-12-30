@@ -27,7 +27,7 @@
 #
 
 BLUETOOTH_SLEEP_PATH=/proc/bluetooth/sleep/proto
-LOG_TAG="qcom-bluetooth"
+LOG_TAG="bcm-bluetooth"
 LOG_NAME="${0}:"
 
 hciattach_pid=""
@@ -54,6 +54,8 @@ start_hciattach ()
   hciattach_pid=$!
   logi "start_hciattach: pid = $hciattach_pid"
   echo 1 > $BLUETOOTH_SLEEP_PATH
+  /system/bin/brcm_patchram_plus --enable_hci --enable_lpm --baudrate 3000000 --patchram /system/etc/bluetooth/BCM4329.hcd /dev/ttyHS0 &
+  hciattach_pid=$!
 }
 
 kill_hciattach ()

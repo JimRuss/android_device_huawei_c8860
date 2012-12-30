@@ -12,14 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Warning: this is actually a product definition, to be inherited from.
 
  rootscripts := \
          init.qcom.sh
 
  etcscripts := \
          init.qcom.post_boot.sh \
-         init.qcom.bt.sh 
+         init.qcom.bt.sh \
+         init.huawei.wifi.sh \
+         init.qcom.usb.sh
 
  PRODUCT_COPY_FILES += $(foreach file,$(rootscripts),\
          $(LOCAL_PATH)/$(file):root/$(file))

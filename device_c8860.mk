@@ -91,16 +91,12 @@ device/huawei/c8860/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30
 
 # BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329 needs to be set at "DiscoverSchedulerInterval = 0")
 PRODUCT_COPY_FILES += \
-        vendor/huawei/c8860/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf
-
-# VOLD CONFIG & BOOT LOGO & INIT SCRIPTS
+        vendor/huawei/c8860/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf 
+         
+# MEDIA PROFILES & BOOT LOGO
 PRODUCT_COPY_FILES += \
-        device/huawei/c8860/configs/vold.fstab:system/etc/vold.fstab \
-	device/huawei/c8860/configs/boot-c8860.rle:root/initlogo.rle \
-	device/huawei/c8860/configs/init.huawei.rc:root/init.huawei.rc \
-	device/huawei/c8860/configs/init.target.rc:root/init.target.rc \
-	device/huawei/c8860/configs/ueventd.huawei.rc:root/ueventd.huawei.rc \
-        device/huawei/c8860/configs/media_profiles.xml:system/etc/media_profiles.xml 
+        device/huawei/c8860/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
+        device/huawei/c8860/prebuilt/boot-c8860.rle:root/boot-c8860.rle 
           
 # WLAN MODULES
 PRODUCT_COPY_FILES += \
@@ -180,8 +176,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.additionalmounts=/HWUserData \
 ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
 
-# Include initscripts
+# Include initscripts & configs
 $(call inherit-product-if-exists, device/huawei/c8860/initscripts/initscripts.mk)
+$(call inherit-product-if-exists, device/huawei/c8860/configs/android.mk)
 
 # DEVICE USES HIGH DENSITY ARTWORK WHERE AVAILABLE
 PRODUCT_AAPT_CONFIG := normal hdpi
