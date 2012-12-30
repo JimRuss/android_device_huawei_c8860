@@ -1,14 +1,15 @@
 
         on early-init
-	
+	start ueventd
+
         on init
         sysclktz 0
         loglevel 3
 
 	# Set the default timezone
-	export TZ US/Cincinnati
+	export TZ en_US/Cincinnati
 
-        #make ext4 file system to support best reliability(ext3)
+        #make ext3 file system to support best reliability(ext3)=original
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev data=ordered
 
 	# Backward compatibility
@@ -150,12 +151,12 @@ on post-fs
         # once everything is setup, no need to modify /
         mount rootfs rootfs / ro remount
 
-        # We chown/chmod /data again so because mount is run as root + defaults
+        # We chown/chmod /data again because mount is run as root + defaults
 	chown system system /data
 	chmod 0771 /data
 
 	# Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
-	# We chown/chmod /persist again so because mount is run as root + defaults
+	# We chown/chmod /persist again because mount is run as root + defaults
 	chown system system /persist
 	chmod 0771 /persist
 	chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
