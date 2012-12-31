@@ -9,7 +9,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 # proprietary side of the device
 $(call inherit-product-if-exists, vendor/huawei/c8860/c8860-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/huawei/c8860/overlay
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Inherit dalvik parameters
 $(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
@@ -87,7 +87,7 @@ PRODUCT_PACKAGES += \
 
 # CAMERA HAL (fredvj camera hack)
 PRODUCT_COPY_FILES += \
-device/huawei/c8860/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
+$(LOCAL_PATH)/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
 
 # BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329 needs to be set at "DiscoverSchedulerInterval = 0")
 PRODUCT_COPY_FILES += \
@@ -95,46 +95,46 @@ PRODUCT_COPY_FILES += \
          
 # MEDIA PROFILES & BOOT LOGO
 PRODUCT_COPY_FILES += \
-        device/huawei/c8860/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
-        device/huawei/c8860/prebuilt/boot-c8860.rle:root/boot-c8860.rle 
+        $(LOCAL_PATH)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
+        $(LOCAL_PATH)/prebuilt/boot-c8860.rle:root/boot-c8860.rle 
           
 # WLAN MODULES
 PRODUCT_COPY_FILES += \
-	device/huawei/c8860/prebuilt/modules/dhd.ko:system/lib/modules/dhd.ko \
-	device/huawei/c8860/prebuilt/modules/dhd_4330.ko:system/lib/modules/dhd_4330.ko \
+	$(LOCAL_PATH)/prebuilt/modules/dhd.ko:system/lib/modules/dhd.ko \
+	$(LOCAL_PATH)/prebuilt/modules/dhd_4330.ko:system/lib/modules/dhd_4330.ko \
         vendor/huawei/c8860/proprietary/wifi/nvram.txt:system/wifi/nvram.txt 
 
 # KERNEL MODULES
 PRODUCT_COPY_FILES += \
-        device/huawei/c8860/prebuilt/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
-        device/huawei/c8860/prebuilt/modules/cls_flow.ko:system/lib/modules/cls_flow.ko \
-        device/huawei/c8860/prebuilt/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
-        device/huawei/c8860/prebuilt/modules/dal_remotetest.ko:system/lib/modules/dal_remotetest.ko \
-        device/huawei/c8860/prebuilt/modules/dma_test.ko:system/lib/modules/dma_test.ko \
-        device/huawei/c8860/prebuilt/modules/evbug.ko:system/lib/modules/evbug.ko \
-        device/huawei/c8860/prebuilt/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
-        device/huawei/c8860/prebuilt/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_erasepart.ko:system/lib/modules/mtd_erasepart.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_nandecctest.ko:system/lib/modules/mtd_nandecctest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_oobtest.ko:system/lib/modules/mtd_oobtest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_pagetest.ko:system/lib/modules/mtd_pagetest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_readtest.ko:system/lib/modules/mtd_readtest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_speedtest.ko:system/lib/modules/mtd_speedtest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_stresstest.ko:system/lib/modules/mtd_stresstest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_subpagetest.ko:system/lib/modules/mtd_subpagetest.ko \
-        device/huawei/c8860/prebuilt/modules/mtd_torturetest.ko:system/lib/modules/mtd_torturetest.ko \
-        device/huawei/c8860/prebuilt/modules/qce.ko:system/lib/modules/qce.ko \
-        device/huawei/c8860/prebuilt/modules/qcedev.ko:system/lib/modules/qcedev.ko \
-        device/huawei/c8860/prebuilt/modules/qcrypto.ko:system/lib/modules/qcrypto.ko \
-        device/huawei/c8860/prebuilt/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
-        device/huawei/c8860/prebuilt/modules/sch_dsmark.ko:system/lib/modules/sch_dsmark.ko \
-        device/huawei/c8860/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
+        $(LOCAL_PATH)/prebuilt/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
+        $(LOCAL_PATH)/prebuilt/modules/cls_flow.ko:system/lib/modules/cls_flow.ko \
+        $(LOCAL_PATH)/prebuilt/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
+        $(LOCAL_PATH)/prebuilt/modules/dal_remotetest.ko:system/lib/modules/dal_remotetest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/dma_test.ko:system/lib/modules/dma_test.ko \
+        $(LOCAL_PATH)/prebuilt/modules/evbug.ko:system/lib/modules/evbug.ko \
+        $(LOCAL_PATH)/prebuilt/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
+        $(LOCAL_PATH)/prebuilt/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_erasepart.ko:system/lib/modules/mtd_erasepart.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_nandecctest.ko:system/lib/modules/mtd_nandecctest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_oobtest.ko:system/lib/modules/mtd_oobtest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_pagetest.ko:system/lib/modules/mtd_pagetest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_readtest.ko:system/lib/modules/mtd_readtest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_speedtest.ko:system/lib/modules/mtd_speedtest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_stresstest.ko:system/lib/modules/mtd_stresstest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_subpagetest.ko:system/lib/modules/mtd_subpagetest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/mtd_torturetest.ko:system/lib/modules/mtd_torturetest.ko \
+        $(LOCAL_PATH)/prebuilt/modules/qce.ko:system/lib/modules/qce.ko \
+        $(LOCAL_PATH)/prebuilt/modules/qcedev.ko:system/lib/modules/qcedev.ko \
+        $(LOCAL_PATH)/prebuilt/modules/qcrypto.ko:system/lib/modules/qcrypto.ko \
+        $(LOCAL_PATH)/prebuilt/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
+        $(LOCAL_PATH)/prebuilt/modules/sch_dsmark.ko:system/lib/modules/sch_dsmark.ko \
+        $(LOCAL_PATH)/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
 # ETC
 PRODUCT_COPY_FILES += \
-        device/huawei/c8860/prebuilt/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
-        device/huawei/c8860/prebuilt/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-        device/huawei/c8860/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+        $(LOCAL_PATH)/prebuilt/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+        $(LOCAL_PATH)/prebuilt/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+        $(LOCAL_PATH)/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
         vendor/huawei/c8860/data/cdrom/autorun.iso:system/cdrom/autorun.iso 
         
 # PERMISSIONS(HARDWARE SPECIFIC) 
@@ -165,20 +165,13 @@ frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/an
 frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_c8860
-PRODUCT_DEVICE := c8860
-PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := c8860
-PRODUCT_MANUFACTURER := Huawei
-
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.additionalmounts=/HWUserData \
-ro.vold.switchablepair=/mnt/sdcard,/HWUserData 
+ro.additionalmounts=/mnt/emmc \
+ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
 # Include initscripts & configs
-$(call inherit-product-if-exists, device/huawei/c8860/initscripts/initscripts.mk)
-$(call inherit-product-if-exists, device/huawei/c8860/configs/android.mk)
+$(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
+$(call inherit-product-if-exists, $(LOCAL_PATH)/configs/android.mk)
 
 # DEVICE USES HIGH DENSITY ARTWORK WHERE AVAILABLE
 PRODUCT_AAPT_CONFIG := normal hdpi
