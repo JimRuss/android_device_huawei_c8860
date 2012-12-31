@@ -62,13 +62,13 @@ PRODUCT_PACKAGES += \
         audio.primary.msm7x30 \
         audio_policy.msm7x30 \
         libaudioutils
-
         
 # GPS
 PRODUCT_PACKAGES += \
         gps.msm7x30 \
         gps.default \
-        libgps 
+        libgps \
+        gps.c8860
          
 
 # Wireless AP
@@ -81,9 +81,12 @@ PRODUCT_PACKAGES += \
         Torch \
         Stk 
 
-# USB
+# Live Wallpapers
 PRODUCT_PACKAGES += \
-        com.android.future.usb.accessory
+LiveWallpapers \
+LiveWallpapersPicker \
+VisualizationWallpapers \
+librs_jni
 
 # CAMERA HAL (fredvj camera hack)
 PRODUCT_COPY_FILES += \
@@ -165,8 +168,21 @@ frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.additionalmounts=/mnt/emmc \
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+        ro.additionalmounts=/mnt/emmc \
+        ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        dalvik.vm.heapstartsize=5m \
+        dalvik.vm.heapgrowthlimit=48m \
+        dalvik.vm.heapsize=128m
+
+# USB mass storage
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.sys.usb.config=mass_storage
+
+# ADB access
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    persist.service.adb.enable=1
 
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
