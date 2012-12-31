@@ -145,9 +145,9 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_MMC_DEVICE := /dev/block/mmcblk0
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p13
-BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 #(use internal as sys)
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 # mmcblk0p14 (use internal as sys)
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p6
-BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk0p14 #(internal as sdext)
+BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk0p14 # mmcblk1p1 (internal as sdext)
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p1 #(mmcblk1p2 misc)
 
 # PARTITIONS
