@@ -93,7 +93,7 @@ input target files and return a dict."""
     # ok if misc_info.txt doesn't exist
     pass
 
-  # backwards compatibility: These values used to be in their own
+  # Backwards compatibility: These values used to be in their own
   # files. Look for them, in case we're processing an old
   # target_files zip.
 

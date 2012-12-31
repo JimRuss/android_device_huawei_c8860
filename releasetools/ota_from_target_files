@@ -705,7 +705,7 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
     script.Print("Unpacking new files...")
     script.UnpackPackageDir("system", "/system")
 
-  #if updating_recovery:
+  # if updating_recovery:
   # script.Print("Unpacking new recovery...")
   # script.UnpackPackageDir("recovery", "/system")
 

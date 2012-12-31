@@ -91,11 +91,11 @@ OPTIONS.tag_changes = ("-test-keys", "-dev-keys", "+release-keys")
 def GetApkCerts(tf_zip):
   certmap = common.ReadApkCerts(tf_zip)
 
-  # apply the key remapping to the contents of the file
+  # Apply the key remapping to the contents of the file
   for apk, cert in certmap.iteritems():
     certmap[apk] = OPTIONS.key_map.get(cert, cert)
 
-  # apply all the -e options, overriding anything in the file
+  # Apply all the -e options, overriding anything in the file
   for apk, cert in OPTIONS.extra_apks.iteritems():
     if not cert:
       cert = "PRESIGNED"

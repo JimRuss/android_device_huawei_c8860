@@ -218,7 +218,7 @@ mount point."""
 
   # Added by Blefish --START
   # This is same as WriteRawImage original, but with additional mounting and saving to proper place
-  # due to U8800 having recovery, boot and other in the same partition.
+  # due to c8860 having recovery, boot and other in the same partition.
   def WriteRawImage(self, mount_point, location, fn):
     """Write the given package file into the partition for the given
 mount point."""
