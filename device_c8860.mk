@@ -134,8 +134,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/prebuilt/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
         $(LOCAL_PATH)/prebuilt/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-        $(LOCAL_PATH)/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
-        vendor/huawei/c8860/data/cdrom/autorun.iso:system/cdrom/autorun.iso 
+        $(LOCAL_PATH)/prebuilt/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw         
         
 # PERMISSIONS(HARDWARE SPECIFIC) 
 

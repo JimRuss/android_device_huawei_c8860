@@ -172,12 +172,7 @@ lib/libmmipl.so
 lib/libacc.so
 lib/libgemini.so
 
-# USB storage ISO image with drivers
-
-#../data/cdrom/autorun.iso
-
 # Other libraries and proprietary binaries
-
 lib/libaudioalsa.so
 etc/loc_parameter.ini
 
