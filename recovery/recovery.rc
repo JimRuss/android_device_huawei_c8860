@@ -7,7 +7,7 @@ on init
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
     export HOME /
-    
+
     symlink /system/etc /etc
 
     mkdir /boot
@@ -34,18 +34,26 @@ on boot
 service ueventd /sbin/ueventd
     critical
 
+service recovery /sbin/recovery
+
 service adbd /sbin/adbd recovery
     disabled
 
-service charge /sbin/charge
+# Always start adbd on userdebug and eng builds
+# In recovery, always run adbd as root.
+on property:ro.debuggable=1
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 12d1
+    write /sys/class/android_usb/android0/idProduct 1038
+    write /sys/class/android_usb/android0/functions adb
+    #write /sys/class/android_usb/android0/enable 1
+    write /sys/class/android_usb/android0/iManufacturer Huawei
+    write /sys/class/android_usb/android0/iSerial CM9-c8860
+    #start adbd
+    setprop service.adb.root 1
 
-service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
-
-service recovery /sbin/recovery
-    disabled
-
-on property:persist.service.adb.enable=1
-    start adbd
-
-on property:persist.service.adb.enable=0
-    stop adbd
+# Restart adbd so it can run as root
+on property:service.adb.root=1
+    write /sys/class/android_usb/android0/enable 0
+    restart adbd
+    write /sys/class/android_usb/android0/enable 1
