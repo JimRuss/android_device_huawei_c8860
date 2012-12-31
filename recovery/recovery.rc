@@ -46,6 +46,7 @@ on property:ro.debuggable=1
     write /sys/class/android_usb/android0/idVendor 12d1
     write /sys/class/android_usb/android0/idProduct 1038
     write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/functions $sys.usb.config
     #write /sys/class/android_usb/android0/enable 1
     write /sys/class/android_usb/android0/iManufacturer Huawei
     write /sys/class/android_usb/android0/iSerial CM9-c8860
@@ -57,3 +58,4 @@ on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
     restart adbd
     write /sys/class/android_usb/android0/enable 1
+    setprop sys.usb.state $sys.usb.config
