@@ -30,4 +30,10 @@ for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
     adb pull /system/$FILE $BASE/$FILE
 done
 
+# Give correct permissions and folders also need execute permission.
+chmod 775 $BASE/bin/*
+chmod 644 $BASE/lib/*
+chmod 777 $BASE/lib/egl
+chmod 644 $BASE/lib/egl/*
+
 ./setup-makefiles.sh
