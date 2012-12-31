@@ -14,10 +14,14 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 PRODUCT_NAME := cm_c8860
 
 # Release name
-PRODUCT_RELEASE_NAME := HuaweiMercury
-PRODUCT_VERSION_DEVICE_SPECIFIC := c8860
+PRODUCT_RELEASE_NAME := c8860
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := c8860
+PRODUCT_NAME := cm_c8860
+PRODUCT_BRAND := Huawei
+PRODUCT_MODEL := c8860
+PRODUCT_MANUFACTURER := Huawei
+
 
 
