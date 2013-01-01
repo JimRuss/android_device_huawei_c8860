@@ -1,3 +1,29 @@
+# Copyright (c) 2009-2012, Code Aurora Forum. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+# * Redistributions of source code must retain the above copyright
+# notice, this list of conditions and the following disclaimer.
+# * Redistributions in binary form must reproduce the above copyright
+# notice, this list of conditions and the following disclaimer in the
+# documentation and/or other materials provided with the distribution.
+# * Neither the name of Code Aurora nor
+# the names of its contributors may be used to endorse or promote
+# products derived from this software without specific prior written
+# permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NON-INFRINGEMENT ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+# CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+# EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
 
         on early-init
 	start ueventd
@@ -5,6 +31,8 @@
         on init
         sysclktz 0
         loglevel 3
+
+        import init.huawei.usb.rc
 
 	# Set the default timezone
 	export TZ en_US/Cincinnati
@@ -40,6 +68,10 @@
         # Backwards Compat - XXX: Going away in G*
 	symlink /mnt/sdcard /sdcard
 
+        on early-boot
+        # set RLIMIT_MEMLOCK to 64MB
+        setrlimit 8 67108864 67108864 
+
 on emmc
 	mkdir /system
 	mkdir /data 0771 system system
@@ -63,7 +95,7 @@ on emmc
         devwait /dev/block/mmcblk0p14
         mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
 
-        #Mount Custom Backup
+        #Mount Custom Backup to /mnt/emmc
         mkdir /cust 
         mkdir /.cust_backup
         devwait /dev/block/mmcblk0p1
@@ -111,6 +143,10 @@ on emmc
 	write /proc/sys/kernel/sched_compat_yield 1
 	write /proc/sys/kernel/sched_child_runs_first 0
 	write /proc/sys/kernel/randomize_va_space 2
+
+        # import cne init file
+        on post-fs
+        export_rc /persist/init.cne.rc
 
 	# Create cgroup mount points for process groups
 	mkdir /dev/cpuctl
@@ -169,6 +205,9 @@ on post-fs
 	chown system system /sys/devices/platform/msm_sdcc.2/polling
 	chown system system /sys/devices/platform/msm_sdcc.3/polling
 	chown system system /sys/devices/platform/msm_sdcc.4/polling
+        chown system system /sys/module/g_android/parameters/product_id
+        chown system system /sys/devices/platform/android_usb/composition
+        chown system system /sys/devices/platform/android_usb/remote_wakeup
 
 	# Change permissions on vmallocinfo so we can grab it from bugreports
 	chown root log /proc/vmallocinfo
@@ -229,7 +268,7 @@ on post-fs-data
         chown system cache /cache/recovery
         chmod 0770 /cache/recovery
 
-	# Create basic filesystem structure
+	# Create basic filesystem structure (msm files on data)
 	mkdir /data/misc 01771 system misc
 	mkdir /data/misc/bluetoothd 0770 bluetooth bluetooth
 	mkdir /data/misc/bluetooth 0770 system system
@@ -296,7 +335,9 @@ on post-fs-data
         chmod 0774 /data/hwvefs
 
 	chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
+        chown system system /sys/class/android_usb/android0/gadget/lun/file
 	chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
+        chmod 0660 /sys/class/android_usb/android0/gadget/lun/file
 	chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
 	chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
 
@@ -409,7 +450,7 @@ on boot
 	chown system system /sys/devices/platform/msm_hsusb/gadget/switchusb
 	chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
         chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
-    
+
 	mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 	chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
 	chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
@@ -455,14 +496,6 @@ on boot
         chmod 0664 /dev/akm8975_dev
         chmod 0664 /dev/compass_dev
         chmod 0664 /dev/gyro
-
-        # SD card polling
-        chown system system /sys/module/g_android/parameters/product_id
-        chown system system /sys/devices/platform/msm_sdcc.2/polling
-        chown system system /sys/devices/platform/msm_sdcc.3/polling
-        chown system system /sys/devices/platform/msm_sdcc.4/polling
-        chown system system /sys/devices/platform/android_usb/composition
-        chown system system /sys/devices/platform/android_usb/remote_wakeup
 
         # Enable MASS storage on SDCARD
         #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1
