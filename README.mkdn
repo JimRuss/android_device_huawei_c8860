@@ -92,5 +92,4 @@ When you want to rebuild with new changes to the BoardConfig.mk or after syncing
 
 Credit & Thanks
 ----------------
-Based off fredvj's u8860 repo & playfulgod's c8860 repo!
-
+Based off fredvj's u8860 repo & playfulgod's c8860 repo! I have used files from alot of sources or changed peoples files for the purpose of using on the Mercury. These files will usually have the persons name on the part that belongs to them, that they have aloud me to use, Thanks Guys!
