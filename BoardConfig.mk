@@ -128,8 +128,8 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
 WIFI_DRIVER_MODULE_NAME := "dhd"
 WIFI_DRIVER_MODULE_ARG := ""
-WIFI_DRIVER_FW_PATH_STA := "/system/wifi/firmware.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/wifi/firmware_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "/system/wifi/firmware.bin /system/wifi/fw_4330_b2_sta.bin
+WIFI_DRIVER_FW_PATH_AP := "/system/wifi/firmware_apsta.bin /system/wifi/fw_4330_b2_ap.bin
 WIFI_DRIVER_FW_PATH_P2P := "p2p"
 
 # GPS 
