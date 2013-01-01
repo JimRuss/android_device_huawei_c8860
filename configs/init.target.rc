@@ -17,7 +17,7 @@ on emmc-fs
         # Try to mount the partiton on the SD-card with an ext2|3|4 filesystem (Implimented by fredvj)
         mount auto /dev/block/mmcblk0p2 /sd-ext
 
-        # Enable virtual MTD(Implimented by fredvj)
+        # Enable virtual MTD (Implimented by fredvj)
         write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
 
         
