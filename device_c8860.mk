@@ -82,15 +82,15 @@ PRODUCT_PACKAGES += \
         Stk 
 
 # Live Wallpapers
-PRODUCT_PACKAGES += \
-LiveWallpapers \
-LiveWallpapersPicker \
-VisualizationWallpapers \
-librs_jni
+        PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        VisualizationWallpapers \
+        librs_jni
 
 # CAMERA HAL (fredvj camera hack)
 PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
+        $(LOCAL_PATH)/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
 
 # BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329 needs to be set at "DiscoverSchedulerInterval = 0")
 PRODUCT_COPY_FILES += \
@@ -146,11 +146,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB mass storage
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    persist.sys.usb.config=mass_storage
+        persist.sys.usb.config=mass_storage
 
 # ADB access
 ADDITIONAL_DEFAULT_PROPERTIES += \
-    persist.service.adb.enable=1
+        persist.service.adb.enable=1
 
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
