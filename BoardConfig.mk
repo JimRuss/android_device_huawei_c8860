@@ -24,9 +24,8 @@ TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
 
 # CAMERA & AUDIO
 USE_CAMERA_STUB := false
-BOARD_USES_GENERIC_AUDIO := false
-TARGET_PROVIDES_LIBAUDIO := true
-TARGET_PROVIDES_LIBRIL := true 
+BOARD_USES_GENERIC_AUDIO := true
+TARGET_PROVIDES_LIBRIL := true
 
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
@@ -134,7 +133,7 @@ WIFI_DRIVER_FW_PATH_P2P := "p2p"
 
 # GPS 
 BOARD_USES_QCOM_GPS := true
-BOARD_GPS_LIBRARIES := libloc_api
+BOARD_GPS_LIBRARIES := libloc_api-rpc-qc libgps.so libloc-rpc libloc_ext
 BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
