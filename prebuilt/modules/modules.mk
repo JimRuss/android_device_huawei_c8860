@@ -41,6 +41,6 @@
        dhd_4330.ko
 
  PRODUCT_COPY_FILES += $(foreach file,$(modules),\
-         $(LOCAL_PATH)/$(file):system/lib/modules/$(file))
+       $(LOCAL_PATH)/$(file):system/lib/modules/$(file))
   
 
