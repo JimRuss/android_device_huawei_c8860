@@ -100,38 +100,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
         $(LOCAL_PATH)/prebuilt/boot-c8860.rle:root/boot-c8860.rle 
-          
-# WLAN MODULES
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/prebuilt/modules/dhd.ko:system/lib/modules/dhd.ko \
-	$(LOCAL_PATH)/prebuilt/modules/dhd_4330.ko:system/lib/modules/dhd_4330.ko \
-        vendor/huawei/c8860/proprietary/wifi/nvram.txt:system/wifi/nvram.txt 
-
-# KERNEL MODULES
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/prebuilt/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
-        $(LOCAL_PATH)/prebuilt/modules/cls_flow.ko:system/lib/modules/cls_flow.ko \
-        $(LOCAL_PATH)/prebuilt/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
-        $(LOCAL_PATH)/prebuilt/modules/dal_remotetest.ko:system/lib/modules/dal_remotetest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/dma_test.ko:system/lib/modules/dma_test.ko \
-        $(LOCAL_PATH)/prebuilt/modules/evbug.ko:system/lib/modules/evbug.ko \
-        $(LOCAL_PATH)/prebuilt/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
-        $(LOCAL_PATH)/prebuilt/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_erasepart.ko:system/lib/modules/mtd_erasepart.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_nandecctest.ko:system/lib/modules/mtd_nandecctest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_oobtest.ko:system/lib/modules/mtd_oobtest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_pagetest.ko:system/lib/modules/mtd_pagetest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_readtest.ko:system/lib/modules/mtd_readtest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_speedtest.ko:system/lib/modules/mtd_speedtest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_stresstest.ko:system/lib/modules/mtd_stresstest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_subpagetest.ko:system/lib/modules/mtd_subpagetest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/mtd_torturetest.ko:system/lib/modules/mtd_torturetest.ko \
-        $(LOCAL_PATH)/prebuilt/modules/qce.ko:system/lib/modules/qce.ko \
-        $(LOCAL_PATH)/prebuilt/modules/qcedev.ko:system/lib/modules/qcedev.ko \
-        $(LOCAL_PATH)/prebuilt/modules/qcrypto.ko:system/lib/modules/qcrypto.ko \
-        $(LOCAL_PATH)/prebuilt/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
-        $(LOCAL_PATH)/prebuilt/modules/sch_dsmark.ko:system/lib/modules/sch_dsmark.ko \
-        $(LOCAL_PATH)/prebuilt/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
 
 # ETC
 PRODUCT_COPY_FILES += \
