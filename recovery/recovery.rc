@@ -48,11 +48,11 @@ service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p1
 service offmode_charge /sbin/offmode_charge
     disabled
 
-#   on property:persist.service.adb.enable=1
-#   start adbd
+    on property:persist.service.adb.enable=1
+    start adbd
 
-#   on property:persist.service.adb.enable=0
-#   stop adbd
+    on property:persist.service.adb.enable=0
+    stop adbd
 
 # Always start adbd on userdebug and eng builds
 # In recovery, always run adbd as root
