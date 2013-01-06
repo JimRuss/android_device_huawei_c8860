@@ -515,6 +515,12 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
         disabled
         oneshot
 
+service usbhub_init /system/bin/usbhub_init
+        class late_start
+        user root
+        disabled
+        oneshot
+
         # Include extra init file
         import /system/etc/init.local.rc
 
@@ -825,6 +831,11 @@ service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
 
         service rmt_storage /system/bin/rmt_storage
 	class main
+        user root
+        disabled
+       
+        on property:ro.emmc=1
+        start rmt_storage
 
         service filebackup /system/bin/filebackup
 	class core
