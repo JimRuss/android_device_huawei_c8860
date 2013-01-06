@@ -256,5 +256,4 @@ etc/apns-conf.xml
 # APP
 app/CdmaNamProgramming.apk
 app/MyAccount.apk
-app/Gallery3D.apk
 app/BluetoothImport.apk
