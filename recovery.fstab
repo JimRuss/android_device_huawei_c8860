@@ -1,3 +1,4 @@
+# (Implemented by fredvj & JimRuss)
 # boot.img & recovery.img are stored in the "/image" folder of mmcblk0p1
 # The partition is vfat, mounted as "/.cust_backup" in the root fs
 # mount point     fstype      device              [device2]
