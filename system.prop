@@ -331,7 +331,7 @@ sys.usb.config=adb
 persist.service.adb.enable=1
 persist.service.adb.root=1
 persist.sys.usb.config=mass_storage,adb
-sys.usb.config=mass_storage
+sys.usb.config=mass_storage,adb
 
 # Wireless LAN
 wifi.interface=eth0
