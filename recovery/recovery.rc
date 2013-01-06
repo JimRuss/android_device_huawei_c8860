@@ -43,6 +43,8 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
     disabled
 
+    symlink /sbin/linker /system/bin/linker
+
 service rmt_storage /sbin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11
 
 service offmode_charge /sbin/offmode_charge
