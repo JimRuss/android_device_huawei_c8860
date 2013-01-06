@@ -34,9 +34,6 @@
 
         import init.huawei.usb.rc
 
-	# Set the default timezone
-	export TZ en_US/Cincinnati
-
         #make ext3 file system to support best reliability(ext3)=original
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev data=ordered
 
@@ -335,12 +332,9 @@ on post-fs-data
         chmod 0774 /data/hwvefs
 
 	chown system system /sys/class/android_usb/android0/f_mass_storage/lun/file
-        chown system system /sys/class/android_usb/android0/gadget/lun/file
 	chmod 0660 /sys/class/android_usb/android0/f_mass_storage/lun/file
-        chmod 0660 /sys/class/android_usb/android0/gadget/lun/file
 	chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
 	chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
-        chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
 	setprop vold.post_fs_data_done 1
 
@@ -859,6 +853,28 @@ service usbhub_init /system/bin/usbhub_init
 	socket analyze_svc1 stream 0660 root system
 	socket analyze_svc2 stream 0660 root inet
 	oneshot
+
+        service sdcard /system/bin/sdcard /data/media 1023 1023
+        class late_start
+        disabled
+
+        on property:persist.fuse_sdcard=true
+        start sdcard
+
+        service dumpstate /system/bin/dumpstate -s
+        socket dumpstate stream 0660 shell log
+        disabled
+        oneshot
+
+        service qcom-post-boot /system/bin/sh /init.qcom.post_boot.sh
+        user root
+        disabled
+        oneshot
+
+        service qcom-wifi /system/bin/sh /system/etc/init.qcom.wifi.sh
+        user root
+        disabled
+        oneshot
 
 # Triggered by the KEY_VOLUMEUP and KEY_VOLUMEDOWN keycodes or triggered by projectmenu
 service bugreport /system/bin/dumpstate -d -v -o /sdcard/bugreports/bugreport
