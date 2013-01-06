@@ -340,6 +340,7 @@ on post-fs-data
         chmod 0660 /sys/class/android_usb/android0/gadget/lun/file
 	chown system system /sys/class/android_usb/android0/f_rndis/ethaddr
 	chmod 0660 /sys/class/android_usb/android0/f_rndis/ethaddr
+        chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
 
 	setprop vold.post_fs_data_done 1
 
