@@ -137,6 +137,7 @@ packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/pe
 PRODUCT_PROPERTY_OVERRIDES += \
         ro.additionalmounts=/mnt/emmc \
         ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+        ro.emmc.sdcard.partition = 16
 
 PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.heapstartsize=5m \
@@ -145,7 +146,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB mass storage
 ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.sys.usb.config=mass_storage
+        persist.sys.usb.config=mass_storage,adb
 
 # ADB access
 ADDITIONAL_DEFAULT_PROPERTIES += \
