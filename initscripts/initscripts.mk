@@ -19,7 +19,7 @@
  etcscripts := \
          init.qcom.post_boot.sh \
          init.qcom.bt.sh \
-         init.huawei.wifi.sh \
+         init.qcom.wifi.sh \
          init.qcom.usb.sh
 
  PRODUCT_COPY_FILES += $(foreach file,$(rootscripts),\
