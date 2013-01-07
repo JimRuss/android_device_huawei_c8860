@@ -160,9 +160,6 @@ $(call inherit-product-if-exists, $(LOCAL_PATH)/configs/android.mk)
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
 
-# WE HAVE ENOUGH SPACE TO HOLD PRECISE GC DATA
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 # INCLUDE QUALCOMM OPEN SOURCE FEATURES
 $(call inherit-product, vendor/qcom/opensource/omx/mm-core/Android.mk)
 $(call inherit-product, vendor/qcom/opensource/omx/mm-video/Android.mk)
