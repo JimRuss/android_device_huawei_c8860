@@ -85,9 +85,9 @@ You can include the time flag "time" with the -j flag.You can play with the -j f
 
     $ . build/envsetup.sh && time brunch c8860 -j5 2> warn.log
 
-My pc likes -j12 "real	23m17.578s"
-                  user	71m33.088s
-                   sys	3m1.447s
+My pc likes -j12 "real	22m52.619s"
+                  user	71m28.592s
+                  sys	2m59.659s
 
 Installing CM9
 ---------------
