@@ -13,17 +13,17 @@
 # limitations under the License.
 
 
- rootscripts := \
+ compile := \
          init.huawei.rc \
          init.target.rc \
          ueventd.huawei.rc \
          init.huawei.usb.rc
 
- etcscripts := \
+ etcfstab := \
          vold.fstab 
 
- PRODUCT_COPY_FILES += $(foreach file,$(rootscripts),\
+ PRODUCT_COPY_FILES += $(foreach file,$(compile),\
          $(LOCAL_PATH)/$(file):root/$(file))
 
- PRODUCT_COPY_FILES += $(foreach file,$(etcscripts),\
+ PRODUCT_COPY_FILES += $(foreach file,$(etcfstab),\
          $(LOCAL_PATH)/$(file):system/etc/$(file))
