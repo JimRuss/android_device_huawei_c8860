@@ -77,6 +77,18 @@ Or you can make a copy of warn.log without displaying warnings in terminal!
 
     $ . build/envsetup.sh && brunch c8860 2> warn.log
 
+Warn.log with -j flag(set for your processor)four core processor -j5.
+
+    $ . build/envsetup.sh && brunch c8860 -j5 2> warn.log
+
+You can include the time flag "time" with the -j flag.You can play with the -j flag option to find out what your pc likes!
+
+    $ . build/envsetup.sh && time brunch c8860 -j5 2> warn.log
+
+My pc likes -j12 "real	23m17.578s"
+                  user	71m33.088s
+                   sys	3m1.447s
+
 Installing CM9
 ---------------
 If the build was successful, you can now take the update zip found in out/target/product/c8860/ and flash using a custom recovery. Make sure to grab the latest Gapps to complete the experience.
