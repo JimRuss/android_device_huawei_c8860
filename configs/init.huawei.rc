@@ -587,6 +587,9 @@ service usbhub_init /system/bin/usbhub_init
         disabled
         oneshot
 
+        on property:ro.board.platform=msm7630_surf
+        start usbhub_init
+
         service dbus /system/bin/dbus-daemon --system --nofork
         socket dbus stream 660 bluetooth bluetooth
         user bluetooth
