@@ -9,6 +9,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 # proprietary side of the device
 $(call inherit-product-if-exists, vendor/huawei/c8860/c8860-vendor.mk)
 
+# Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Inherit dalvik parameters
@@ -91,7 +92,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
 
-# BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329 needs to be set at "DiscoverSchedulerInterval = 0")
+# BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(BCM4329) needs to be set at "DiscoverSchedulerInterval = 0")
 PRODUCT_COPY_FILES += \
         vendor/huawei/c8860/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf 
          
@@ -146,7 +147,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # USB mass storage
 ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.sys.usb.config=mass_storage,adb
+        persist.sys.usb.config=mass_storage,adb \
+        on property:sys.usb.config=mass_storage,adb
 
 # ADB access
 ADDITIONAL_DEFAULT_PROPERTIES += \
