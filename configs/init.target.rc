@@ -1,5 +1,5 @@
 on emmc-fs
-# mount mmc partitions
+# mount mmc partitions (original partition table)
         devwait /dev/block/mmcblk0p12
         mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1,nodelalloc 
         devwait /dev/block/mmcblk0p13
@@ -11,7 +11,7 @@ on emmc-fs
 
         # Mount the internal storage
         devwait /dev/block/mmcblk0p14
-        mount vfat /dev/block/mmcblk0p14 /HWUserData uid=1000,gid=1015,umask=0002,utf8
+        mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
  
 
         # Try to mount the partiton on the SD-card with an ext2|3|4 filesystem (Implimented by fredvj)
