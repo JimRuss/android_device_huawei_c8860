@@ -1,10 +1,10 @@
-# Copyright (C) 2007 The Android Open Source Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+# http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,21 +12,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# config.mk
 #
-# Product-specific compile-time definitions.
+# This file sets variables that control the way modules are built
+# throughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
 #
-
-LOCAL_PATH:= $(call my-dir)  
-
-# HEADER (target path)
-TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
 
 # WARNING: This line must come *before* including the proprietary
 # variant, so that it gets overwritten by the parent (which goes
 # against the traditional rules of inheritance).
+# The proprietary variant sets USE_CAMERA_STUB := false, this way
+# we use the camera stub when the vendor tree isn't present, and
+# the true camera library when the vendor tree is available.
 
-# inherit from the proprietary version
+LOCAL_PATH := $(call my-dir)
+
+# CAMERA & AUDIO
+USE_CAMERA_STUB := false
+BOARD_USES_GENERIC_AUDIO := true  
+
+# HEADER (target path)
+TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
+
+# Inherit from the proprietary version if exists
 -include vendor/huawei/c8860/BoardConfigVendor.mk
 
 # BOOTLOADER
@@ -63,10 +73,6 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 # COMMON CFLAGS
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DTARGET7x30 -DTARGET_MSM7x30 -DREFRESH_RATE=60 
 
-# CAMERA & AUDIO
-USE_CAMERA_STUB := false
-BOARD_USES_GENERIC_AUDIO := true
-
 # GRAPHICS (OPENGL HARDWARE ACCLERATION)
 TARGET_HARDWARE_3D := false
 USE_OPENGL_RENDERER := true
@@ -88,6 +94,7 @@ TARGET_USES_SF_BYPASS := false
 WEBCORE_INPAGE_VIDEO := true
 TARGET_HAVE_TSLIB := true
 TARGET_FORCE_CPU_UPLOAD := true
+TARGET_HAVE_ION := true
 
 # QUALCOMM HARDWARE
 BOARD_USES_QCOM_HARDWARE := true
@@ -109,7 +116,6 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 # CUSTOM RELEASETOOLS FOR OLD PARTITION TABLE
-TARGET_OTA_ASSERT_DEVICE := msm7630_surf,hwc8860,c8860,C8860
 TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
 
@@ -137,10 +143,10 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_MMC_DEVICE := /dev/block/mmcblk0
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p13
-BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 # mmcblk0p14 (use internal as sys)
+BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p6
-BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk0p14 # mmcblk1p1 (internal as sdext)
-BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p1 #(mmcblk1p2 misc)
+BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk0p14 
+BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p1 
 
 # PARTITIONS
 # Fix this up by examining fdisk /dev/block/mmcblk0 on a running device
@@ -150,7 +156,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 268435456 #256MB
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1073741824 #1GB
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 5242880 #5MB
 BOARD_CACHEIMAGE_PARTITION_SIZE := 134217728 #128MB
-BOARD_TOMBSTONESIMAGE_PARTITION_SIZE := 4096000 #4000KB
+BOARD_TOMBSTONESIMAGE_PARTITION_SIZE := 4096000 #4MB
 
 # RECOVERY
 BOARD_NO_RGBX_8888 := true
