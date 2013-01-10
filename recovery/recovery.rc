@@ -20,14 +20,22 @@ on init
     mkdir /HWUserData
     mkdir /data
     mkdir /cache
- #  mkdir /cust
+    mkdir /cust
     mount /tmp /tmp tmpfs
+
+# System clock os using UTC
+sysclktz 0
+
+# Backup times are in UTC - check if recovery supports timezones
+	export TZ US/Cincinnati
 
 on boot
 
     ifup lo
     hostname localhost
     domainname localdomain
+
+symlink /sbin/linker /system/bin/linker
 
     class_start default
 
