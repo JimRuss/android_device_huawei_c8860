@@ -31,13 +31,10 @@ LOCAL_PATH := $(call my-dir)
 
 # CAMERA & AUDIO
 USE_CAMERA_STUB := false
-BOARD_USES_GENERIC_AUDIO := true  
+BOARD_USES_GENERIC_AUDIO := true
 
 # HEADER (target path)
 TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
-
-# Inherit from the proprietary version if exists
--include vendor/huawei/c8860/BoardConfigVendor.mk
 
 # BOOTLOADER
 TARGET_NO_BOOTLOADER := true
