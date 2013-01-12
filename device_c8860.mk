@@ -33,10 +33,8 @@ PRODUCT_PACKAGES += \
         lights.msm7x30 \
         DSPManager \
         MusicFX \
-        setup_fs \
-        hwcomposer.default \
-	libOmxVidEnc 
-	
+        setup_fs 
+         	 	
 # Graphics
 PRODUCT_PACKAGES += \
         gralloc.msm7x30 \
@@ -46,7 +44,8 @@ PRODUCT_PACKAGES += \
         libQcomUI \
         libtilerenderer \
         libmemalloc \
-        liboverlay
+        liboverlay \
+        hwcomposer.default
 
 # QCOM OMX
 PRODUCT_PACKAGES += \
@@ -55,7 +54,8 @@ PRODUCT_PACKAGES += \
         libOmxVdec \
         libOmxVenc \
         libmm-omxcore \
-        libdivxdrmdecrypt
+        libdivxdrmdecrypt \
+        libOmxVidEnc
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -70,7 +70,6 @@ PRODUCT_PACKAGES += \
         gps.default \
         libgps 
          
-
 # Wireless AP
 PRODUCT_PACKAGES += \
         hostapd_cli \
