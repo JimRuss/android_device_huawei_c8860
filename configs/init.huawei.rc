@@ -708,22 +708,39 @@ service usbhub_init /system/bin/usbhub_init
 
         service qcom-sh /system/bin/sh /init.qcom.sh
 	user root
-	oneshot    
+	oneshot 
+
+        service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
+        user root
+        group system qcom_oncrpc
+        disabled
+        oneshot 
 
         service qmuxd /system/bin/qmuxd
 	class main
 	user root
 	group root
 
+        on property:crypto.driver.load=1
+        insmod /system/lib/modules/qce.ko
+        insmod /system/lib/modules/qcedev.ko
+
+        on property:crypto.driver.load=0
+        exec /system/bin/rmmod qcedev.ko
+        exec /system/bin/rmmod qce.ko
 
         service netmgrd /system/bin/netmgrd
 	class main
 	user root
 
+        service gpsone_daemon /system/bin/gpsone_daemon
+        user root
+        group qcom_oncrpc
+        disabled
 
         on property:ro.use_data_netmgrd=false
-	stop netmgrd
-
+      # netmgr not supported on specific target
+        stop netmgrd
 
         service wpa_supplicant /system/bin/logwrapper /system/bin/wpa_supplicant \
        -Dwext \
