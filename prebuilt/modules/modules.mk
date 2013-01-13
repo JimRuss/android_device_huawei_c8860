@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
- # Modules from precompiled kernel (until kernel is built from source)
+  # Modules from precompiled kernel (until kernel is built from source)
+
  modules := \
        ansi_cprng.ko \
        cls_flow.ko \
