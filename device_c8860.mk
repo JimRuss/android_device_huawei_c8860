@@ -147,7 +147,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # USB mass storage
 ADDITIONAL_DEFAULT_PROPERTIES += \
         persist.sys.usb.config=mass_storage,adb \
-        on property:sys.usb.config=mass_storage,adb
+        on property:sys.usb.config=mass_storage,adb \
+        ro.serialno=cm-c8860 
 
 # ADB access
 ADDITIONAL_DEFAULT_PROPERTIES += \

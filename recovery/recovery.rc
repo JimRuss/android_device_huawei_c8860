@@ -65,10 +65,12 @@ service offmode_charge /sbin/offmode_charge
 # Always start adbd on userdebug and eng builds
 # In recovery, always run adbd as root
     on property:ro.debuggable=1
+    on property:ro.serialno=cm-c8860
     on property:sys.usb.config=mass_storage,adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 12d1
     write /sys/class/android_usb/android0/idProduct 1038
+    write /sys/class/android_usb/android0/iSerial cm-c8860
     write /sys/class/android_usb/android0/functions mass_storage,adb
     #write /sys/class/android_usb/android0/enable 1
     #start adbd
