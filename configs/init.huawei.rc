@@ -810,18 +810,6 @@ service usbhub_init /system/bin/usbhub_init
 	user root
 	group system
 	disabled
-	oneshot
-    
-        service hci_dev_up /system/bin/hci_dev_state --dev_up
-	user root
-	group bluetooth system
-	disabled 
-	oneshot
-    
-        service hci_dev_down /system/bin/hci_dev_state --dev_down
-	user root
-	group bluetooth system
-	disabled 
 	oneshot    
 
         service btld /system/bin/btld
@@ -856,9 +844,6 @@ service usbhub_init /system/bin/usbhub_init
         service filebackup /system/bin/filebackup
 	class core
 	socket filebackup stream 0600 radio system
-
-        service PTTKeyDaemon /system/bin/PTTKeyDaemon 
-	oneshot
 
         service gps_nmea /system/bin/port-bridge /dev/nmea /dev/ttyGS1
 	disabled
