@@ -22,7 +22,8 @@
          init.qcom.wifi.sh \
          init.qcom.usb.sh \
          init.qcom.sync.sh \
-         init.qcom.sdio.sh 
+         init.qcom.sdio.sh \
+         init.qcom.fm.sh
 
  PRODUCT_COPY_FILES += $(foreach file,$(rootscripts),\
          $(LOCAL_PATH)/$(file):root/$(file))
