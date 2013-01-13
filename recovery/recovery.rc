@@ -24,10 +24,10 @@ on init
     mount /tmp /tmp tmpfs
 
 # System clock os using UTC
-sysclktz 0
+    sysclktz 0
 
 # Backup times are in UTC - check if recovery supports timezones
-	export TZ US/Cincinnati
+    export TZ US/Cincinnati
 
 on boot
 
