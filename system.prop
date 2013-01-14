@@ -157,7 +157,7 @@ ro.config.memtype = true
 # Radio type, Broadcom
 ro.config.fm_type = libbcmfm_if
 
-# Autofocus, the camera automatically Jiaokai Qi
+# Autofocus
 ro.config.camera.afctl.enable = true
 
 # System props for telephony modules
@@ -244,7 +244,7 @@ ro.setupwizard.mode = OPTIONAL
 ro.wifi.channels =
 
 #The dalvik virtual machine settings
-dalvik.vm.stack-trace-file = / data / anr / traces.txt
+dalvik.vm.stack-trace-file = /data/anr/traces.txt
 
 #                             (MODULES)
 --------------------------------------------------------------------------------
@@ -327,12 +327,11 @@ ro.qualcomm.bluetooth.dun=true
 net.bt.name = Android
 
 # USB
-sys.usb.config=adb
+ro.serialno=cm-c8860
 persist.service.adb.enable=1
 persist.service.adb.root=1
 persist.sys.usb.config=mass_storage,adb
 sys.usb.config=mass_storage,adb
-ro.serialno=cm-c8860
 
 # Wireless LAN
 wifi.interface=eth0
