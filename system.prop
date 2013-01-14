@@ -332,6 +332,7 @@ persist.service.adb.enable=1
 persist.service.adb.root=1
 persist.sys.usb.config=mass_storage,adb
 sys.usb.config=mass_storage,adb
+ro.serialno=cm-c8860
 
 # Wireless LAN
 wifi.interface=eth0
