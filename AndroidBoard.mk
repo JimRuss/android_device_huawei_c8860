@@ -6,3 +6,4 @@ ALL_PREBUILT += $(INSTALLED_KERNEL_TARGET)
 
 # include the non-open-source counterpart to this file
 -include vendor/huawei/c8860/AndroidBoardVendor.mk
+-include vendor/huawei/u8860/BoardConfigVendor.mk
