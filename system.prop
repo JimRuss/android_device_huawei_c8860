@@ -194,7 +194,7 @@ hw.sms.dellong.interval.time = 172.8 million
 # Short interest draft retention period, in milliseconds (ms), the default is two days
 
 # System.prop for surf
-rild.libpath = / system/lib/libril-qc-1.so
+rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs =-d / dev/smd0
 persist.rild.nitz_plmn =
 persist.rild.nitz_long_ons_0 =
@@ -344,7 +344,7 @@ dalvik.vm.dexopt-flags = m = y
 
 # Radio Interface Layer (RIL)
 ro.telephony.default_network=4
-ro.telephony.ril_class=HuaweiQualcommRIL
+ro.telephony.ril_class=HuaweiRIL
 ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
 ril.subscription.types= NV,RUIM
 ro.ril.shutdown=true
