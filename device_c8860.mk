@@ -89,7 +89,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/prebuilt/camera.msm7630_surf.so:system/lib/hw/camera.msm7x30.so
 
-# BLUETOOTH CONFIG (cm installs main.conf)(switch to mini-phone in cm.mk will stop it)(QC's bt chip needs 1; but now BCM4329 needs 0)
+# BLUETOOTH CONFIG (cm full installs main.conf)(switch to mini-phone in cm.mk will stop it)
 PRODUCT_COPY_FILES += \
         vendor/huawei/c8860/proprietary/etc/bluetooth/main.conf:system/etc/bluetooth/main.conf 
          
