@@ -36,7 +36,6 @@ on boot
     domainname localdomain
 
 symlink /sbin/linker /system/bin/linker
-
     class_start default
 
 service offmode_check /sbin/offmode_check
