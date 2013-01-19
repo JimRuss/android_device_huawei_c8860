@@ -53,10 +53,6 @@
         mkdir /mnt/sdcard 0000 system system
         mkdir /HWUserData 0777 system system
 
-        # * will disable all the options of mount command
-        wait /dev/block/mmcblk0p14
-	mount vfat /dev/block/mmcblk0p14 /HWUserData uid=1000,gid=1015,umask=0002,utf8
-
 	# Create cgroup mount point for cpu accounting
 	mkdir /acct
 	mount cgroup none /acct cpuacct
