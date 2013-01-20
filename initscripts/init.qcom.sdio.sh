@@ -27,7 +27,7 @@
 # IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# For successful WLAN card detection, WLAN needs SDIO polling turned on.
+# For successful WLAN card detection, WLAN needs "SDIO" polling turned on.
 # This script can be used to turn on/off SDIO polling on appropriate
 # SDIO slot on the MSM target (e.g. slot 3 on 7x30 surf).
 
