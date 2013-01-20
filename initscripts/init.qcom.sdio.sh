@@ -31,6 +31,7 @@
 # This script can be used to turn on/off SDIO polling on appropriate
 # SDIO slot on the MSM target (e.g. slot 3 on 7x30 surf).
 
+
 arg=$1
 ###/* < DTS2010110902990 lihongyu 20101109 begin */
 echo "$arg" > /sys/devices/platform/msm_sdcc.3/polling
