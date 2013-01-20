@@ -23,3 +23,9 @@
 add_lunch_combo cm_c8860-user
 add_lunch_combo cm_c8860-userdebug
 add_lunch_combo cm_c8860-eng
+
+add_lunch_combo huawei_c8860-user
+add_lunch_combo huawei_c8860-eng
+add_lunch_combo huawei_c8860-userdebug
+
+
