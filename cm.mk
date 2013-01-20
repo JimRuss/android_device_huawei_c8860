@@ -17,7 +17,7 @@ TARGET_BOOTANIMATION_NAME := vertical-480x854
 PRODUCT_DEVICE := c8860
 PRODUCT_NAME := cm_c8860
 PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := c8860
+PRODUCT_MODEL := Mercury
 PRODUCT_MANUFACTURER := Huawei
 
 #Set build fingerprint / ID / Product Name ect.
