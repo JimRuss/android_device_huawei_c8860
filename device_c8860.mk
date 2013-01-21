@@ -33,18 +33,21 @@ PRODUCT_PACKAGES += \
         MusicFX \
         setup_fs 
          	 	
-# Graphics
+# HAL
 PRODUCT_PACKAGES += \
         gralloc.msm7x30 \
         copybit.msm7x30 \
         hwcomposer.msm7x30 \
+        hwcomposer.default 
+
+# Graphics
+PRODUCT_PACKAGES += \
         libgenlock \
         libQcomUI \
         libtilerenderer \
         libmemalloc \
         liboverlay \
-        hwcomposer.default
-
+        
 # QCOM OMX
 PRODUCT_PACKAGES += \
         libstagefrighthw \
@@ -142,15 +145,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.heapgrowthlimit=48m \
         dalvik.vm.heapsize=128m
 
+# Emulate sdcard on /data/media
+PRODUCT_PROPERTY_OVERRIDES += \
+        persist.fuse_sdcard=true
+
 # USB mass storage
 ADDITIONAL_DEFAULT_PROPERTIES += \
         persist.sys.usb.config=mass_storage,adb \
-        on property:sys.usb.config=mass_storage,adb \
         ro.serialno=cm-c8860
 
 # ADB access
 ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.service.adb.enable=1
+        persist.service.adb.enable=1 \
+        persist.service.adb.root=1
 
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)

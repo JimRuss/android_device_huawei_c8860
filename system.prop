@@ -224,10 +224,10 @@ ro.secure=0
 # 0 CPU
 # 1 GPU
 debug.sf.hw=1
+debug.egl.hw=1 
 ro.dev.dmm=1
 # cpu (default)
-# gpu (quando il debug.sf.hw = 1)
-#debug.composition.type=gpu 
+debug.composition.type=gpu 
 # debug.composition.type=mdp|c2d|dyn; everthing else is GPU
 # Composition bypass
 # ro.sf.compbypass.enable=1
@@ -326,12 +326,13 @@ ro.qualcomm.bluetooth.dun=true
 # The default name of the Bluetooth mobile phone "customize to what-ever" 
 net.bt.name = Android
 
-# USB
+# USB mass storage
+persist.sys.usb.config=mass_storage,adb  
 ro.serialno=cm-c8860
+
+# ADB access
 persist.service.adb.enable=1
 persist.service.adb.root=1
-persist.sys.usb.config=mass_storage,adb
-sys.usb.config=mass_storage,adb
 
 # Wireless LAN
 wifi.interface=eth0
