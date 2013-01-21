@@ -149,16 +149,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.fuse_sdcard=true
 
-# USB mass storage
-ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.sys.usb.config=mass_storage,adb \
-        ro.serialno=cm-c8860
-
-# ADB access
-ADDITIONAL_DEFAULT_PROPERTIES += \
-        persist.service.adb.enable=1 \
-        persist.service.adb.root=1
-
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
 $(call inherit-product-if-exists, $(LOCAL_PATH)/configs/android.mk)
