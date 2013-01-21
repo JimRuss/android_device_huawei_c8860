@@ -4,7 +4,7 @@
 #
 
 ================================================== ============================
-# The following values are set to true or false. Some values are set to 
+# The following values are set to true or false. Some values are set to
 # numerical
 # numbers at a specific range starting with 0 on up."#"is the no commit option
 ================================================== ============================
@@ -121,7 +121,7 @@ ro.config.colortemperature = cold
 # The PUK locked to allow unlocking
 ro.config.hwft_PinPukUnlockscr = true
 
-# Drm, "Digital Rights Management" meaning, encrypted digital content 
+# Drm, "Digital Rights Management" meaning, encrypted digital content
 # copyright protection technology
 ro.config.hwdrm=true
 ro.config.hwdrm.set_contact = false
@@ -138,8 +138,8 @@ ro.config.cricket.drmringtone = true
 ro.config.do_sdcard_upgrade = true
 ro.config.protocol_errors = false
 
-# These two imports are for data to support Bluetooth and network, such as 
-# import phone book 
+# These two imports are for data to support Bluetooth and network, such as
+# import phone book
 ro.config.ImportByBluetooth = false
 ro.config.ImportByInternet = false
 ro.config.tetherUseLocalDns = false
@@ -165,11 +165,11 @@ ro.config.bro_about = true
 ro.config.bro_exit = true
 ro.config.bc_wifi_apsta = 0
 
-# Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution, 
+# Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution,
 # not a real 4G network) bridge
 ro.config.ehrpd = true
 
-# GPS enhancements, similar to the AGPS functionality, not found before the 
+# GPS enhancements, similar to the AGPS functionality, not found before the
 # satellite in the GPS, the first use
 # of the network to download ephemeris data
 # Then this data can quickly find the satellite and can be used to improve the speed of Star Search.
@@ -188,7 +188,7 @@ net.ntp.server2 = time.nist.gov
 net.ntp.time = 0
 net.ntp.timereference = 0
 
-# Network timing, when the phone time is not accurate this is to proofread 
+# Network timing, when the phone time is not accurate this is to proofread
 # with the network server
 hw.sms.dellong.interval.time = 172.8 million
 # Short interest draft retention period, in milliseconds (ms), the default is two days
@@ -224,10 +224,10 @@ ro.secure=0
 # 0 CPU
 # 1 GPU
 debug.sf.hw=1
-debug.egl.hw=1 
+debug.egl.hw=1
 ro.dev.dmm=1
 # cpu (default)
-debug.composition.type=gpu 
+debug.composition.type=gpu
 # debug.composition.type=mdp|c2d|dyn; everthing else is GPU
 # Composition bypass
 # ro.sf.compbypass.enable=1
@@ -246,7 +246,7 @@ ro.wifi.channels =
 #The dalvik virtual machine settings
 dalvik.vm.stack-trace-file = /data/anr/traces.txt
 
-#                             (MODULES)
+# (MODULES)
 --------------------------------------------------------------------------------
 #
 # System props for the cne module
@@ -273,7 +273,7 @@ media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
 lpa.use-stagefright=true
 lpa.decode=false
-#                          (ENDING IF MODULES)
+# (ENDING IF MODULES)
 --------------------------------------------------------------------------------
 #
 # Google program settings and Apps settings
@@ -323,11 +323,11 @@ ro.qualcomm.bluetooth.ftp=true
 ro.bluetooth.request.master=true
 ro.bluetooth.remote.autoconnect=true
 ro.qualcomm.bluetooth.dun=true
-# The default name of the Bluetooth mobile phone "customize to what-ever" 
+# The default name of the Bluetooth mobile phone "customize to what-ever"
 net.bt.name = Android
 
 # USB mass storage
-sys.usb.config=mass_storage,adb  
+sys.usb.config=mass_storage,adb
 ro.serialno=cm-c8860
 
 # ADB access
@@ -370,7 +370,7 @@ net.dns2=194.25.2.130
 DEVICE_PROVISIONED=1
 com.qc.hardware=true
 
-# The HDMI output? 
+# The HDMI output?
 ro.hdmi.enable = true
 
 # Built-in SD card
@@ -380,8 +380,8 @@ hw_internal_sd = true
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
-# SD card emulation in of emmc partition & Storage(Some Huawei devices call 
-# for 14 on sdcard partition).Mercury calls for 16 
+# SD card emulation in of emmc partition & Storage(Some Huawei devices call
+# for 14 on sdcard partition).Mercury calls for 16
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 ro.emmc.sdcard.partition = 16
@@ -392,7 +392,7 @@ media.stagefright.enable-http = true
 media.stagefright.enable-rtsp = false
 media.stagefright.enable-scan = true
 
-#   (These settings are for better battery life)
+# (These settings are for better battery life)
 # pm.sleep_mode - This mode is used when the phone is off
 # 0=Power Collapse Suspend, 1=Power Collapse, 2=Apps Sleep,
 # 3=Slow Clock and Wait for Interrupt, 4=Wait for Interrupt
@@ -408,17 +408,17 @@ wifi.supplicant_scan_interval=15
 video.accelerate.hw=1
 Debug.performance.tuning=1
 # Helps scrolling responsiveness
-windowsmgr.max_events_per_sec=150 
+windowsmgr.max_events_per_sec=150
 
 # Extended JNI checks
-# The extended JNI checks will cause the system to run more slowly, but they 
+# The extended JNI checks will cause the system to run more slowly, but they
 # can spot a variety of nasty bugs
 # before they have a chance to cause problems.
 # Default=true for development builds, set by android buildsystem.
 # ****(Tweaks for Dev's)****
-#dalvik.vm.execution-mode=int:jit 
-#ro.kernel.android.checkjni=0 
-#dalvik.vm.checkjni=false 
+#dalvik.vm.execution-mode=int:jit
+#ro.kernel.android.checkjni=0
+#dalvik.vm.checkjni=false
 
 # ETC
 hwui.render_dirty_regions=false
