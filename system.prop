@@ -327,7 +327,7 @@ ro.qualcomm.bluetooth.dun=true
 net.bt.name = Android
 
 # USB mass storage
-persist.sys.usb.config=mass_storage,adb  
+sys.usb.config=mass_storage,adb  
 ro.serialno=cm-c8860
 
 # ADB access
