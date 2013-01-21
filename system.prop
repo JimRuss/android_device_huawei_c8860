@@ -306,7 +306,7 @@ persist.radio.paging_priority=0
 persist.radio.sma_voice_3gpp=0
 persist.radio.tuneaway=1
 #
-# Buffersize(Implimented in init.huawei.rc)
+# Buffersize(Included in init.huawei.rc)
 #
 
 # Sim-free requirements
