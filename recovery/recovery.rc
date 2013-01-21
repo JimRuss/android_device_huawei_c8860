@@ -69,8 +69,8 @@ service offmode_charge /sbin/offmode_charge
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 12d1
     write /sys/class/android_usb/android0/idProduct 1038
-    write /sys/class/android_usb/android0/iSerial cm-c8860
-    write /sys/class/android_usb/android0/functions mass_storage,adb
+    write /sys/class/android_usb/android0/iSerial $ro.serialno
+    write /sys/class/android_usb/android0/functions $sys.usb.config
     #write /sys/class/android_usb/android0/enable 1
     #start adbd
     setprop service.adb.root 1
