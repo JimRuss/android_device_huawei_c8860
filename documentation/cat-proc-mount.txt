@@ -19,3 +19,5 @@ hwvefs /data/huawei_hwvefs fuse.hwvefs rw,nosuid,nodev,relatime,user_id=0,group_
 /dev/block/vold/179:33 /mnt/secure/asec vfat rw,dirsync,nosuid,nodev,noexec,relatime,uid=1000,gid=1015,fmask=0702,dmask=0702,allow_utime=0020,codepage=cp437,iocharset=iso8859-1,shortname=mixed,utf8,errors=remount-ro 0 0
 tmpfs /mnt/sdcard/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
 
+# (to enable logcat)
+Dial this: *#*#2846579#*#*
