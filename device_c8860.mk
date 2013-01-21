@@ -135,16 +135,6 @@ frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/an
 frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.additionalmounts=/mnt/emmc \
-        ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
-        ro.emmc.sdcard.partition = 16
-
-PRODUCT_PROPERTY_OVERRIDES += \
-        dalvik.vm.heapstartsize=5m \
-        dalvik.vm.heapgrowthlimit=48m \
-        dalvik.vm.heapsize=128m
-
 # Emulate sdcard on /data/media
 PRODUCT_PROPERTY_OVERRIDES += \
         persist.fuse_sdcard=true
