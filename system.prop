@@ -380,11 +380,9 @@ hw_internal_sd = true
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
-# SD card emulation in of emmc partition & Storage(Some Huawei devices call
-# for 14 on sdcard partition).Mercury calls for 16
+# SD card emulation in of emmc partition & Storage
 ro.additionalmounts=/mnt/emmc
 ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
-ro.emmc.sdcard.partition = 16
 
 # Graphics, media acceleration related, rtsp streaming protocol the default has no open support
 media.stagefright.enable-player = true
