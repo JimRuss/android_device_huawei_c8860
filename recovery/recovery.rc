@@ -63,10 +63,14 @@ service offmode_charge /sbin/offmode_charge
     on property:ro.debuggable=1
     on property:ro.serialno=cm-c8860
     on property:sys.usb.config=adb
+    on property:ro.product.model=Mercury
+    on property:ro.product.manufacturer=Huawei
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 12d1
     write /sys/class/android_usb/android0/idProduct 1038
     write /sys/class/android_usb/android0/iSerial $ro.serialno
+    write /sys/class/android_usb/android0/iProduct $ro.product.model
+    write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
     write /sys/class/android_usb/android0/functions $sys.usb.config
   # write /sys/class/android_usb/android0/enable 1
   # start adbd
