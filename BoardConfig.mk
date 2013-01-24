@@ -136,19 +136,34 @@ BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm7x30
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
+# RECOVERY FILESYSTEM TABLE
+# =================================================
+# 0 /tmp ramdisk (null) (null)
+# 1 /boot vfat /dev/block/mmcblk0p1 (null)
+# 2 /fat vfat /dev/block/mmcblk0p1 (null)
+# 3 /cache ext4 /dev/block/mmcblk0p6 (null)
+# 4 /data_pseudo ext4 /dev/block/mmcblk0p13 (null)
+# 5 /misc emmc /dev/block/mmcblk0p7 (null)
+# 6 /recovery vfat /dev/block/mmcblk0p1 (null)
+# 7 /HWUserData vfat /dev/block/mmcblk0p14 (null)
+# 8 /system ext4 /dev/block/mmcblk0p12 (null)
+# 9 /sdcard vfat /dev/block/mmcblk1p1 /dev/block/mmcblk1
+# 10/sd-ext auto  /dev/block/mmcblk1p2  (null)
+# =================================================
+
 # FILESYSTEM 
 BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_MMC_DEVICE := /dev/block/mmcblk0
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p13
 BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p6
 
 # SD CARD
-BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1
-BOARD_SDCARD_DEVICE_INTERNAL := /dev/block/mmcblk1p1
-BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1p2 
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1       
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1 
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2 
 
 # FILESYSTEM FORMATS
