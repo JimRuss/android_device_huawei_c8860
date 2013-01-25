@@ -26,7 +26,7 @@ on init
 # System clock os using UTC
     sysclktz 0
 
-# Backup times are in UTC - check if recovery supports timezones
+# Check if recovery supports timezones
     export TZ US/Cincinnati
 
 on boot
