@@ -37,8 +37,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
         gralloc.msm7x30 \
         copybit.msm7x30 \
-        hwcomposer.msm7x30 \
-        hwcomposer.default 
+        hwcomposer.msm7x30  
 
 # Graphics
 PRODUCT_PACKAGES += \
