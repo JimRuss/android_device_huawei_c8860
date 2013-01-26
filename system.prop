@@ -381,8 +381,8 @@ debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
 # SD card emulation in of emmc partition & Storage
-ro.additionalmounts=/mnt/emmc
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.additionalmounts=/mnt/sdcard 
+ro.vold.switchablepair=/mnt/sdcard2,/mnt/sdcard 
 
 # Graphics, media acceleration related, rtsp streaming protocol the default has no open support
 media.stagefright.enable-player = true
