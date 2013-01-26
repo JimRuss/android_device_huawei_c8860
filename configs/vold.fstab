@@ -34,11 +34,11 @@
 ## <sysfs_path> - List of sysfs paths to source devices
 ###################################################################
 
-#dev_mount emmc /emmc 14 /devices/platform/msm_sdcc.2/mmc_host
-#dev_mount sd-ext /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
-
 # MOUNTING OF INTERNAL SDCARD
-dev_mount emmc /HWUserData 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+#dev_mount emmc /mnt/emmc 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+dev_mount emmc /mnt/HWUserData 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+
 # MOUNTING OF EXTERNAL SDCARD
-dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
+#dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
+dev_mount sdcard /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 
