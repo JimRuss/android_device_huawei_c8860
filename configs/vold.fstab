@@ -36,10 +36,12 @@
 
 # MOUNTING OF INTERNAL SDCARD
 #dev_mount emmc /mnt/emmc 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+#dev_mount emmc /mnt/emmc 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
 dev_mount sdcard /mnt/sdcard emmc@fat /devices/platform/msm_sdcc.2/mmc_host/mmc0
 
 # MOUNTING OF EXTERNAL SDCARD
 #dev_mount sdcard /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
+#dev_mount sdcard /mnt/sdcard2 auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 dev_mount sdcard /mnt/sdcard2 auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 
 
