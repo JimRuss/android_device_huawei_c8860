@@ -9,7 +9,6 @@ on init
     export SD_EXT_DIRECTORY /sd-ext
     export HOME /
 
-    symlink /system/etc /etc
 
     mkdir /boot
     mkdir /sdcard
@@ -23,6 +22,8 @@ on init
     mkdir /cache
     mkdir /cust
     mount /tmp /tmp tmpfs
+
+    symlink /system/etc /etc
 
 # System clock os using UTC
     sysclktz 0
