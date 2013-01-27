@@ -137,6 +137,11 @@ frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/an
 frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
+# SD card emulation in of emmc partition & Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+ ro.additionalmounts=/HWUserData \
+ ro.vold.switchablepair=/mnt/sdcard,/HWUserData
+    
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
 $(call inherit-product-if-exists, $(LOCAL_PATH)/configs/android.mk)
