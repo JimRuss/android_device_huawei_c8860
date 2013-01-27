@@ -138,7 +138,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # 1 /boot vfat /dev/block/mmcblk0p1 (null)
 # 2 /fat vfat /dev/block/mmcblk0p1 (null)
 # 3 /cache ext4 /dev/block/mmcblk0p6 (null)
-# 4 /data_pseudo ext4 /dev/block/mmcblk0p13 (null)
+# 4 /data ext4 /dev/block/mmcblk0p13 (null)
 # 5 /misc emmc /dev/block/mmcblk0p7 (null)
 # 6 /recovery vfat /dev/block/mmcblk0p1 (null)
 # 7 /HWUserData vfat /dev/block/mmcblk0p14 (null)
