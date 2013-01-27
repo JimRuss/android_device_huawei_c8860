@@ -490,8 +490,10 @@ on boot
         chmod 0664 /dev/compass_dev
         chmod 0664 /dev/gyro
 
-        # Enable MASS storage on SDCARD
-        #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1
+        # Enable MASS storage on INTERNAL SDCARD "mmcblk1p1"
+        #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1 
+        
+        # Enable MASS storage on EXTERNAL SDCARD "mmcblk1p2"
         write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1
 
         # Increase readahead buffers on MMC devices
