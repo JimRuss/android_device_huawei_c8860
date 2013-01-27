@@ -60,7 +60,6 @@
 
         # Backwards Compat - XXX: Going away in G*
 	symlink /mnt/sdcard /sdcard
-        symlink /mnt/sd-ext /sd-ext
 
         on early-boot
         # set RLIMIT_MEMLOCK to 64MB
@@ -205,6 +204,13 @@ on post-fs
         chown system system /sys/module/g_android/parameters/product_id
         chown system system /sys/devices/platform/android_usb/composition
         chown system system /sys/devices/platform/android_usb/remote_wakeup
+
+        # Enable MASS storage on SDCARD "INTERNAL,EXTERNAL,PHONE,USB"
+        write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk0p1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.3/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1
 
 	# Change permissions on vmallocinfo so we can grab it from bugreports
 	chown root log /proc/vmallocinfo
@@ -444,7 +450,6 @@ on boot
 	chown system system /sys/devices/platform/msm_hsusb/gadget/sdstatus
 	chown system system /sys/devices/platform/msm_hsusb/gadget/switchusb
 	chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
-        chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
 
 	mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 	chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -491,12 +496,6 @@ on boot
         chmod 0664 /dev/akm8975_dev
         chmod 0664 /dev/compass_dev
         chmod 0664 /dev/gyro
-
-        # Enable MASS storage on INTERNAL SDCARD "mmcblk1p1"
-        #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1 
-        
-        # Enable MASS storage on EXTERNAL SDCARD "mmcblk1p2"
-        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1
 
         # Increase readahead buffers on MMC devices
         write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
