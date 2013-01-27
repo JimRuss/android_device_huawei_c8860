@@ -205,7 +205,8 @@ on post-fs
         chown system system /sys/devices/platform/android_usb/composition
         chown system system /sys/devices/platform/android_usb/remote_wakeup
 
-        # Enable MASS storage on SDCARD 
+        # Enable MASS storage on SDCARD
+        #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1 
         write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk1p1
         write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
         write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
