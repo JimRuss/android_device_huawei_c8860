@@ -105,6 +105,7 @@ on emmc
         export ANDROID_ASSETS /system/app
         export ANDROID_DATA /data
         export EXTERNAL_STORAGE /mnt/sdcard
+        export ANDROID_CACHE /cache
         export DOWNLOAD_CACHE /cache/download
         export ASEC_MOUNTPOINT /mnt/asec
         export LOOP_MOUNTPOINT /mnt/obb
