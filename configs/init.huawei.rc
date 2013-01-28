@@ -25,10 +25,10 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-        on early-init
+on early-init
 	start ueventd
 
-        on init
+on init
         sysclktz 0
         loglevel 3
 
@@ -36,23 +36,14 @@
 
         #make ext3 file system to support best reliability(ext3)=original
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev data=ordered
-
-	# Backward compatibility
-	symlink /system/etc /etc
-	symlink /sys/kernel/debug /d
-
+	
         on boot-pause
         exec system/bin/battery_charging
 
 	# Right now vendor lives on the same filesystem as system,
 	# but someday that may change.
 	symlink /system/vendor /vendor
-
-        # create mountpoints
-        mkdir /mnt 0775 root system
-        mkdir /mnt/sdcard 0000 system system
-        mkdir /HWUserData 0777 system system
-
+        
 	# Create cgroup mount point for cpu accounting
 	mkdir /acct
 	mount cgroup none /acct cpuacct
@@ -60,18 +51,24 @@
 
         # Backwards Compat - XXX: Going away in G*
 	symlink /mnt/sdcard /sdcard
+        symlink /mnt/sd-ext /sd-ext
+        symlink /system/etc /etc
+	symlink /sys/kernel/debug /d
 
         on early-boot
         # set RLIMIT_MEMLOCK to 64MB
         setrlimit 8 67108864 67108864 
 
-on emmc
 	mkdir /system
+        mkdir /mnt 0775 root system
 	mkdir /data 0771 system system
         mkdir /wifi 0775 root system
 	mkdir /cache 0770 system cache
 	mkdir /config 0500 root root
         mkdir /persist 0771 system system
+        mkdir /mnt/sd-ext 0000 system system
+        mkdir /mnt/sdcard 0000 system system
+        mkdir /mnt/emmc 0000 system system
         devwait /dev/block/mmcblk0p12
         mount ext4 /dev/block/mmcblk0p12 /system rw
         chmod 0755 /system/bin/usbhub
@@ -87,8 +84,7 @@ on emmc
         mkdir /HWUserData 0777 system system
         devwait /dev/block/mmcblk0p14
         mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
-        mkdir /mnt/sd-ext 0000 system system
-
+        
         #Mount Custom Backup to /mnt/emmc
         mkdir /cust 
         mkdir /.cust_backup
@@ -167,7 +163,6 @@ on emmc
 	# This is needed by any process that uses socket tagging.
 	chmod 0644 /dev/xt_qtaguid
 
-on emmc-fs
         # mount mmc partitions
         wait /dev/block/mmcblk0p12
         mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1,nodelalloc
