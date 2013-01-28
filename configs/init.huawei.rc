@@ -25,10 +25,10 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-        on early-init
+on early-init
 	start ueventd
 
-        on init
+on init
         sysclktz 0
         loglevel 3
 
@@ -36,23 +36,14 @@
 
         #make ext3 file system to support best reliability(ext3)=original
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev data=ordered
-
-	# Backward compatibility
-	symlink /system/etc /etc
-	symlink /sys/kernel/debug /d
-
+	
         on boot-pause
         exec system/bin/battery_charging
 
 	# Right now vendor lives on the same filesystem as system,
 	# but someday that may change.
 	symlink /system/vendor /vendor
-
-        # create mountpoints
-        mkdir /mnt 0775 root system
-        mkdir /mnt/sdcard 0000 system system
-        mkdir /HWUserData 0777 system system
-
+        
 	# Create cgroup mount point for cpu accounting
 	mkdir /acct
 	mount cgroup none /acct cpuacct
@@ -60,18 +51,24 @@
 
         # Backwards Compat - XXX: Going away in G*
 	symlink /mnt/sdcard /sdcard
+        symlink /mnt/sd-ext /sd-ext
+        symlink /system/etc /etc
+	symlink /sys/kernel/debug /d
 
         on early-boot
         # set RLIMIT_MEMLOCK to 64MB
         setrlimit 8 67108864 67108864 
 
-on emmc
 	mkdir /system
+        mkdir /mnt 0775 root system
 	mkdir /data 0771 system system
         mkdir /wifi 0775 root system
 	mkdir /cache 0770 system cache
 	mkdir /config 0500 root root
         mkdir /persist 0771 system system
+        mkdir /mnt/sd-ext 0000 system system
+        mkdir /mnt/sdcard 0000 system system
+        mkdir /mnt/emmc 0000 system system
         devwait /dev/block/mmcblk0p12
         mount ext4 /dev/block/mmcblk0p12 /system rw
         chmod 0755 /system/bin/usbhub
@@ -87,7 +84,7 @@ on emmc
         mkdir /HWUserData 0777 system system
         devwait /dev/block/mmcblk0p14
         mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
-
+        
         #Mount Custom Backup to /mnt/emmc
         mkdir /cust 
         mkdir /.cust_backup
@@ -105,11 +102,12 @@ on emmc
         export ANDROID_ASSETS /system/app
         export ANDROID_DATA /data
         export EXTERNAL_STORAGE /mnt/sdcard
+        export ANDROID_CACHE /cache
         export DOWNLOAD_CACHE /cache/download
         export ASEC_MOUNTPOINT /mnt/asec
         export LOOP_MOUNTPOINT /mnt/obb
         export PHONE_STORAGE /mnt/emmc
-        export SD_EXT_DIRECTORY /sd-ext
+        export SD_EXT_DIRECTORY /mnt/sd-ext
         export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/core-junit.jar
 
 	# Directory for putting things only root should see.
@@ -165,7 +163,6 @@ on emmc
 	# This is needed by any process that uses socket tagging.
 	chmod 0644 /dev/xt_qtaguid
 
-on emmc-fs
         # mount mmc partitions
         wait /dev/block/mmcblk0p12
         mount ext4 /dev/block/mmcblk0p12 /system rw barrier=1,nodelalloc
@@ -202,6 +199,14 @@ on post-fs
         chown system system /sys/module/g_android/parameters/product_id
         chown system system /sys/devices/platform/android_usb/composition
         chown system system /sys/devices/platform/android_usb/remote_wakeup
+
+        # Enable MASS storage on SDCARD
+        write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1 
+        #write /sys/devices/platform/mass_storage/lun0/file /dev/block/mmcblk1p1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.1/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.2/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.3/polling 1
+        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1
 
 	# Change permissions on vmallocinfo so we can grab it from bugreports
 	chown root log /proc/vmallocinfo
@@ -441,7 +446,6 @@ on boot
 	chown system system /sys/devices/platform/msm_hsusb/gadget/sdstatus
 	chown system system /sys/devices/platform/msm_hsusb/gadget/switchusb
 	chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
-        chown system system /sys/devices/platform/msm_hsusb/gadget/fixusb
 
 	mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 	chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
@@ -488,10 +492,6 @@ on boot
         chmod 0664 /dev/akm8975_dev
         chmod 0664 /dev/compass_dev
         chmod 0664 /dev/gyro
-
-        # Enable MASS storage on SDCARD
-        #write /sys/devices/platform/msm_hsusb/gadget/lun0/file /dev/block/mmcblk1p1
-        write /sys/bus/platform/drivers/msm_sdcc/msm_sdcc.4/polling 1
 
         # Increase readahead buffers on MMC devices
         write /sys/block/mmcblk0/bdi/read_ahead_kb 1024
@@ -859,9 +859,6 @@ service usbhub_init /system/bin/usbhub_init
         service sdcard /system/bin/sdcard /data/media 1023 1023
         class late_start
         disabled
-
-        on property:persist.fuse_sdcard=true
-        start sdcard
 
         service dumpstate /system/bin/dumpstate -s
         socket dumpstate stream 0660 shell log
