@@ -34,7 +34,7 @@
 ## <sysfs_path> - List of sysfs paths to source devices
 ###################################################################
 
-# "ICS seems hardcoded to mount to vfat filesystems"
+# "ICS seems hardcoded to mount to vfat filesystems first"
 
 # INTERNAL PHONE STORAGE "mmcblk0p14"
 #dev_mount emmc /mnt/emmc 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
@@ -43,12 +43,12 @@
 # MOUNTING OF INTERNAL SDCARD "mmcblk1p1" PRIMARY
 #dev_mount emmc /mnt/sdcard2 1 /devices/platform/msm_sdcc.2/mmc_host/mmc0
 #dev_mount sdcard /mnt/sdcard 1 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+#dev_mount sdcard /sdcard auto /devices/platform/msm_sdcc.2/mmc_host/mmc0
 dev_mount sdcard /mnt/sdcard emmc@fat /devices/platform/msm_sdcc.2/mmc_host/mmc0
 
-# MOUNTING OF EXTERNAL SDCARD "mmcblk1p2" SECONDARY
+# MOUNTING OF EXTERNAL SDCARD "mmcblk1p2" SECONDARY 
 #dev_mount sdcard /mnt/sdcard2 auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 #dev_mount sdcard /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
-#dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 dev_mount sd-ext /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 
 
