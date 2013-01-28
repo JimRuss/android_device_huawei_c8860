@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
         libQcomUI \
         libtilerenderer \
         libmemalloc \
-        liboverlay \
+        liboverlay 
         
 # QCOM OMX
 PRODUCT_PACKAGES += \
@@ -67,8 +67,11 @@ PRODUCT_PACKAGES += \
 # GPS
 PRODUCT_PACKAGES += \
         gps.msm7x30 \
-        gps.default \
         libgps 
+
+# USB accessory
+PRODUCT_PACKAGES += \
+        com.android.future.usb.accessory
          
 # Wireless AP
 PRODUCT_PACKAGES += \
@@ -81,7 +84,7 @@ PRODUCT_PACKAGES += \
         Stk 
 
 # Live Wallpapers
-        PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
         LiveWallpapers \
         LiveWallpapersPicker \
         VisualizationWallpapers \
@@ -134,10 +137,11 @@ frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/an
 frameworks/base/data/etc/com.tmobile.software.themes.xml:system/etc/permissions/com.tmobile.software.themes.xml \
 packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
 
-# Emulate sdcard on /data/media
+# SD card emulation in of emmc partition & Storage
 PRODUCT_PROPERTY_OVERRIDES += \
-        persist.fuse_sdcard=true
-
+ro.additionalmounts=/mnt/sdcard \
+ro.vold.switchablepair=/mnt/sdcard,/mnt/sd-ext
+    
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
 $(call inherit-product-if-exists, $(LOCAL_PATH)/configs/android.mk)
