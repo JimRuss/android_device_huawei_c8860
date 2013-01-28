@@ -74,7 +74,7 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 # COMMON CFLAGS
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DTARGET7x30 -DTARGET_MSM7x30 -DREFRESH_RATE=60 
 
-# GRAPHICS (OPENGL HARDWARE ACCLERATION)
+# GRAPHICS 
 TARGET_HARDWARE_3D := false
 USE_OPENGL_RENDERER := true
 BOARD_USES_ADRENO_200 := true
@@ -83,7 +83,6 @@ TARGET_HAVE_BYPASS := false
 TARGET_GRALLOC_USES_ASHMEM := true
 #if (TARGET_GRALLOC_USES_ASHMEM) is enabled, set debug.sf.hw=1 in system.prop
 TARGET_USES_GENLOCK := true
-BOARD_USES_HWCOMPOSER := true
 BOARD_USES_QCNE := true
 BOARD_USES_MMCUTILS := true
 ENABLE_WEBGL := true
@@ -99,9 +98,6 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 BOARD_USES_QCOM_GPS := true 
 BOARD_USE_QCOM_PMEM := true
-
-# SCORPION OPTIMIZATION
-#TARGET_USE_SCORPION_BIONIC_OPTIMIZATION := true
 	 
 # FM RADIO
 BOARD_FM_DEVICE := bcm4329
@@ -117,15 +113,15 @@ TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
 
 # WLAN 
-BOARD_WLAN_DEVICE := bcm4329
+BOARD_WLAN_DEVICE := bcm4330
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_MODULE_NAME := "dhd"
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd_4330.ko"
+WIFI_DRIVER_MODULE_NAME := "dhd_4330"
 WIFI_DRIVER_MODULE_ARG := ""
-WIFI_DRIVER_FW_PATH_STA := "/system/wifi/firmware.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/wifi/firmware_apsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "firmware_path=/system/wifi/fw_4330_b2_sta.bin nvram_path=/system/wifi/nvram_4330.txt"
+WIFI_DRIVER_FW_PATH_AP := "firmware_path=/system/wifi/fw_4330_b2_ap.bin nvram_path=system/wifi/nvram_4330.txt"
 
 # GPS 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
@@ -138,7 +134,7 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # 1 /boot vfat /dev/block/mmcblk0p1 (null)
 # 2 /fat vfat /dev/block/mmcblk0p1 (null)
 # 3 /cache ext4 /dev/block/mmcblk0p6 (null)
-# 4 /data_pseudo ext4 /dev/block/mmcblk0p13 (null)
+# 4 /data ext4 /dev/block/mmcblk0p13 (null)
 # 5 /misc emmc /dev/block/mmcblk0p7 (null)
 # 6 /recovery vfat /dev/block/mmcblk0p1 (null)
 # 7 /HWUserData vfat /dev/block/mmcblk0p14 (null)
@@ -151,7 +147,6 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_MMC_DEVICE := /dev/block/mmcblk0
 BOARD_DATA_DEVICE := /dev/block/mmcblk0p13
 BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12 
@@ -188,7 +183,7 @@ BOARD_NO_RGBX_8888 := true
 TARGET_NO_RECOVERY := false
 BOARD_RECOVERY_CHARGEMODE := true
 BOARD_RECOVERY_RMT_STORAGE := true
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10X18.h\"
 TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/c8860/recovery/graphics.c
 BOARD_RECOVERY_DEFINES := BOARD_HAS_NO_SELECT_BUTTON BOARD_HAS_SMALL_RECOVERY BOARD_UMS_LUNFILE BOARD_USE_CUSTOM_RECOVERY_FONT #BOARD_RECOVERY_HANDLES_MOUNT BOARD_RECOVERY_ALWAYS_WIPES 

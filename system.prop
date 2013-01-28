@@ -380,10 +380,6 @@ hw_internal_sd = true
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
 
-# SD card emulation in of emmc partition & Storage
-ro.additionalmounts=/mnt/emmc
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
-
 # Graphics, media acceleration related, rtsp streaming protocol the default has no open support
 media.stagefright.enable-player = true
 media.stagefright.enable-http = true

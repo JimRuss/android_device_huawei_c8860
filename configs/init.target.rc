@@ -12,8 +12,8 @@ on emmc-fs
         devwait /dev/block/mmcblk0p14
         mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
  
-        # Try to mount the partiton on the SD-EXT with an ext2|3|4 filesystem (Implimented by fredvj)
-        mount auto /dev/block/mmcblk0p2 /sd-ext
+        # Try to mount the partiton on the SD-EXT with an ext2|3|4 filesystem
+        mount auto /dev/block/mmcblk1p2 /sd-ext
 
         # Enable virtual MTD (Implimented by fredvj)
         write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
