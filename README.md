@@ -66,7 +66,7 @@ http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
    sudo ln -s /usr/lib/jvm/jdk1.6.0_38/jre/lib/i386/libnpjp2.so /usr/lib/mozilla/plugins
 
-Tools used for compiling "Comes from android source web page"
+Tools used for compiling "CM9"
 
 $ sudo apt-get install git-core gnupg flex bison gperf build-essential \
   zip curl zlib1g-dev zlib1g-dev:i386 libc6-dev lib32ncurses5-dev \
