@@ -8,7 +8,7 @@ on init
     export EXTERNAL_STORAGE /sdcard
     export SD_EXT_DIRECTORY /sd-ext
     export HOME /
-
+    
 
     mkdir /boot
     mkdir /sdcard
@@ -49,7 +49,9 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
     disabled
 
-service rmt_storage /sbin/rmt_storage
+service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/ block/mmcblk0p11 /dev/block/mmcblk0p17
+    user root
+    disabled
 
 service offmode_charge /sbin/offmode_charge
     disabled
