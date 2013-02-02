@@ -54,6 +54,7 @@ on init
         symlink /mnt/sd-ext /sd-ext
         symlink /system/etc /etc
 	symlink /sys/kernel/debug /d
+        symlink /mnt/emmc /HWUserData
 
         on early-boot
         # set RLIMIT_MEMLOCK to 64MB
