@@ -66,12 +66,12 @@ PRODUCT_PACKAGES += \
         
 # GPS
 PRODUCT_PACKAGES += \
-        gps.msm7x30 \
+        gps.c8860 \
         libgps 
 
 # USB accessory
 PRODUCT_PACKAGES += \
-        com.android.future.usb.accessory
+        com.android.future.usb.accessory 
          
 # Wireless AP
 PRODUCT_PACKAGES += \
@@ -141,6 +141,15 @@ packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/pe
 PRODUCT_PROPERTY_OVERRIDES += \
 ro.additionalmounts=/mnt/sdcard \
 ro.vold.switchablepair=/mnt/sdcard,/mnt/sd-ext
+
+# DALVIK
+PRODUCT_TAGS += dalvik.gc.type-precise
+PRODUCT_PROPERTY_OVERRIDES += \
+dalvik.vm.heapstartsize=5m \
+dalvik.vm.heapgrowthlimit=48m \
+dalvik.vm.heapsize=128m \
+dalvik.vm.dexopt-data-only = 1 \
+dalvik.vm.dexopt-flags = m = y
     
 # Include initscripts & configs
 $(call inherit-product-if-exists, $(LOCAL_PATH)/initscripts/initscripts.mk)
