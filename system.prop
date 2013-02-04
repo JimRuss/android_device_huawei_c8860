@@ -27,19 +27,26 @@ ro.config.hw_addsettingsdbex = 1
 # ro.debuggable=1
 
 # Available wifi access point prompts(True is always on)
-ro.config.hw_RemindWifiToPdp = false
+ro.config.hw_RemindWifiToPdp = true
 
 # Menu key to unlock the screen
 ro.config.hw_menu_unlockscreen = false
 ro.config.hw_virtualsdcard = true
+
 # Increase ringer volume
 ro.config.hw_ascend_ringtone = true
+
+# More volume steps in call #Adjustments from 7 to 20"
+ro.config.vc_call_steps=20
 
 # Eapsim the "Extensible Authentication Protocol"-the Subscriber Identity Module
 ro.config.hw_eapsim = false
 
 # Power saving mode
 ro.config.hw_power_saving = true
+
+# Key lights stay on while screen is on
+ro.mot.buttonlight.timeout=0
 
 # Lock screen
 ro.config.hw_lockscreen = true
@@ -83,9 +90,9 @@ ro.config.hw_fast_dormancy = 0
 # Cloud solution configuration
 ro.config.hw_tether_dun_enable = false
 
-# Huawei built-domestic SNS Sina "set hw_sns_acc_support value of 41 can be used here"This is for facebook and twitter"
-ro.config.hw_sns_acc_support = 41
-ro.config.hw_sns_acc_shortcut = 0
+# Huawei built-domestic SNS Sina 
+ro.config.hw_sns_acc_support = 7
+ro.config.hw_sns_acc_shortcut = 7
 ro.config.hw_sns_cloud_support = 0
 
 # Version Huawei to CM9
@@ -114,6 +121,7 @@ ro.config.ape_flac_enable = false
 ro.config.hw_always_allow_mms = false
 ro.config.hw_customizeType = 02
 ro.config.hwft_MatchNum = 11
+ro.config.hwft_simrefresh=true
 
 # Screen tones, cold=cold colors and warm=warm colors
 ro.config.colortemperature = cold
@@ -147,6 +155,9 @@ ro.config.tetherUseLocalDns = false
 # Allow safe mode
 ro.config.move_up_display = true
 
+# Phone wakes on power button only
+ro.config.hwfeature_wakeupkey=0
+
 # Allow the Task Manager
 ro.config.Huawei_Task_Manager = true
 
@@ -163,7 +174,7 @@ ro.config.camera.afctl.enable = true
 # System props for telephony modules
 ro.config.bro_about = true
 ro.config.bro_exit = true
-ro.config.bc_wifi_apsta = 0
+ro.config.bc_wifi_apsta= 0
 
 # Evolution of high-speed packet networks, CDMA ahead of LTE (3G evolution,
 # not a real 4G network) bridge
@@ -181,6 +192,7 @@ persist.sys.animationstart = false
 persist.sys.powerup_reason =
 persist.sys.actualpoweron = true
 # Delete persist.sys.user_set_airplane =
+persist.telephony.mpdn= false
 
 # Addtional properties
 net.ntp.server = time.windows.com
@@ -190,21 +202,8 @@ net.ntp.timereference = 0
 
 # Network timing, when the phone time is not accurate this is to proofread
 # with the network server
-hw.sms.dellong.interval.time = 172.8 million
+hw.sms.dellong.interval.time = 172800000
 # Short interest draft retention period, in milliseconds (ms), the default is two days
-
-# System.prop for surf
-rild.libpath=/system/lib/libril-qc-1.so
-rild.libargs =-d / dev/smd0
-persist.rild.nitz_plmn =
-persist.rild.nitz_long_ons_0 =
-persist.rild.nitz_long_ons_1 =
-persist.rild.nitz_long_ons_2 =
-persist.rild.nitz_long_ons_3 =
-persist.rild.nitz_short_ons_0 =
-persist.rild.nitz_short_ons_1 =
-persist.rild.nitz_short_ons_2 =
-persist.rild.nitz_short_ons_3 =
 
 # Open the shutdown alarm clock
 ro.poweroff_alarm = true
@@ -263,11 +262,13 @@ persist.cne.rat.acq.time.out=30000
 persist.cne.rat.acq.retry.tout=0
 #
 # system props for the MM modules
-#
+# Graphics, media acceleration related, rtsp streaming protocol the default has
+# no open support  
 media.stagefright.enable-player=true
-media.stagefright.enable-meta=false
+media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
+media.stagefright.enable-rtsp = false
 media.stagefright.enable-fma2dp=true
 media.stagefright.enable-aac=true
 media.stagefright.enable-qcp=true
@@ -278,8 +279,7 @@ lpa.decode=false
 #
 # Google program settings and Apps settings
 #
-ro.com.google.clientidbase = android-huawei
-ro.com.google.clientidbase= android-huawei-US
+ro.com.google.clientidbase= android-huawei
 ro.com.google.clientidbase.yt = android-huawei
 ro.com.google.clientidbase.am = android-huawei
 ro.com.google.clientidbase.gmm = android-huawei
@@ -291,6 +291,7 @@ ro.carrier= cricket
 ro.telephony.default_network= 4
 ro.cdma.home.operator.numeric= 31016
 ro.telephony.call_ring.multiple = false
+ro.telephony.call_ring.delay=800
 ro.cdma.home.operator.alpha= cricket
 ro.config.cdma_subscription=1
 ro.cdma.voicemail.number=mine
@@ -298,7 +299,7 @@ ro.ril.huawei_cdma=true
 #
 # Persist Radio
 #
-persist.radio.adb_log_on=0
+persist.radio.adb_log_on=1
 persist.radio.cdma.msgid=2
 persist.radio.net_pref_0=4
 persist.radio.net_pref_1=7
@@ -326,9 +327,9 @@ ro.qualcomm.bluetooth.dun=true
 # The default name of the Bluetooth mobile phone "customize to what-ever"
 net.bt.name = Android
 
-# USB mass storage
-sys.usb.config=mass_storage,adb
-ro.serialno=cm-c8860
+# USB "u8860 uses USB_ANDROID_MASS_STORAGE in B929 kernel "
+persist.ro.serialno=cm-c8860
+persist.sys.usb.config=mass_storage,adb
 
 # ADB access
 persist.service.adb.enable=1
@@ -338,21 +339,26 @@ persist.service.adb.root=1
 wifi.interface=eth0
 wifi.debug=true
 
-# System
-dalvik.vm.heapsize = 128m
-dalvik.vm.dexopt-data-only = 1
-dalvik.vm.dexopt-flags = m = y
-
 # Radio Interface Layer (RIL)
-ro.telephony.default_network=4
-ro.telephony.ril_class=HuaweiRIL
+ro.telephony.default_network = 4
+ro.telephony.ril_class = HuaweiRIL
 ro.telephony.ril.v3=icccardstatus,datacall,signalstrength,facilitylock,singlepdp,qcomuiccstack
-ril.subscription.types= NV,RUIM
-ro.ril.shutdown=true
+ril.subscription.types = NV,RUIM
+ro.ril.shutdown = true
+rild.libpath=/system/lib/libril-qc-1.so
+rild.libargs =-d / dev/smd0
+persist.rild.nitz_plmn =
+persist.rild.nitz_long_ons_0 =
+persist.rild.nitz_long_ons_1 =
+persist.rild.nitz_long_ons_2 =
+persist.rild.nitz_long_ons_3 =
+persist.rild.nitz_short_ons_0 =
+persist.rild.nitz_short_ons_1 =
+persist.rild.nitz_short_ons_2 =
+persist.rild.nitz_short_ons_3 =
 
 # Data Tweaks
-ro.ril.hsxpa=2
-ro.ril.gprsclass=10
+ro.ril.gprsclass = 10
 ro.ril.hep = 1
 ro.ril.enable.dtm = 1
 ro.ril.hsdpa.category = 10
@@ -375,16 +381,11 @@ ro.hdmi.enable = true
 
 # Built-in SD card
 hw_internal_sd = true
+ro.emmc.sdcard.partition=16
 
 # Landscape layout preview in camera
 debug.camera.landscape = true
 debug.camcorder.disablemeta = 0
-
-# Graphics, media acceleration related, rtsp streaming protocol the default has no open support
-media.stagefright.enable-player = true
-media.stagefright.enable-http = true
-media.stagefright.enable-rtsp = false
-media.stagefright.enable-scan = true
 
 # (These settings are for better battery life)
 # pm.sleep_mode - This mode is used when the phone is off
@@ -396,23 +397,27 @@ pm.sleep_mode=2
 # For power collapse 0=off, 1=on
 ro.ril.disable.power.collapse=0
 # I've read many places that this can be set from (150 to 180)wifi is supposed
-# to scan less frequently saving battery life.
-wifi.supplicant_scan_interval=15
-# Increases overall touch response
-video.accelerate.hw=1
-Debug.performance.tuning=1
+# to scan less frequently saving battery life. Default is 15
+wifi.supplicant_scan_interval=150
+
 # Helps scrolling responsiveness
-windowsmgr.max_events_per_sec=150
+windowsmgr.max_events_per_sec= 90
+
+# Improve Voice Call clarity
+ro.ril.enable.amr.wideband=1
 
 # Extended JNI checks
 # The extended JNI checks will cause the system to run more slowly, but they
 # can spot a variety of nasty bugs
 # before they have a chance to cause problems.
-# Default=true for development builds, set by android buildsystem.
-# ****(Tweaks for Dev's)****
-#dalvik.vm.execution-mode=int:jit
+# Default=true for development builds, set by android buildsystem."off=0 on=1"
+# ****(Tweaks for Dev's)**** 
 #ro.kernel.android.checkjni=0
+#ro.kernel.checkjni=0
 #dalvik.vm.checkjni=false
+
+# Logcat "disable / enable"
+logcat.live= enable
 
 # ETC
 hwui.render_dirty_regions=false
@@ -420,9 +425,9 @@ hwui.disable_vsync=false
 hwui.print_config=choice
 
 # Misc.
-ro.com.android.dateformat=dd-MM-yyyy
-ro.com.google.locationfeatures=0
 ro.adb.qemud = 1
+ro.ext4fs= 1
+ro.bidi.enabled= false
 
 # Camera hack (fredvj)
 ro.camera.hack=msm7630_surf
