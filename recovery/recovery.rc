@@ -49,7 +49,7 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
     disabled
 
-service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/ block/mmcblk0p11 /dev/block/mmcblk0p17
+service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/block/mmcblk0p11 /dev/block/mmcblk0p17
     user root
     disabled
 
