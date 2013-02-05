@@ -66,8 +66,7 @@ PRODUCT_PACKAGES += \
         
 # GPS
 PRODUCT_PACKAGES += \
-        gps.c8860 \
-        libgps 
+        gps.c8860  
 
 # USB accessory
 PRODUCT_PACKAGES += \
