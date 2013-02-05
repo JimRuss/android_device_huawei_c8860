@@ -3,7 +3,7 @@ android_device_huawei_c8860
 
 ICS device tree for Huawei Mercury.
 
-I would like to thank fredvj and playfulgod for there repo's.Reading through there work has helped me to understand androids a little better.Now if I could just learn how to use github a little better!
+I would like to thank fredvj,playfulgod and Blefish for there repo's.Reading through there work has helped me to understand androids a little better.
 
 The files in my proprietary-files.txt were pulled from gingerbread.
 All other files added were from playfulgods rom.
@@ -12,7 +12,7 @@ If you pull autorun.iso from gingerbread you will have to edit c8860-vendor-blob
 
 The more we can get people involved in compiling for our phones the better chance we have of getting the right combination that works best!One of you may be the next Dev for androids!I'm a middle aged newbie at this who took c+ and fortran in high school many years ago and likes to learn.There's no reason why others can't learn to compile if someone will point them in the right direction.So here's the basics on what little I know.
 
-I have been using a home built pc for compiling and it takes about 24 min. for each build after a change.I'm using an i5 3570k processor overclocked to 4.3GHz with 16GB of ram.I've also compiled ccache to help speed things up.The latest version is 3.1.8!It comes with very good instructions.Just remember this can eat up alot of time,so now you can see why more people working on this could help get things rolling alot faster. 
+I have been using a home built pc for compiling and it takes about 24 min. for each build after a change.I'm using an i5 3570k processor overclocked to 4.3GHz with 16GB of ram.I've also compiled ccache to help speed things up.The latest version is 3.1.9!It comes with very good instructions.Just remember this can eat up alot of time,so now you can see why more people working on this could help get things rolling alot faster. 
 
     You will need to download jdk to downloads folder.
 
