@@ -144,6 +144,8 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 # =================================================
 
 # FILESYSTEM 
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_MAX_PARTITIONS := 20
 BOARD_HAS_SDCARD_INTERNAL := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -183,21 +185,26 @@ BOARD_NO_RGBX_8888 := true
 TARGET_NO_RECOVERY := false
 BOARD_RECOVERY_CHARGEMODE := true
 BOARD_RECOVERY_RMT_STORAGE := true
+BOARD_HAS_DOWNLOAD_MODE := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_10x18.h\"
 TARGET_RECOVERY_INITRC := device/huawei/c8860/recovery/recovery.rc
 BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/c8860/recovery/graphics.c 
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_HAS_SMALL_RECOVERY := true
+BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 #BOARD_RECOVERY_HANDLES_MOUNT := true
 #BOARD_RECOVERY_ALWAYS_WIPES := true
+#BOARD_HAS_SMALL_RECOVERY := true
 
 # DISPLAY
-DEVICE_RESOLUTION := 480x854
+DEVICE_RESOLUTION := vertical-480x854
 
 # TOUCHSCREEN
 BOARD_USE_LEGACY_TOUCHSCREEN := true
 
-# USB
+# USB 
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true 
-BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
+
+# ETC
+TARGET_BOOTANIMATION_PRELOAD := true
 
