@@ -38,12 +38,12 @@
 
 # APPS ONLY LOOK FOR SDCARD NOT SDCARD1
 
-# MOUNTING OF INTERNAL SDCARD "mmcblk1p1" PRIMARY   (MODIFIED)
-dev_mount sdcard /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host
-dev_mount emmc /mnt/sdcard1 auto /devices/platform/msm_sdcc.4/mmc_host
+# MOUNTING OF INTERNAL SDCARD PRIMARY   (MODIFIED)
+dev_mount sdcard /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+dev_mount emmc /mnt/sdcard1 auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
 
-# MOUNTING OF EXTERNAL SDCARD "mmcblk1p2" SECONDARY (DEFAULT)
-dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.4/mmc_host
-dev_mount emmc /mnt/sdcard1 14 /devices/platform/msm_sdcc.2/mmc_host
+# MOUNTING OF EXTERNAL SDCARD SECONDARY (DEFAULT)
+dev_mount sdcard /mnt/sdcard auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
+dev_mount emmc /mnt/sdcard1 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
 
 
