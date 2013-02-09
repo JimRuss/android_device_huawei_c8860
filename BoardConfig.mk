@@ -155,8 +155,8 @@ BOARD_SYSTEM_DEVICE := /dev/block/mmcblk0p12
 BOARD_CACHE_DEVICE := /dev/block/mmcblk0p6
 
 # SD CARD
-BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1       
-BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1 
+BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk0p14      
+BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1p1 
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2 
 
 # FILESYSTEM FORMATS
