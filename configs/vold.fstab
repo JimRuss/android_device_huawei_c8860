@@ -36,11 +36,13 @@
 
 # "ICS seems hardcoded to mount to vfat filesystems first"
 
-# APPS ONLY LOOK FOR SDCARD NOT SDCARD1
-# So try to get apps to install on internal and leave external for everything else
+#  (ICS BUG REPORT)
+#"Yes, this is a known issue" - "when booting from emmc the content of 'init.partition.rc' 
+#needs to be modified manually before the build is done". The same applies to vold.fstab."
+
 
 # MOUNTING OF INTERNAL SDCARD PRIMARY   
-dev_mount sdcard /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+dev_mount emmc /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
 
 # MOUNTING OF EXTERNAL SDCARD SECONDARY 
 dev_mount sdcard /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
