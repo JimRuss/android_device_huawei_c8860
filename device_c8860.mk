@@ -138,8 +138,8 @@ packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/pe
 
 # SD card emulation in of emmc partition & Storage
 PRODUCT_PROPERTY_OVERRIDES += \
- ro.additionalmounts=/mnt/emmc \
- ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ ro.additionalmounts=/mnt/sdcard \
+ ro.vold.switchablepair=/mnt/sdcard,/mnt/sd-ext
 
 # DALVIK
 PRODUCT_TAGS += dalvik.gc.type-precise
