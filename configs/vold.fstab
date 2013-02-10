@@ -40,7 +40,7 @@
 # So try to get apps to install on internal and leave external for everything else
 
 # MOUNTING OF INTERNAL SDCARD PRIMARY   
-dev_mount emmc /HWUserData /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
+dev_mount sdcard /mnt/sdcard 14 /devices/platform/msm_sdcc.2/mmc_host/mmc0
 
 # MOUNTING OF EXTERNAL SDCARD SECONDARY 
 dev_mount sdcard /mnt/sd-ext auto /devices/platform/msm_sdcc.4/mmc_host/mmc2
