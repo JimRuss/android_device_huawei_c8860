@@ -50,10 +50,10 @@ on init
 	mkdir /acct/uid
 
         # Backwards Compat - XXX: Going away in G*
-	symlink /mnt/sdcard /sdcard
+        symlink /mnt/sdcard /sdcard
         symlink /mnt/sd-ext /sd-ext
         symlink /system/etc /etc
-	symlink /sys/kernel/debug /d
+        symlink /sys/kernel/debug /d
         symlink /mnt/emmc /HWUserData
 
         on early-boot
@@ -501,6 +501,7 @@ on boot
         service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p10 /dev/ block/mmcblk0p11 /dev/block/mmcblk0p17
         user root
         disabled
+        class main
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
         user bluetooth
@@ -706,6 +707,10 @@ service usbhub_init /system/bin/usbhub_init
         service qcom-sh /system/bin/sh /init.qcom.sh
 	user root
 	oneshot 
+     
+        service qemu-props-sh /system/bin/sh /init.qemu-props.sh
+        user root
+        oneshot
 
         service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
         user root
@@ -829,11 +834,6 @@ service usbhub_init /system/bin/usbhub_init
 
         service callife /system/bin/callife
 	oneshot
-
-        service rmt_storage /system/bin/rmt_storage
-	class main
-        user root
-        disabled
        
         on property:ro.emmc=1
         start rmt_storage
