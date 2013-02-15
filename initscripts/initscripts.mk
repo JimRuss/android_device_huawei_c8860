@@ -18,7 +18,6 @@
 
  etcscripts := \
          init.qcom.post_boot.sh \
-         init.qcom.bt.sh \
          init.qcom.wifi.sh \
          init.qcom.usb.sh \
          init.qcom.sync.sh \
