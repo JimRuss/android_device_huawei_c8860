@@ -20,7 +20,6 @@
          init.qcom.post_boot.sh \
          init.qcom.wifi.sh \
          init.qcom.usb.sh \
-         init.qcom.sync.sh \
          init.qcom.sdio.sh \
          init.qemu-props.sh
 
