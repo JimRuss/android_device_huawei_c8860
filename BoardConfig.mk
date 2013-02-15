@@ -113,15 +113,15 @@ TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOLS_OTA_FROM_TARGET_SCRIPT := device/huawei/c8860/releasetools/ota_from_target_files
 
 # WLAN 
-BOARD_WLAN_DEVICE := bcm4330
+BOARD_WLAN_DEVICE := bcm4329
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wext
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd_4330.ko"
-WIFI_DRIVER_MODULE_NAME := "dhd_4330"
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_MODULE_NAME := "dhd"
 WIFI_DRIVER_MODULE_ARG := ""
-WIFI_DRIVER_FW_PATH_STA := "firmware_path=/system/wifi/fw_4330_b2_sta.bin nvram_path=/system/wifi/nvram_4330.txt"
-WIFI_DRIVER_FW_PATH_AP := "firmware_path=/system/wifi/fw_4330_b2_ap.bin nvram_path=system/wifi/nvram_4330.txt"
+WIFI_DRIVER_FW_PATH_STA := "firmware_path=/system/wifi/firmware.bin nvram_path=/system/wifi/nvram.txt"
+WIFI_DRIVER_FW_PATH_AP := "firmware_path=/system/wifi/firmware_apsta.bin nvram_path=system/wifi/nvram.txt"
 
 # GPS 
 BOARD_VENDOR_QCOM_AMSS_VERSION := 50000
