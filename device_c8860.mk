@@ -100,7 +100,8 @@ PRODUCT_COPY_FILES += \
 # MEDIA PROFILES & BOOT LOGO
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
-        $(LOCAL_PATH)/prebuilt/boot-c8860.rle:root/boot-c8860.rle 
+        $(LOCAL_PATH)/prebuilt/boot-c8860.rle:root/boot-c8860.rle \
+        $(LOCAL_PATH)/prebuilt/autorun.iso:system/cdrom/autorun.iso
 
 # ETC
 PRODUCT_COPY_FILES += \
