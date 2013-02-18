@@ -118,7 +118,7 @@ case "$multirild" in
          esac
 esac
 case "$netmgr" in
-        "true")
+        "true" | "True" | "TRUE")
         start netmgrd
     esac
 esac
@@ -153,8 +153,52 @@ case "$target" in
         start quipc_main
 esac
 
+# /* < DTS2011122007510 liwei 20111220 begin */
+# If vendor is cricket/us, read nv 855 to determine related property settings.
+vendor=`getprop ro.com.google.clientidbase.ms`
+case "$vendor" in
+    "android-cricket")
+        /system/bin/read_nv_855
+        ;;
+    * ) ;;
+esac
+# /* DTS2011122007510 liwei 20111220 end > */
+
+#
+# Allow persistent usb charging disabling
+# User needs to set usb charging disabled in persist.usb.chgdisabled
+#
+target=`getprop ro.product.device`
+usbchgdisabled=`getprop persist.usb.chgdisabled`
+case "$usbchgdisabled" in
+    "") ;; #Do nothing here
+    * )
+    case $target in
+        "msm8660_surf" | "msm8660_csfb")
+        echo "$usbchgdisabled" > /sys/module/pmic8058_charger/parameters/disabled
+    esac
+esac
+
+# /*< DTS2010102301151 liyuping liliang  20101122 begin */
+# enable hwvefs daemon process.
+# /* < DTS2012022706144 weizhonghui 20120227 begin */
+/system/bin/hwvefs /data/huawei_hwvefs -o allow_other &
+# /* DTS2012022706144 weizhonghui 20120227 end > */
+# /* DTS2010102301151 liyuping liliang  20101122 end > */
+
+#/* < DTS2011031705399 renxigang 20110317 begin */
+/system/bin/write_NV_114
+#/* DTS2011031705399 renxigang 20110317 end > */
 case "$target" in
-    "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
+# DTS2011080503149 zhangqijia 20110808 begin Add support for "ro.product.device=hwm886". 
+# /*< DTS2011061005484 fangxinyong  20110613 begin */
+# /* add support to u8860/c8860 */
+# /*< DTS2011092001051 zhaosongwei  20110920 begin */
+# /* add support to u8680/u8730 */
+    "hwu8860" | "hwu8730" | "hwm886" | "u8860" | "c8860" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
+# /* DTS2011092001051 zhaosongwei  20110920 end > */
+# /* DTS2011061005484 fangxinyong  20110613 end > */
+# DTS2011080503149 zhangqijia 20110808 end
         insmod /system/lib/modules/ss_mfcinit.ko
         insmod /system/lib/modules/ss_vencoder.ko
         insmod /system/lib/modules/ss_vdecoder.ko
@@ -218,7 +262,7 @@ case "$target" in
                     ;;
                 esac
 
-chown system system $mem/memory$block/state
+               chown system system $mem/memory$block/state
 
                 echo online > $mem/memory$block/state
                 case "$?" in
@@ -231,12 +275,12 @@ chown system system $mem/memory$block/state
                     ;;
                 esac
 
-setprop ro.dev.dmm.dpd.start_address $movable_start_bytes
+                setprop ro.dev.dmm.dpd.start_address $movable_start_bytes
                 setprop ro.dev.dmm.dpd.block $block
             ;;
         esac
 
-op=`cat $mem/low_power_memory_start_bytes`
+        op=`cat $mem/low_power_memory_start_bytes`
         case "$op" in
             "0" )
                 log -p i -t DMM Self-Refresh-Only Disabled. low_power_memory_start_bytes not set:$op
@@ -251,7 +295,7 @@ op=`cat $mem/low_power_memory_start_bytes`
             ;;
         esac
         ;;
-    "msm8660" )
+    "msm8660_surf")
         platformvalue=`cat /sys/devices/system/soc/soc0/hw_platform`
         case "$platformvalue" in
             "Fluid")
