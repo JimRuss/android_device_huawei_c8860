@@ -1,4 +1,5 @@
-# Copyright (C) 2010 The Android Open Source Project
+#
+# Copyright (C) 2012 The Android Open-Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -11,13 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
-#
-# This file sets variables that control the way modules are built
-# throughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
 #
 
 # WARNING: This line must come *before* including the proprietary
@@ -32,6 +26,9 @@ LOCAL_PATH := $(call my-dir)
 # CAMERA & AUDIO
 USE_CAMERA_STUB := false
 BOARD_USES_GENERIC_AUDIO := true
+
+# Inherit from the proprietary version if exists
+-include vendor/huawei/c8860/BoardConfigVendor.mk
 
 # HEADER (target path)
 TARGET_SPECIFIC_HEADER_PATH += device/huawei/c8860/include
@@ -84,13 +81,11 @@ TARGET_GRALLOC_USES_ASHMEM := true
 #if (TARGET_GRALLOC_USES_ASHMEM) is enabled, set debug.sf.hw=1 in system.prop
 TARGET_USES_GENLOCK := true
 BOARD_USES_QCNE := true
-BOARD_USES_MMCUTILS := true
 ENABLE_WEBGL := true
 TARGET_USES_SF_BYPASS := false
 WEBCORE_INPAGE_VIDEO := true
 TARGET_HAVE_TSLIB := true
 TARGET_FORCE_CPU_UPLOAD := true
-TARGET_HAVE_ION := true
 
 # QUALCOMM HARDWARE
 BOARD_USES_QCOM_HARDWARE := true
@@ -204,4 +199,6 @@ BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 
 # ETC
 TARGET_BOOTANIMATION_PRELOAD := true
+BOARD_USES_MMCUTILS := true
+
 
