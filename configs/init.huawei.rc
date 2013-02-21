@@ -118,7 +118,8 @@ on init
         export LOOP_MOUNTPOINT /mnt/obb
         export PHONE_STORAGE /mnt/emmc
         export SD_EXT_DIRECTORY /mnt/sd-ext
-        export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework/services.jar:/system/framework/core-junit.jar
+        export BOOTCLASSPATH /system/framework/core.jar:/system/framework/bouncycastle.jar:/system/framework/ext.jar:/system/framework/framework.jar:/system/framework/android.policy.jar:/system/framework
+services.jar:/system/framework/core-junit.jar
 
         # Create cgroup mount point for cpu accounting
         mkdir /acct
@@ -197,7 +198,7 @@ on emmc-fs
 
         # The partition of mmcblk0p14 will be mounted to fat filesystem not ext4 filesystem
         # mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
-#/* mount cache partition */
+        # /* mount cache partition */
         mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev barrier=1,nodelalloc
 
 on post-fs
