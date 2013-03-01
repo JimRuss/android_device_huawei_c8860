@@ -7,9 +7,7 @@ on init
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
     export SD_EXT_DIRECTORY /sd-ext
-    export HOME /
     
-
     mkdir /boot
     mkdir /sdcard
     mkdir /sd-ext
@@ -29,7 +27,7 @@ on init
     sysclktz 0
 
 # Check if recovery supports timezones
-    export TZ US/Cincinnati
+    export TZ US/OHIO
 
 on boot
 
