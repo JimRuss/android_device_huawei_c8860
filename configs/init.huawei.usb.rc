@@ -11,11 +11,6 @@ write /sys/class/android_usb/android0/iProduct $ro.product.model
 write /sys/class/android_usb/android0/f_rndis/manufacturer Huawei
 write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
 
-service qcom-usb-sh /system/bin/sh /init.qcom.usb.sh
-    class core
-    user root
-    oneshot
-
 on property:sys.usb.config=mtp
 write /sys/class/android_usb/android0/enable 0
 write /sys/class/android_usb/android0/idVendor 12d1

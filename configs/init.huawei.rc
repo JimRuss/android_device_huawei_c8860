@@ -33,9 +33,6 @@ on init
         loglevel 3
 
         import init.huawei.usb.rc
-
-        # make ext3 file system to support best reliability(ext3)=original
-        mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev data=ordered
 	
         on boot-pause
         exec system/bin/battery_charging
@@ -70,27 +67,11 @@ on init
         mkdir /mnt/sd-ext 0000 system system
         mkdir /mnt/sdcard 0000 system system
         mkdir /mnt/emmc 0000 system system
-        devwait /dev/block/mmcblk0p12
-        mount ext4 /dev/block/mmcblk0p12 /system rw
+        mkdir /HWUserData 0777 system system
+        
         chmod 0755 /system/bin/usbhub
 	chmod 755 /system/bin/usbhub_init
         chmod 0755 /system/bin/diag_mdlog
-        mount ext4 /dev/block/mmcblk0p12 /system ro remount 
-        devwait /dev/block/mmcblk0p13
-        exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
-        # make ext4 file system to support best reliability
-        mount ext4/dev/block/mmcblk0p13 /data nosuid nodev data=ordered
-        # devwait /dev/block/mmcblk0p14
-        # mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev
-
-        # mount cache partition , application will write to /cache/recovery/command when restoring factory setting
-        devwait /dev/block/mmcblk0p6
-        exec /system/bin/e2fsck -p /dev/block/mmcblk0p6
-        mount ext4/dev/block/mmcblk0p6 /cache nosuid nodev data=ordered
-        devwait /dev/block/mmcblk0p1
-        mkdir /HWUserData 0777 system system
-        devwait /dev/block/mmcblk0p14
-        mount vfat /dev/block/mmcblk0p14 /HWUserData utf8
         
         # Mount Custom Backup to /mnt/emmc
         mkdir /cust 
@@ -102,7 +83,6 @@ on init
 
         write /proc/init_panic_virt_flash 1
 
-        
         # setup the global environment
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
 /system/bin/logwrapper /system/xbin/run-parts /system/etc/init.d
@@ -195,11 +175,6 @@ on emmc-fs
         wait /dev/block/mmcblk0p13
         exec /system/bin/e2fsck -p /dev/block/mmcblk0p13
         mount ext4 /dev/block/mmcblk0p13 /data nosuid nodev barrier=1 noauto_da_alloc,nodelalloc
-
-        # The partition of mmcblk0p14 will be mounted to fat filesystem not ext4 filesystem
-        # mount ext4 /dev/block/mmcblk0p14 /persist nosuid nodev barrier=1
-        # /* mount cache partition */
-        mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev barrier=1,nodelalloc
 
 on post-fs
         # once everything is setup, no need to modify /
@@ -970,6 +945,11 @@ on boot
         service qcom-wifi /system/bin/sh /system/etc/init.qcom.wifi.sh
         user root
         disabled
+        oneshot
+
+        service qcom-usb-sh /system/bin/sh /init.qcom.usb.sh
+        class core
+        user root
         oneshot
 
         # Triggered by the KEY_VOLUMEUP and KEY_VOLUMEDOWN keycodes or triggered by projectmenu
