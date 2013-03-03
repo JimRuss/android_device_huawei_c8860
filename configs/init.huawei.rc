@@ -940,7 +940,6 @@ on boot
         user root
         disabled
         oneshot
-        class main
 
         service qcom-wifi /system/bin/sh /system/etc/init.qcom.wifi.sh
         user root
@@ -955,6 +954,7 @@ on boot
         # Triggered by the KEY_VOLUMEUP and KEY_VOLUMEDOWN keycodes or triggered by projectmenu
         on property:init.svc.bootanim=stopped
         start qcom-post-boot
+
         service ckpd /system/bin/CKPD-daemon
         user system
         group system radio
