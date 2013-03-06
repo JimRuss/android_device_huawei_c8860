@@ -40,11 +40,6 @@ on init
 	# Right now vendor lives on the same filesystem as system,
 	# but someday that may change.
 	symlink /system/vendor /vendor
-        
-	# Create cgroup mount point for cpu accounting
-	mkdir /acct
-	mount cgroup none /acct cpuacct
-	mkdir /acct/uid
 
         # Backwards Compat - XXX: Going away in G*
         symlink /mnt/sdcard /sdcard
@@ -132,8 +127,8 @@ services.jar:/system/framework/core-junit.jar
 	write /proc/sys/kernel/sched_child_runs_first 0
 	write /proc/sys/kernel/randomize_va_space 2
 
+on post-fs
         # import cne init file
-        on post-fs
         export_rc /persist/init.cne.rc
 
 	# Create cgroup mount points for process groups
