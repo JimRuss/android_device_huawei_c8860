@@ -7,8 +7,12 @@ on property:ro.product.manufacturer=Huawei
 write /sys/class/android_usb/android0/f_rndis/wceis 1
 write /sys/class/android_usb/android0/iSerial $ro.serialno
 write /sys/class/android_usb/android0/f_rndis/idVendor 12d1
-write /sys/class/android_usb/android0/iProduct $ro.product.model
 write /sys/class/android_usb/android0/f_rndis/manufacturer Huawei
+
+setprop persist.sys.usb.config mass_storage,adb
+
+on boot
+write /sys/class/android_usb/android0/iProduct $ro.product.model
 write /sys/class/android_usb/android0/iManufacturer $ro.product.manufacturer
 
 on property:sys.usb.config=mtp
