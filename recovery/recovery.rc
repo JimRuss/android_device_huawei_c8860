@@ -84,3 +84,4 @@ service offmode_charge /sbin/offmode_charge
     restart adbd
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state $sys.usb.config
+
